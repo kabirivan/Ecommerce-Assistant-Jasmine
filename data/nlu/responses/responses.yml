@@ -1,0 +1,38 @@
+version: "2.0"
+
+responses:
+
+  utter_faq/sizing_clarification:
+    - text: Quiero mencionarte que en Creaciones Jasmin manejamos tallas americanas para confeccionar la ropa para niñ@s.
+
+  utter_faq/payment_methods:
+    - text: Muy buena pregunta! Nosotros aceptamos transferencias, tarjetas de crédito, depositos y efectivo. Así que no te preocupes tenemos varias alternativas de pago.
+
+  utter_faq/promotions:
+    - text: Lo siento, actualmente no tenemos promociones, pero el proximo mes tendremos descuentos de haste el 50%. Así que mantente alerta!
+
+  utter_chitchat/thanks:
+    - text: Con mucho gusto.
+    - text: Es un placer 🥰.
+    - text: De nada, cuenta conmigo 😉.
+    - text: Lo hacemos con mucho cariño ❤️.
+
+  utter_chitchat/confirm_presence:
+    - text: Sí, aquí estoy 👍🏻!
+    - text: Te estoy escuchando 👂🏻!
+    - text: Claro, estoy siempre listo para atenderte 🤓.
+    - text: Por supesto, cuenta conmigo 🤝!
+
+  utter_chitchat/capabilities:
+    - text: Creeme, tengo muchas habilidades. Soy un asistente creado para brindarte la mejor experiencia de asistencia de compra 🤓.
+
+  utter_chitchat/mood_great:
+    - text: Súper! Me alegro muchisimo 😁.
+    - text: Excelente! Eres el mejor 😄.
+
+  utter_chitchat/mood_unhappy:
+    - text: Siento mucho escuchar eso 😰. Mira esto es para ti!
+      image: 'https://i.imgur.com/nGF1K8f.jpg'
+
+  utter_chitchat/bot_challenge:
+    - text: Soy un asistente conversacional 👩🏻‍🦰 creado por IVAN. Beep boop!

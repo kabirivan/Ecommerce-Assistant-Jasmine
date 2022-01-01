@@ -1,33 +1,33 @@
-version: "3.0"
+version: "2.0"
 
 intents:
+  - request_clothes
+  - request_clothes_price
+  - inform
+  - chitchat
+  - faq
+  - who_am_i
+  - out_of_scope
+  - human_handoff
   - greet
-  - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - goodbye
+  - stop
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hola! Como estás?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_default:
+    - text: Lo siento, pero no te entendí 😭. ¿Puedes repetírmelo?
+    - text: Ummm, qué me acabas de decir? 🤔
+    - text: beep, boop! 😵 No entiendo lo que me quieres decir!
+  
+  utter_out_of_scope:
+    - text: Parece que me estás preguntando cosas raras.
 
-  utter_did_that_help:
-  - text: "Did that help you?"
 
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
 
 session_config:
   session_expiration_time: 60
