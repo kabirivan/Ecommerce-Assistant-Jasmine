@@ -1,0 +1,223 @@
+version: "3.0"
+
+nlu:
+- intent: request_clothes
+  examples: |
+    - quiero comprar ropa
+    - que colores no mas tiene
+    - muestrame colores
+    - muestreme colores
+    - enseñame colores
+    - colores
+    - quiero comprar ropa de [niño](gender)
+    - quiero comprar ropa de [niña](gender)
+    - quiero comprar ropa de [nino](gender)
+    - quiero comprar ropa de [nina](gender)
+    - quiero comprar ropa de [varon](gender)
+    - quiero comprar ropa de [hombre](gender)
+    - quiero comprar ropa de [mujer](gender)
+    - comprar ropa de [varon](gender)
+    - comprar ropa de [mujer](gender)
+    - ropa de [hombre](gender)
+    - ropa de [mujer](gender)
+    - ropa de [nino](gender)
+    - ropa de [nina](gender)
+    - me gustaria comprar
+    - quiero ver [toda](category) la ropa
+    - quiero ver [toda](category) la coleccion
+    - [todo](category)
+    - [todos](category) los modelos
+    - me gustaria comprar [pantalones](category) para [niñas](gender)
+    - me gustaria comprar [pantalones](category)
+    - me gustaria comprar [pijamas](category) para [niñas](gender)
+    - me gustaria comprar [pijamas](category)
+    - tiene [pijamas](category)
+    - me gustaria comprar [polos](category)
+    - tiene [polos](category)
+    - quiero comprar [pantalones](category)
+    - me gustaria comprar [busos](category) para [niños](gender)
+    - me gustaria comprar [busos](category)
+    - me gustaria comprar [camisetas](category)
+    - quiero comprar [busos](category)
+    - quiero comprar [blusas](category)
+    - quiero comprar [camisetas](category)
+    - necesito [blusas](category)
+    - me gustaria comprar [blusas](category)
+    - [busos](category) [niños](gender)
+    - [pantalones](category) [niñas](gender)
+    - [polos](category)
+    - [pijamas](category)
+    - quiero ver ropa
+    - quiero ver la ropa
+    - quiero ver ropa de [hombre](gender)
+    - quiero ver la ropa [mujer](gender)
+    - que no mas tiene
+    - puedo ver la ropa que vendes
+    - ropa de [niño](gender)
+    - ropa de [niña](gender)
+    - ropa de [niño](gender) de 3 años
+    - me gustaría comprar ropa de [niño](gender) de 4 años
+    - me gustaría comprar ropa de [niño](gender) de 5 años
+    - me gustaría comprar ropa de [niño](gender) de 6 años
+    - ropa de [niño](gender) de 7 años
+    - ropa de [niño](gender) de 8 años
+    - ropa de [niña](gender) de 3 años
+    - ropa de [niña](gender) de 4 años
+    - ropa de [niña](gender) de 5 años
+    - ropa de [niña](gender) de 6 años
+    - ropa de [niña](gender) de 7 años
+    - ropa de [niña](gender) de 8 años
+    - ropa de [niño](gender) de tres años
+    - ropa de [niño](gender) de cuatro años
+    - ropa de [niño](gender) de cinco años
+    - me gustaría comprar ropa de [niño](gender) de seis años
+    - me gustaría comprar ropa de [niño](gender) de siete años
+    - me gustaría comprar ropa de [niño](gender) de ocho años
+    - ropa de [niña](gender) de tres años
+    - ropa de [niña](gender) de cuatro años
+    - ropa de [niña](gender) de cinco años
+    - ropa de [niña](gender) de seis años
+    - ropa de [niña](gender) de siete años
+    - ropa de [niña](gender) de ocho años
+    - ropa de [niño](gender) para 3 años
+    - ropa de [niño](gender) para 4 años
+    - quiero comprar ropa de [niño](gender) para 5años
+    - quiero comprar ropa de [niño](gender) para 6 años
+    - quiero comprar ropa de [niño](gender) para 7 años
+    - quiero comprar ropa de [niño](gender) para 8 años
+    - ropa de [niña](gender) para 3 años
+    - ropa de [niña](gender) para 4 años
+    - ropa de [niña](gender) para 5 años
+    - quiero comprar ropa para [mujercitas](gender)
+    - quiero comprar ropa para [mujercitas](gender) para 6 años
+    - quiero comprar ropa de [niña](gender) para 6 años
+    - quiero comprar ropa de [niña](gender) para 7 años
+    - ropa de [niña](gender) para 8 años
+    - me gustaría comprar ropa de ropa de [niño](gender) para tres años
+    - ropa de [niño](gender) para cuatro años
+    - quiero comprar ropa de [niño](gender) para cinco años
+    - quiero comprar ropa de [niño](gender) para seis años
+    - ropa de [niño](gender) para siete años
+    - ropa de [niño](gender) para ocho años
+    - ropa de [niña](gender) para tres años
+    - ropa de [niña](gender) para cuatro años
+    - quiero comprar ropa de [niña](gender) para cinco años
+    - quiero comprar ropa de [niña](gender) para seis años
+    - quiero comprar ropa de [niño](gender) de color [negro](color) para seis años
+    - quiero comprar ropa de [niño](gender) de color [rojo](color) para seis años
+    - quiero comprar ropa de color [celeste](color)
+    - quiero comprar ropa de color [verde](color)
+    - quiero ropa de color [morado](color)
+    - quiero ropa de color [plomo](color)
+    - me gustaría comprar ropa de ropa de [niña](gender) para siete años
+    - ropa de [niña](gender) para ocho años
+    - ropa
+    - que tienes?
+    - que vendes?
+    - que ropa tienes?
+    - 8 años
+    - 3 años
+    - 4 años
+    - 2 anos
+    - 3 anos
+    - 6 anos
+    - 4
+    - 5
+    - 7
+    - 1
+- intent: request_clothes_price
+  examples: |
+    - quiero comprar ropa que cueste [menos](comparator) de 25 dolares
+    - quiero comprar ropa que cueste [menos](comparator) de 12 dolares
+    - quiero comprar ropa que cueste [menos](comparator) de 3.99 dolares
+    - quiero comprar ropa que cueste [mas](comparator) de 20 dolares
+    - quiero comprar ropa que cueste [mas](comparator) de 10 dolares
+    - quiero comprar ropa que cueste [mas](comparator) de 5.99 dolares
+    - ropa [menor](comparator) a 23 dolares
+    - ropa [menor](comparator) a 19 dolares
+    - ropa [menor](comparator) a 9.99 dolares
+    - ropa que cueste [mas](comparator) de 30 dolares
+    - ropa que cueste [mas](comparator) de 10.25 dolares
+    - ropa que cueste [mas](comparator) de 2.99 dolares
+    - ropa que cueste [mayor](comparator) a 10 dolares
+    - ropa que cueste [mayor](comparator) a 7 dolares
+    - ropa [mayor](comparator) a 13 dolares
+    - ropa [mayor](comparator) a 7 dolares
+    - ropa [mayor](comparator) a 14.99 dolares
+    - [tengo]{"entity": "comparator", "value": "menor"} 20 dolares
+    - [tengo]{"entity": "comparator", "value": "menor"} 5 dolares
+    - [tengo]{"entity": "comparator", "value": "menor"} 1 dolar
+    - [tengo]{"entity": "comparator", "value": "menor"} cinco dolares
+    - que me [alcanza]{"entity": "comparator", "value": "menor"} con 10 dolares
+    - que me [alcanza]{"entity": "comparator", "value": "menor"} con diez dolares
+    - que me [alcanza]{"entity": "comparator", "value": "menor"} con quince dolares
+    - [tengo]{"entity": "comparator", "value": "menor"} solamente 5 dolares
+    - [tengo]{"entity": "comparator", "value": "menor"} solamente dos dolares
+    - quiero comprar ropa pero [tengo]{"entity": "comparator", "value": "menor"} solamente 5 dolares
+    - quiero ropa de 10 dolares
+- intent: inform
+  examples: |
+    - muestrame ropa [niña](gender)
+    - muestrame ropa [niño](gender)
+    - muestrame ropa de color [azul](color)
+    - muestrame ropa de color [amarillo](color)
+    - muestrame ropa de color [rojo](color)
+    - muestrame ropa de color [verde](color)
+    - muestrame ropa de color [morado](color)
+    - quiero [busos](category) de color [rojo](color)
+    - quiero [blusas](category) de color [rojo](color)
+    - quiero ropa de color [fucsia](color)
+    - quiero ropa de color [lila](color)
+    - quiero ropa de color [negro](color)
+    - tiene ropa de [niño](gender)
+    - tiene ropa de [niña](gender)
+    - tiene ropa de [nino](gender)
+    - tiene ropa de [nina](gender)
+    - quiero comprar ropa de color [rojo](color)
+    - quiero comprar ropa de color [rosado](color)
+    - ropa de color [azul](color)
+    - ropa de color [fucsia](color)
+    - [azul](color)
+    - [amarillo](color)
+    - [negro](color)
+    - [mostaza](color)
+    - [fucsia](color)
+    - [lila](color)
+    - [morado](color)
+    - [palo de rosa](color)
+    - [plomo](color)
+    - [verde](color)
+    - [celeste](color)
+    - [beige](color)
+- synonym: menor
+  examples: |
+    - tengo
+    - alcanza
+    - menos
+- synonym: niña
+  examples: |
+    - niñas
+    - nina
+    - ninas
+    - mujer
+    - mujeres
+    - mujercitas
+- synonym: niño
+  examples: |
+    - niños
+    - nino
+    - ninos
+    - hombre
+    - hombres
+    - varón
+    - varon
+- synonym: todos
+  examples: |
+    - ver todo
+    - todito
+    - toda
+    - todo
+- synonym: mayor
+  examples: |
+    - mas
+    - más

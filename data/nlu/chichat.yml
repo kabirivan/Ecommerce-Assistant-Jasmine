@@ -1,0 +1,124 @@
+version: "3.0"
+
+nlu:
+- intent: chitchat/bot_challenge
+  examples: |
+    - eres un robot?
+    - eres un humano?
+    - estas vivo
+    - realmente existes
+    - estoy hablando con un humano
+    - estoy hablando con un robot
+    - robot?
+    - quien eres?
+    - hablame de ti
+- intent: chitchat/whats_your_name
+  examples: |
+    - cual es tu nombre?
+    - puedes decirme tu nombre
+    - tu nombre y apellido
+    - como te llamas?
+- intent: chitchat/thanks
+  examples: |
+    - gracias
+    - thank you
+    - super, gracias
+    - pai
+    - jajaja, gracias
+    - eres el mejor, gracias
+    - gracias por tu respuesta
+    - ok, gracias
+- intent: chitchat/developer
+  examples: |
+    - quiero conocer a tu creador
+    - quiero saber quien te diseñó
+    - quiero saber quien te creó
+    - quiero conocer quien te diseño
+    - quiero conocer quien te creó
+    - puedo saber quien te creó
+    - puedo saber quien te diseñó
+    - dime quien te creó
+    - dime acerca de tu creadores
+    - quien es tu creador
+    - quien es tu papa?
+    - quen es tu mamá?
+- intent: chitchat/confirm_presence
+  examples: |
+    - estas ahi?
+    - hay alguien ahi?
+- intent: chitchat/mood_unhappy
+  examples: |
+    - mi día fue terrible
+    - estoy triste
+    - no me siento bien
+    - estoy mal
+    - triste
+    - ahi
+    - muy triste
+    - mal
+    - mas o menos
+    - estoy decepcionado
+    - estoy muy triste
+    - no tuve un buen dia
+- intent: chitchat/mood_great
+  examples: |
+    - perfecto
+    - bien
+    - asombroso
+    - maravilloso
+    - me siento bien
+    - me siento asombroso
+    - estoy muy bien
+    - estoy bien
+    - estoy asombroso
+    - muy bien
+    - estoy feliz
+    - estoy contento
+    - todo bien
+    - super
+    - super bien
+    - buen
+- intent: chitchat/capabilities
+  examples: |
+    - que no más puedes hacer?
+    - que habilidades tienes
+    - puedes volar?
+    - puedes hablar?
+    - dime tus habilidades
+    - habilidades
+    - cuales son tus dones?
+    - que puedes hacer?
+    - de que eres capaz?
+- intent: chitchat/ask_weather
+  examples: |
+    - Como es el clima hoy?
+    - como es el clima hoy
+    - clima
+    - está soleado?
+    - está lloviendo?
+    - Cual es el clima de mañana
+    - hace sol
+    - va a llover
+    - está frio?
+    - clima?
+    - llueve?
+    - soleado
+    - esta nevando
+    - que frio
+    - que calor
+- intent: chitchat/ask_wherefrom
+  examples: |
+    - donde vives?
+    - donde vives
+    - de donde eres?
+    - donde naciste?
+    - donde naciste
+    - de donde vienes?
+    - de donde provienes?
+    - De que ciudad eres?
+    - de que país eres
+    - Cual es tu origen?
+    - origen?
+    - cuales son tus raices?
+    - cuales son tus raices
+    - en que ciudad fuiste convencido?

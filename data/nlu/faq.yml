@@ -1,0 +1,34 @@
+version: "3.0"
+
+nlu:
+- intent: faq/sizing_clarification
+  examples: |
+    - tallas
+    - que tallas maneja?
+    - cuales son los tamaños de la ropa
+    - cual es la talla para una niña de 5 años
+    - cual es la talla para una niña de 2 años
+    - cual es el tamaño para un niño de 4 años
+    - tallas de la ropa
+    - tallas para niños
+- intent: faq/payment_methods
+  examples: |
+    - que tipos de pagos ofrece?
+    - como puedo pagar?
+    - quiero pagar
+    - alternativas de pago
+    - quiero saber como pagar
+- intent: faq/promotions
+  examples: |
+    - que tipo de promociones tienen?
+    - tiene alguna promocion?
+    - tiene descuentos?
+    - descuentos
+    - promociones
+    - existen promociones
+    - existen descuentos
+    - hay rebaja
+    - hay promociones
+    - rebajas
+    - cupones
+    - rebaje

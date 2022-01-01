@@ -1,0 +1,122 @@
+
+version: "3.0"
+
+nlu:
+- intent: who_am_i
+  examples: |
+    - quien soy yo
+    - dime quien soy yo
+    - yo soy
+    - quien soy
+
+- intent: out_of_scope
+  examples: |
+    - todo esta bien?
+    - te sientes bien?
+    - como esta tu dia hoy?
+    - como te sientes hoy?
+    - estas bien?
+    - esta lloviendo?
+    - esta haciendo sol?
+    - esta soleado?
+    - va a llover?
+    - quiero pizza
+    - cual es el pronostico del clima?
+    - hace mucho viento afuera?
+    - blah blah blah
+    - cuanto es 5 + 5
+    - cual es la raiz cuadrada de 25
+
+- intent: human_handoff
+  examples: |
+    - quiero hablar con alguien que pueda ayudarme
+    - puedo hablar con Ivan
+    - No quiero hablar con un bot
+    - Quiero hablar con un humano
+    - quiero hablar con el fundador
+    - hay humanos trabajando aqui
+    - puedo hablar con una persona
+    - puedo contactarme con un empleado
+    - quiero soporte al cliente
+    - no quiero hablar con un robot
+    - quiero hablar con una persona
+    - quiero hablar con alguien mas inteligente que tu
+    - conversar con una persona real
+    - quiero una persona
+    - dejame hablar con una persona real
+
+- intent: greet
+  examples: |
+    - hola
+    - cómo estás
+    - buenos días
+    - buenas tardes
+    - buenas noches
+    - que tal
+    - hola tu
+    - hay alguien ahi
+    - hey
+    - como vamos
+    - hola bot
+    - saludo
+    - hola robot
+
+- intent: affirm
+  examples: |
+    - si
+    - y
+    - ok
+    - claro
+    - correcto
+    - por supusto
+    - suena bien
+    - esta bien
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - nunca
+    - jamas
+    - para nada
+    - no gracias
+    - mmm no
+    - no quiero
+    
+- intent: goodbye
+  examples: |
+    - chao
+    - adios
+    - hasta mañana
+    - te veo luego
+    - hasta pronto
+    - hasta otro dia
+    - bye
+    - nos vemos luego
+    - hasta luego
+    - nos vemos
+    - goodbye
+    - bye bye
+    - chao chao
+    - chao, cuidate
+    - nos vemos mañana
+
+- intent: stop
+  examples: |
+    - tu no puedes ayudarme
+    - No estas ayudando
+    - No sirves
+    - Pienso, que no puedes ayudarme
+    - No, eso no quiero
+    - no me sigues
+    - esta conversación no ayuda
+    - para!
+    - detente
+    - stop
+    - no sirves
+    - ya no quiero comprar
+    - no quiero comprar nada
+    - cambie de opinion, ya no quiero comprar
+    - no quiero comprar
+    - no quiero comprar ropa
+    - ya no quiero
