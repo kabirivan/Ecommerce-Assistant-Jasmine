@@ -1,5 +1,5 @@
 
-version: "3.0"
+version: "2.0"
 
 nlu:
 - intent: who_am_i
@@ -82,7 +82,7 @@ nlu:
     - no gracias
     - mmm no
     - no quiero
-    
+
 - intent: goodbye
   examples: |
     - chao
