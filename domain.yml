@@ -15,6 +15,31 @@ intents:
   - goodbye
   - stop
 
+
+entities:
+  - category
+  - number
+  - color
+  - gender
+
+slots:
+  gender:
+    type: categorical
+    values:
+      - niña
+      - niño
+    influence_conversation: false
+  size:
+    type: text
+    influence_conversation: false
+  color:
+    type: text
+    influence_conversation: false
+  category:
+    type: text
+    influence_conversation: false
+
+
 responses:
   utter_greet:
     - text: "Hola! Como estás?"
@@ -37,9 +62,42 @@ responses:
         - Edad: {size}\n
         - Color: {color}\n"
 
+  utter_ask_gender:
+    - text: ¿Para que chiquitín buscas la ropa?
+      buttons:
+        - title: Niña 👧🏻 .
+          payload: '/request_clothes{{"gender":"niña"}}'
+        - title: Niño 👦🏻 .
+          payload: '/request_clothes{{"gender":"niño"}}'
+
+forms:
+  clothes_form:
+    ignored_intents:
+      - chichat
+      - faq
+    required_slots:
+      gender:
+        - entity: gender
+          type: from_entity
+          intent: [inform, request_clothes]
+      category:
+        - entity: category  
+          type: from_entity
+      size:
+        - entity: number
+          type: from_entity
+          intent: [inform, request_clothes]
+      color:
+        - type: from_entity
+          entity: color
+        - type: from_text
+          not_intent: [chichat, faq]
+        - type: from_intent
+          intent: deny
+          value: No
+           
 actions:
   - action_product_search
-  - action_hello_world
 
 
 session_config:
