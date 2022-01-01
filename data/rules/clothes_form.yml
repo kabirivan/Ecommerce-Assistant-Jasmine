@@ -1,0 +1,20 @@
+version: "2.0"
+
+rules:
+- rule: activate clothes form
+  steps:
+    - intent: request_clothes
+    - action: clothes_form
+    - active_loop: clothes_form
+
+- rule: submit form
+  condition:
+  - active_loop: clothes_form
+  steps:
+    - action: clothes_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_submit
+    - action: utter_slots_values
+    - action: action_product_search

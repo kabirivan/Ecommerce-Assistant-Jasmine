@@ -26,7 +26,20 @@ responses:
   
   utter_out_of_scope:
     - text: Parece que me estás preguntando cosas raras.
+  
+  utter_submit:
+    - text: 'Perfecto! Eso es todo 🤓.'
 
+  utter_slots_values:
+    - text: "Voy a buscar en nuestro stock, lo siguiente:\n
+        - Ropa de: {gender}\n
+        - Categoría: {category}\n
+        - Edad: {size}\n
+        - Color: {color}\n"
+
+actions:
+  - action_product_search
+  - action_hello_world
 
 
 session_config:
