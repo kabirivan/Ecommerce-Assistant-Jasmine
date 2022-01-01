@@ -122,3 +122,18 @@ nlu:
     - cuales son tus raices?
     - cuales son tus raices
     - en que ciudad fuiste convencido?
+- intent: chitchat/ask_time
+  examples: |
+    - que hora es?
+    - Qué hora es?
+    - que hora es ahora?
+    - puedes decirme la hora?
+    - puede decirme la hora
+    - sabes que hora es?
+    - sabes que hora es
+    - que hora tienes?
+    - la hora, por favor
+    - la hora
+    - necesito la hora
+    - dime la hora
+    - que hora es exactamente.

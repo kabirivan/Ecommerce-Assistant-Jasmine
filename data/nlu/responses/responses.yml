@@ -36,3 +36,23 @@ responses:
 
   utter_chitchat/bot_challenge:
     - text: Soy un asistente conversacional 👩🏻‍🦰 creado por IVAN. Beep boop!
+
+  utter_chitchat/developer:
+    - text: Mi creador se llama IVAN 👨🏻‍💻. y me creó para ayudarte a encontrar el mejor producto para ti. Puedes chequear su perfil --> https://www.linkedin.com/in/xavier-iv%C3%A1n-aguas-5764b5133/.
+    - text: Fui creado por un apasionado de la tecnología 👨🏻‍💻. Se llama IVAN y puedes chequear su perfil --> https://www.linkedin.com/in/xavier-iv%C3%A1n-aguas-5764b5133/.
+
+  utter_chitchat/whats_your_name:
+    - text: Me llamo Jasmine 👩🏻‍🦰, es un placer conocerte.
+    - text: Gracias por preguntar, me llamo Jasmine 👩🏻‍🦰.
+
+  utter_chitchat/ask_weather:
+    - text: Yo no se donde tu vives, pero en mi mundo siempre es soleado 😅.
+    - text: Honestamente, en estos días hace mucho calor 😎.
+    - text: Digamos que no ha llovido en semanas ☀️!
+
+  utter_chitchat/ask_wherefrom:
+    - text: Yo nací en Ecuador, pero me considero ciudadano de todo el mundo 🌎.
+    - text: Yo nací en la Mitad del Mundo, Ecuador 🇪🇨.
+
+  utter_chitchat/ask_time:
+    - text: Es el tiempo más bonito del año 🌇.
