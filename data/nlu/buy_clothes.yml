@@ -35,16 +35,23 @@ nlu:
     - me gustaria comprar [polos](category)
     - tiene [polos](category)
     - quiero comprar [pantalones](category)
+    - quiero comprar un [pantalon](category)
     - me gustaria comprar [busos](category) para [niños](gender)
     - me gustaria comprar [busos](category)
+    - me gustaria comprar un [buso](category)
     - me gustaria comprar [camisetas](category)
     - quiero comprar [busos](category)
+    - quiero comprar [buso](category)
+    - un [busito](category)
     - quiero comprar [blusas](category)
     - quiero comprar [camisetas](category)
     - necesito [blusas](category)
     - me gustaria comprar [blusas](category)
     - [busos](category) [niños](gender)
     - [pantalones](category) [niñas](gender)
+    - [leggings](category)
+    - [legging](category)
+    - [legging](category) de [niñas](gender)
     - [polos](category)
     - [pijamas](category)
     - quiero ver ropa
@@ -164,6 +171,7 @@ nlu:
     - muestrame ropa de color [rojo](color)
     - muestrame ropa de color [verde](color)
     - muestrame ropa de color [morado](color)
+    - quiero comprar una [blusa](category)
     - quiero [busos](category) de color [rojo](color)
     - quiero [blusas](category) de color [rojo](color)
     - quiero ropa de color [fucsia](color)
@@ -175,6 +183,7 @@ nlu:
     - tiene ropa de [nina](gender)
     - quiero comprar ropa de color [rojo](color)
     - quiero comprar ropa de color [rosado](color)
+    - quiero una [pijama](category)
     - ropa de color [azul](color)
     - ropa de color [fucsia](color)
     - [azul](color)
@@ -189,6 +198,13 @@ nlu:
     - [verde](color)
     - [celeste](color)
     - [beige](color)
+    - [turquesa](color)
+    - [cafe](color)
+    - [café](color)
+    - [rosado](color)
+    - [rosada](color)
+    - [morado](color)
+    - [morada](color)
 - synonym: menor
   examples: |
     - tengo
@@ -221,3 +237,39 @@ nlu:
   examples: |
     - mas
     - más
+
+- synonym: cafe
+  examples: |
+    - café
+- synonym: rosada
+  examples: |
+    - rosado
+
+- synonym: morado
+  examples: |
+    - morada
+
+- synonym: pijama
+  examples: |
+    - pijamas
+
+- synonym: buso
+  examples: |
+    - busos
+    - busito
+
+- synonym: blusa
+  examples: |
+    - blusas
+    - blusitas
+    - blucita
+    - blucitas
+
+- synonym: pantalon
+  examples: |
+    - pantalón
+    - pantaloncitos
+    - pantaloncito
+    - pantalonsito
+    - pantalonsitos
+    - pantalones

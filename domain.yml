@@ -75,6 +75,9 @@ responses:
   
   utter_ask_color:
     - text: '¿Algún color en particular 🎨?'
+  
+  utter_ask_continue:
+    - text: '¿Quiéres continuar? 🤔'
 
 forms:
   clothes_form:
@@ -103,6 +106,7 @@ forms:
           value: No
            
 actions:
+  - action_hello_world
   - validate_clothes_form
   - action_ask_category
   - action_product_search

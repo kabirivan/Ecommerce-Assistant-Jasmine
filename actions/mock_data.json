@@ -1,82 +1,86 @@
 {
-  "ALLOWED_COLORS_GIRLS_PANTALONES": [
-    "morado",
-    "amarillo",
-    "negro",
-    "rosado",
-    "celeste",
+  "ALLOWED_COLORS_GIRLS_LEGGINGS": [
     "rojo",
-    "palo de rosa"
+    "azul",
+    "morado",
+    "negro",
+    "gris",
+    "celeste",
+    "verde",
+    "fuscia",
+    "turquesa",
+    "cafe"
   ],
   "ALLOWED_COLORS_GIRLS_BLUSAS": [
     "morado",
     "amarillo",
-    "negro",
-    "rosado",
-    "celeste",
-    "rojo"
-  ],
-  "ALLOWED_COLORS_GIRLS_PIJAMAS": ["morado", "amarillo", "celeste", "rojo"],
-  "ALLOWED_COLORS_GIRLS_BUSOS": ["morado", "amarillo", "negro"],
-  "ALLOWED_CLOTHES_GIRLS": ["pantalones", "blusas", "pijamas", "busos"],
-  "ALLOWED_COLORS_BOYS_PANTALONES": [
-    "amarillo",
-    "azul",
-    "rojo",
-    "plomo",
-    "gris"
-  ],
-  "ALLOWED_COLORS_BOYS_POLOS": [
-    "rojo",
-    "celeste",
-    "azul",
-    "anaranjado",
-    "verde",
-    "amarillo"
-  ],
-  "ALLOWED_COLORS_BOYS_BUSOS": [
-    "azul",
-    "plomo",
-    "negro",
     "beige",
     "celeste",
-    "amarillo",
-    "rojo"
+    "turquesa",
+    "plomo"
   ],
-  "ALLOWED_CLOTHES_BOYS": ["busos", "camisetas", "polos", "pantalones"],
+  "ALLOWED_COLORS_GIRLS_PIJAMAS": [
+    "morado",
+    "amarillo",
+    "celeste",
+    "rosada",
+    "verde"
+  ],
+  "ALLOWED_CLOTHES_GIRLS": ["legging", "blusa", "pijama"],
+  "ALLOWED_COLORS_BOYS_PANTALONES": ["azul", "rojo", "plomo", "gris"],
+  "ALLOWED_COLORS_BOYS_POLOS": ["rojo", "cafe", "azul", "verde"],
+  "ALLOWED_COLORS_BOYS_BUSOS": ["azul", "plomo", "beige", "amarillo", "rojo"],
+  "ALLOWED_CLOTHES_BOYS": ["buso", "polo", "pantalon"],
   "ALLOWED_GENDERS": ["niños", "niño", "niñas", "niña"],
+  "CLOTHES_BOYS_V1": [
+    {
+      "content_type": "text",
+      "title": "Busos",
+      "payload": "buso"
+    },
+    {
+      "content_type": "text",
+      "title": "Camisetas Polo",
+      "payload": "polo"
+    },
+    {
+      "content_type": "text",
+      "title": "Pantalones",
+      "payload": "pantalon"
+    }
+  ],
   "CLOTHES_BOYS": [
     {
       "title": "Busos",
       "subtitle": "90% algodón, 10% poliester",
-      "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+      "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153113/buso_fmzvwo.png",
       "buttons": [
         {
-          "title": "Ver más",
+          "title": "Lo Quiero",
           "type": "postback",
-          "payload": "busos"
+          "payload": "buso"
         }
       ]
     },
     {
-      "title": "Polos",
+      "title": "Camisetas",
       "subtitle": "95% algodón, 5% licra",
-      "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+      "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153114/camiseta_tpow8j.png",
       "buttons": [
         {
-          "title": "Ver más",
+          "title": "Lo Quiero",
           "type": "postback",
-          "payload": "polos"
+          "payload": "polo"
         }
       ]
     },
     {
       "title": "Pantalones",
       "subtitle": "90% algodón, 10% poliester",
-      "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+      "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153228/pantalon_s687so.png",
       "buttons": [
         {
-          "title": "Ver más",
+          "title": "Lo Quiero",
           "type": "postback",
           "payload": "pantalones"
         }
@@ -85,50 +89,38 @@
   ],
   "CLOTHES_GIRLS": [
     {
-      "title": "Busos",
-      "subtitle": "90% algodón, 10% poliester",
-      "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+      "title": "Blusas",
+      "subtitle": "90% algodón, 10% elastano",
+      "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153115/blusa_ou8zpl.png",
       "buttons": [
         {
-          "title": "Ver más",
+          "title": "Lo Quiero",
           "type": "postback",
-          "payload": "busos"
+          "payload": "blusa"
         }
       ]
     },
     {
-      "title": "Pantalones",
-      "subtitle": "95% algodón, 5% licra",
-      "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+      "title": "Pantalones Licra",
+      "subtitle": "95% algodón, 5% elastano",
+      "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153113/leggings_pkykio.png",
       "buttons": [
         {
-          "title": "Ver más",
+          "title": "Lo Quiero",
           "type": "postback",
-          "payload": "pantalones"
+          "payload": "legging"
         }
       ]
     },
     {
       "title": "Pijamas",
       "subtitle": "65% algodón, 35% poliester",
-      "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+      "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153114/pijama_nlxx3n.png",
       "buttons": [
         {
-          "title": "Ver más",
+          "title": "Lo Quiero",
           "type": "postback",
-          "payload": "pijamas"
-        }
-      ]
-    },
-    {
-      "title": "Blusas",
-      "subtitle": "90% algodón, 10% licra",
-      "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
-      "buttons": [
-        {
-          "title": "Ver más",
-          "type": "postback",
-          "payload": "blusas"
+          "payload": "pijama"
         }
       ]
     }
