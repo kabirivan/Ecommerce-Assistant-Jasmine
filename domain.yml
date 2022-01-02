@@ -70,6 +70,12 @@ responses:
         - title: Niño 👦🏻 .
           payload: '/request_clothes{{"gender":"niño"}}'
 
+  utter_ask_size:
+    - text: '¿Para que edad buscas la ropa de {gender}?'
+  
+  utter_ask_color:
+    - text: '¿Algún color en particular 🎨?'
+
 forms:
   clothes_form:
     ignored_intents:
@@ -97,6 +103,8 @@ forms:
           value: No
            
 actions:
+  - validate_clothes_form
+  - action_ask_category
   - action_product_search
 
 
