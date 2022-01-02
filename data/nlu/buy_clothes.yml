@@ -40,6 +40,8 @@ nlu:
     - me gustaria comprar [busos](category)
     - me gustaria comprar un [buso](category)
     - me gustaria comprar [camisetas](category)
+    - me gustaria comprar [polos](category)
+    - me gustaria comprar una [polo](category)
     - quiero comprar [busos](category)
     - quiero comprar [buso](category)
     - un [busito](category)
@@ -273,3 +275,14 @@ nlu:
     - pantalonsito
     - pantalonsitos
     - pantalones
+
+- synonym: legging
+  examples: |
+    - leggings
+    - pantalones de licra
+    - licras
+
+- synonym: polo
+  examples: |
+    - polos
+    - camisetas

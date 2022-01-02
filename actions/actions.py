@@ -90,9 +90,9 @@ class ActionHelloWorld(Action):
         message = {
             "type": "template",
             "payload": {
-                    "template_type": "button",
+                    "template_type": "generic",
                     "text": "Elige una opción!",
-                    "buttons": [
+                    "elements": [
                         {
                             "type": "postback",
                             "payload": "/request_clothes",
@@ -160,7 +160,7 @@ class ValidateClothesForm(FormValidationAction):
             return {"color": "no"}
 
         if gender == "niña":
-            if clothes_type == "legging" and slot_value.lower() not in MOCK_DATA["ALLOWED_COLORS_GIRLS_PANTALONES"]:
+            if clothes_type == "legging" and slot_value.lower() not in MOCK_DATA["ALLOWED_COLORS_GIRLS_LEGGINGS"]:
                 dispatcher.utter_message(
                     text=f"Por el momento disponemos de colores de pantalón como: \n- Rojo\n- Azul\n- Morado\n- Negro\n- Gris\n- Celeste\n- Verde\n- Fucsia\n- Turquesa\n- Café"
                 )
