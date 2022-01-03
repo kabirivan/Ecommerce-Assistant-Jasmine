@@ -14,45 +14,6 @@ index = client.init_index("dev_clothes_v2")
 
 MOCK_DATA = json.load(open("actions/mock_data.json", "r"))
 
-CLOTHES_BOYS = [
-    {
-        "title": "Busos",
-        "subtitle": "90% algodón, 10% poliester",
-        "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
-        "buttons": [
-            {
-                "title": "Ver más",
-                "type": "postback",
-                "payload": "busos",
-            }
-        ],
-    },
-    {
-        "title": "Polos",
-        "subtitle": "95% algodón, 5% licra",
-        "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
-        "buttons": [
-            {
-                "title": "Ver más",
-                "type": "postback",
-                "payload": "polos",
-            }
-        ],
-    },
-    {
-        "title": "Pantalones",
-        "subtitle": "90% algodón, 10% poliester",
-        "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
-        "buttons": [
-            {
-                "title": "Ver más",
-                "type": "postback",
-                "payload": "pantalones",
-            }
-        ],
-    },
-]
-
 message_clothes_girls = {
     "type": "template",
     "payload": {"template_type": "generic", "elements": MOCK_DATA["CLOTHES_GIRLS"]},
@@ -84,6 +45,10 @@ class ActionHelloWorld(Action):
         # ).json()
         # first_name = r["first_name"]
 
+        input_channel = tracker.get_latest_input_channel()
+
+        print('input_channel', input_channel)
+
         dispatcher.utter_message(
             text="Hola! Soy Jasmine 👩🏻‍🦰, en que te puedo ayudar?"
         )
@@ -91,17 +56,30 @@ class ActionHelloWorld(Action):
             "type": "template",
             "payload": {
                     "template_type": "generic",
-                    "text": "Elige una opción!",
                     "elements": [
                         {
-                            "type": "postback",
-                            "payload": "/request_clothes",
-                            "title": "Ropita" + " " + "👕" + " . ",
+                            "title": "Mira lo que tengo para ti",
+                            "subtitle": "Ropa para niños y niñas",
+                            "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153114/camiseta_tpow8j.png",
+                            "buttons": [
+                                {
+                                    "type": "postback",
+                                    "payload": "/request_clothes",
+                                    "title": "Ropita" + " " + "👕" + " . ",
+                                },
+                            ]
                         },
                         {
-                            "type": "web_url",
-                            "url": "https://www.instagram.com/creacionesjasmina/",
-                            "title": " Conóceme 👩🏻‍🦰 .",
+                            "title": "¿Quién soy?",
+                            "subtitle": "Asistente de Compras",
+                            "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153114/camiseta_tpow8j.png",
+                            "buttons": [
+                                {
+                                    "type": "web_url",
+                                    "url": "https://www.instagram.com/creacionesjasmina/",
+                                    "title": " Conóceme 👩🏻‍🦰 .",
+                                },
+                            ]
                         },
                     ],
             },
@@ -463,6 +441,7 @@ class ActionProductSearch(Action):
             dispatcher.utter_message(attachment=message)
 
             slots_to_reset = ["gender", "size", "color", "category"]
+
             return [SlotSet(slot, None) for slot in slots_to_reset]
         else:
             # provide out of stock

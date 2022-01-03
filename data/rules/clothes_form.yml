@@ -18,3 +18,4 @@ rules:
     - action: utter_submit
     - action: utter_slots_values
     - action: action_product_search
+    - action: utter_ask_feedback

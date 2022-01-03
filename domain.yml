@@ -14,6 +14,7 @@ intents:
   - deny
   - goodbye
   - stop
+  - feedback
 
 
 entities:
@@ -38,6 +39,16 @@ slots:
   category:
     type: text
     influence_conversation: false
+  feedback_value:
+    influence_conversation: false
+    type: categorical
+    values:
+      - 1
+      - 2
+      - 3
+      - 4
+  feedback_fill:
+    type: bool
 
 
 responses:
@@ -78,6 +89,18 @@ responses:
   
   utter_ask_continue:
     - text: '¿Quiéres continuar? 🤔'
+
+  utter_ask_feedback:
+    - text: Hello World!
+      quick_replies:
+        - title: 'Malo'
+          payload: '/feedback{{"feedback_value": "1"}}'
+        - title: 'Regular'
+          payload: '/feedback{{"feedback_value": "2"}}'
+        - title: 'Bueno'
+          payload: '/feedback{{"feedback_value": "3"}}'
+        - title: 'Excelente'
+          payload: '/feedback{{"feedback_value": "4"}}'
 
 forms:
   clothes_form:
