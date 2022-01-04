@@ -11,8 +11,19 @@ stories:
   - intent: affirm
   - action: name_form
   - active_loop: null
-  - action: utter_complete_information
   - action: action_hello_world
+
+
+- story: give name form + stop
+  steps:
+  - intent: greet
+  - action: name_form
+  - active_loop: name_form
+  - intent: stop
+  - action: utter_ask_continue
+  - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
 
 
 - story: give name form + stop

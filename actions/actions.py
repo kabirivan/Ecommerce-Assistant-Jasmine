@@ -49,44 +49,53 @@ class ActionHelloWorld(Action):
 
         # print('input_channel', input_channel)
 
-        dispatcher.utter_message(
-            text="Hola! Soy Jasmine 👩🏻‍🦰, en que te puedo ayudar?"
+        email_fill = tracker.get_slot("email_fill")
+        print('email_fill', email_fill)
+        if email_fill == False:
+            dispatcher.utter_message(
+            response="utter_complete_information"
         )
-        message = {
-            "type": "template",
-            "payload": {
-                    "template_type": "generic",
-                    "elements": [
-                        {
-                            "title": "Mira lo que tengo para ti",
-                            "subtitle": "Ropa para niños y niñas",
-                            "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153114/camiseta_tpow8j.png",
-                            "buttons": [
-                                {
-                                    "type": "postback",
-                                    "payload": "/request_clothes",
-                                    "title": "Ropita" + " " + "👕" + " . ",
-                                },
-                            ]
-                        },
-                        {
-                            "title": "¿Quién soy?",
-                            "subtitle": "Asistente de Compras",
-                            "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153114/camiseta_tpow8j.png",
-                            "buttons": [
-                                {
-                                    "type": "web_url",
-                                    "url": "https://www.instagram.com/creacionesjasmina/",
-                                    "title": " Conóceme 👩🏻‍🦰 .",
-                                },
-                            ]
-                        },
-                    ],
-            },
-        }
+        else:
+            dispatcher.utter_message(
+                text="Empecemos!"
+            )
 
-        dispatcher.utter_message(attachment=message)
-        return []
+        # message = {
+        #     "type": "template",
+        #     "payload": {
+        #             "template_type": "generic",
+        #             "elements": [
+        #                 {
+        #                     "title": "Mira lo que tengo para ti",
+        #                     "subtitle": "Ropa para niños y niñas",
+        #                     "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153114/camiseta_tpow8j.png",
+        #                     "buttons": [
+        #                         {
+        #                             "type": "postback",
+        #                             "payload": "/request_clothes",
+        #                             "title": "Ropita" + " " + "👕" + " . ",
+        #                         },
+        #                     ]
+        #                 },
+        #                 {
+        #                     "title": "¿Quién soy?",
+        #                     "subtitle": "Asistente de Compras",
+        #                     "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153114/camiseta_tpow8j.png",
+        #                     "buttons": [
+        #                         {
+        #                             "type": "web_url",
+        #                             "url": "https://www.instagram.com/creacionesjasmina/",
+        #                             "title": " Conóceme 👩🏻‍🦰 .",
+        #                         },
+        #                     ]
+        #                 },
+        #             ],
+        #     },
+        # }
+
+        # dispatcher.utter_message(attachment=message)
+        email_is_fill = True
+        return [SlotSet("email_fill", email_is_fill)]
 
 
 class ValidateClothesForm(FormValidationAction):
@@ -451,3 +460,23 @@ class ActionProductSearch(Action):
 
             slots_to_reset = ["gender", "size", "color", "category"]
             return [SlotSet(slot, None) for slot in slots_to_reset]
+
+
+class ActionGoodbye(Action):
+    def name(self) -> Text:
+        return "action_goodbye_world"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        name = tracker.get_slot("PERSON")
+
+        if name is None:
+            dispatcher.utter_message(text=f"Hasta pronto {name}, es un placer chatear contigo 🤗.")
+        else:
+            dispatcher.utter_message(text=f"Chao, cuidate mucho, gracias por escribirme 😊.")
+        return []

@@ -12,7 +12,9 @@ rules:
   - intent: chitchat
   - action: utter_chitchat
 
-- rule: respond to hello
+- rule: Say goodbye anytime the user says goodbye
   steps:
-  - intent: greet
-  - action: name_form
+  - intent: goodbye
+  - action: action_goodbye_world
+  - action: action_deactivate_loop
+  - active_loop: null
