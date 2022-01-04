@@ -148,3 +148,7 @@ nlu:
     - [Sofia](PERSON)
     - Me llamo [Kevin](PERSON)
     - Mi nombre es [Ivan](PERSON)
+
+- regex: PERSON
+  examples: |
+    - ^[a-zA-Z]+(([’,. -][a-zA-Z ])?[a-zA-Z]*)$
