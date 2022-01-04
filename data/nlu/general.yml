@@ -151,4 +151,4 @@ nlu:
 
 - regex: PERSON
   examples: |
-    - ^[a-zA-Z]+(([’,. -][a-zA-Z ])?[a-zA-Z]*)$
+    - ([A-Z])\w+
