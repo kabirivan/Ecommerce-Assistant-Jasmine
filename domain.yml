@@ -15,6 +15,7 @@ intents:
   - goodbye
   - stop
   - feedback
+  - give_name
 
 
 entities:
@@ -22,8 +23,16 @@ entities:
   - number
   - color
   - gender
+  - PERSON
+  - email
 
 slots:
+  PERSON:
+    type: any
+    influence_conversation: false
+  email:
+    type: text
+    influence_conversation: false
   gender:
     type: categorical
     values:
@@ -72,6 +81,15 @@ responses:
         - Categoría: {category}\n
         - Edad: {size}\n
         - Color: {color}\n"
+
+  utter_ask_PERSON:
+    - text: Hola bienvenido, ¿Con quién tengo el gusto?
+  
+  utter_ask_email:
+    - text: '{PERSON}, por ser una de las primeras personas en probar este bot te voy a enviar un regalo, ¿Me puedes ayudar con tu correo por favor?'
+
+  utter_complete_information: 
+    - text: Muchas gracias, pronto recibiras un pequeño detalle de mi parte.
 
   utter_ask_gender:
     - text: ¿Para que chiquitín buscas la ropa?
@@ -127,6 +145,20 @@ forms:
         - type: from_intent
           intent: deny
           value: No
+  name_form:
+    ignored_intents:
+      - chichat
+      - faq
+    required_slots:
+      PERSON:
+        - entity: PERSON
+          type: from_entity
+        - intent:
+          - give_name
+          type: from_text
+      email:
+        - entity: email  
+          type: from_text
            
 actions:
   - action_hello_world

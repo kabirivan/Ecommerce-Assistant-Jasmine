@@ -45,9 +45,9 @@ class ActionHelloWorld(Action):
         # ).json()
         # first_name = r["first_name"]
 
-        input_channel = tracker.get_latest_input_channel()
+        # input_channel = tracker.get_latest_input_channel()
 
-        print('input_channel', input_channel)
+        # print('input_channel', input_channel)
 
         dispatcher.utter_message(
             text="Hola! Soy Jasmine 👩🏻‍🦰, en que te puedo ayudar?"

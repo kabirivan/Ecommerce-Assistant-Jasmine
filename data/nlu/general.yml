@@ -123,3 +123,26 @@ nlu:
     - no quiero comprar
     - no quiero comprar ropa
     - ya no quiero
+
+- intent: give_name
+  examples: |
+    - Mi nombre es [Xavier](PERSON)
+    - Me llamo [Bob](PERSON)
+    - [Jonathan](PERSON)
+    - [Juan](PERSON)
+    - [Maria](PERSON)
+    - [Luis](PERSON)
+    - Mi nombre es [Fernando](PERSON)
+    - [Joel](PERSON)
+    - [Hugo](PERSON)
+    - [Jasmina](PERSON)
+    - Me llamo [Gabriela](PERSON)
+    - [Gaby](PERSON)
+    - Soy [Jose](PERSON)
+    - [Emily](PERSON)
+    - [Danna](PERSON)
+    - Soy [Domenica](PERSON)
+    - [Genesis](PERSON)
+    - [Carlos](PERSON)
+    - [Sofia](PERSON)
+    - Me llamo [Kevin](PERSON)

@@ -15,4 +15,4 @@ rules:
 - rule: respond to hello
   steps:
   - intent: greet
-  - action: action_hello_world
+  - action: name_form

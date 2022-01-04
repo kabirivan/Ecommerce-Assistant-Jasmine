@@ -29,12 +29,14 @@ pipeline:
     # dimensions to extract
     dimensions:
     - number
+    - email
   - name: SpacyNLP
     model: "es_core_news_md"
     case_sensitive: false
   - name: "SpacyEntityExtractor"
     dimensions:
     - color
+    - PERSON
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
