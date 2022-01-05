@@ -491,18 +491,19 @@ class ValidateNameForm(FormValidationAction):
     
     async def required_slots(
         self,
-        slots_mapped_in_domain: List[Text],
+        domain_slots: List[Text],
         dispatcher: "CollectingDispatcher",
         tracker: "Tracker",
         domain: "DomainDict",
     ) -> Optional[List[Text]]:
-        first_name = tracker.slots.get("name")
+        first_name = tracker.get_slot("first_name")
+        print('first_name', first_name)
         if first_name is not None:
+            print('no tiene nombre')
             if first_name.upper() not in names:
-                print('slots_mapped_in_domain', slots_mapped_in_domain)
-                print('t', ["name_spelled_correctly"] + slots_mapped_in_domain)
-                return ["name_spelled_correctly"] + slots_mapped_in_domain
-        return slots_mapped_in_domain
+                print('add verification', ["name_spelled_correctly"] + domain_slots)
+                return ["name_spelled_correctly"] + domain_slots
+        return domain_slots
     
     async def extract_name_spelled_correctly(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
@@ -517,12 +518,12 @@ class ValidateNameForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `name` value."""
+        """Validate `first_name` value."""
         if tracker.get_slot("name_spelled_correctly"):
-            return {"name": tracker.get_slot("name"), "name_spelled_correctly": True}
-        return {"name": None, "name_spelled_correctly": None}
+            return {"first_name": tracker.get_slot("first_name"), "name_spelled_correctly": True}
+        return {"first_name": None, "name_spelled_correctly": None}
         
-    def validate_name(
+    def validate_first_name(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -532,9 +533,10 @@ class ValidateNameForm(FormValidationAction):
         """Validate `name` value."""
 
         # If the name is super short, it might be wrong.
-        print(f"First name given = {slot_value} length = {len(slot_value)}")
+        #print(f"First name given = {slot_value} length = {len(slot_value)}")
         if len(slot_value) <= 1:
             dispatcher.utter_message(text=f"El nombre es muy corto, parece que te faltan caracteres.")
-            return {"name": None}
+            return {"first_name": None}
         else:
-            return {"name": slot_value}
+            print('slot_value', slot_value)
+            return {"first_name": slot_value}

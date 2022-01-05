@@ -1,4 +1,6 @@
 version: '2.0'
+config:
+  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
@@ -28,10 +30,10 @@ entities:
 - gender
 - number
 slots:
-  name:
-    type: any
-    auto_fill: false
-    influence_conversation: false
+  first_name:
+    type: text
+    auto_fill: true
+    influence_conversation: true
   email:
     type: text
     influence_conversation: false
@@ -88,10 +90,10 @@ responses:
        - Categoría: {category}
        - Edad: {size}
        - Color: {color}
-  utter_ask_name:
+  utter_ask_first_name:
   - text: Hola bienvenido, es un gusto tenerte por aquí. ¿Cúal es tu nombre?
   utter_ask_email:
-  - text: '{name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo, ¿Me puedes ayudar con tu correo por favor?'
+  - text: '{first_name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo, ¿Me puedes ayudar con tu correo por favor?'
   utter_complete_information:
   - text: Muchas gracias, pronto recibiras un pequeño detalle de mi parte.
   utter_ask_gender:
@@ -124,7 +126,7 @@ responses:
       title: Sí
     - payload: /deny
       title: No
-    text: Está correctamente escrito tu nombre, {}?
+    text: Está correctamente escrito tu nombre, {first_name}?
 
 actions:
 - action_ask_category
@@ -171,12 +173,10 @@ forms:
     - chichat
     - faq
     required_slots:
-      name:
-      - entity: PERSON
-        type: from_entity
-      - intent:
-        - give_name
-        type: from_text
-      email:
-      - entity: email
-        type: from_entity
+      first_name:
+      # - entity: PERSON
+      #   type: from_entity
+      - type: from_text
+      # email:
+      # - entity: email
+      #   type: from_entity
