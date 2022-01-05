@@ -7,7 +7,7 @@ from rasa_sdk.types import DomainDict
 from rasa_sdk.executor import CollectingDispatcher
 from algoliasearch.search_client import SearchClient
 import requests
-import pathlib 
+import pathlib
 
 client = SearchClient.create("BQCT474121", "b72f4c8a6b93d0afc8221d06c66e1e66")
 index = client.init_index("dev_clothes_v2")
@@ -55,8 +55,8 @@ class ActionHelloWorld(Action):
         print('email_fill', email_fill)
         if email_fill == False:
             dispatcher.utter_message(
-            response="utter_complete_information"
-        )
+                response="utter_complete_information"
+            )
         else:
             dispatcher.utter_message(
                 text="Empecemos!"
@@ -478,17 +478,18 @@ class ActionGoodbye(Action):
         name = tracker.get_slot("PERSON")
 
         if name is None:
-            dispatcher.utter_message(text=f"Hasta pronto {name}, es un placer chatear contigo 🤗.")
+            dispatcher.utter_message(
+                text=f"Hasta pronto {name}, es un placer chatear contigo 🤗.")
         else:
-            dispatcher.utter_message(text=f"Chao, cuidate mucho, gracias por escribirme 😊.")
+            dispatcher.utter_message(
+                text=f"Chao, cuidate mucho, gracias por escribirme 😊.")
         return []
-
 
 
 class ValidateNameForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_name_form"
-    
+
     async def required_slots(
         self,
         domain_slots: List[Text],
@@ -503,14 +504,18 @@ class ValidateNameForm(FormValidationAction):
                 print('Validacion')
                 return ["name_spelled_correctly"] + domain_slots
         return domain_slots
-    
+
     async def extract_name_spelled_correctly(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> Dict[Text, Any]:
         intent = tracker.get_intent_of_latest_message()
         first_name = tracker.get_slot("first_name")
         print('first_name', first_name)
-        if first_name is not None and intent != "affirm":
+        if first_name is not None and intent == "give_name":
+            return {"name_spelled_correctly": None}
+        elif intent == "affirm":
+            return {"name_spelled_correctly": intent == "affirm"}
+        elif intent == "deny":
             return {"name_spelled_correctly": None}
 
     def validate_name_spelled_correctly(
@@ -523,13 +528,19 @@ class ValidateNameForm(FormValidationAction):
         """Validate `name_spelled_correctly` value."""
 
         print('slot_spelled', tracker.get_slot("name_spelled_correctly"))
+        intent = tracker.get_intent_of_latest_message()
+        print('intent', intent)
 
-        if tracker.get_slot("first_name") and tracker.get_slot("name_spelled_correctly"):
+        if tracker.get_slot("name_spelled_correctly"):
+            print('1!')
             return {"first_name": tracker.get_slot("first_name"), "name_spelled_correctly": True}
-        elif tracker.get_slot("first_name") and tracker.get_slot("name_spelled_correctly") is None:
+        elif tracker.get_slot("first_name") and intent == "deny":
+            print('2!')
+            return {"first_name": None, "name_spelled_correctly": None}
+        elif tracker.get_slot("name_spelled_correctly") is None:
+            print('works!')
             return {"name_spelled_correctly": None}
-        return {"first_name": None, "name_spelled_correctly": None}
-        
+
     def validate_first_name(
         self,
         slot_value: Any,
@@ -537,12 +548,13 @@ class ValidateNameForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `name` value."""
+        """Validate `first_name` value."""
 
         # If the name is super short, it might be wrong.
-        #print(f"First name given = {slot_value} length = {len(slot_value)}")
+        print(f"First name given = {slot_value} length = {len(slot_value)}")
         if len(slot_value) <= 1:
-            dispatcher.utter_message(text=f"El nombre es muy corto, parece que te faltan caracteres.")
+            dispatcher.utter_message(
+                text=f"El nombre es muy corto, parece que te faltan caracteres.")
             return {"first_name": None}
         else:
             print('slot_value', slot_value)
