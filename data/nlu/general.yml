@@ -123,6 +123,7 @@ nlu:
     - no quiero comprar
     - no quiero comprar ropa
     - ya no quiero
+    - no quiero continuar
 
 - intent: give_name
   examples: |

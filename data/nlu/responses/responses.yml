@@ -28,11 +28,11 @@ responses:
 
   utter_chitchat/mood_great:
     - text: Súper! Me alegro muchisimo 😁.
-    - text: Excelente! Eres el mejor 😄.
+      image: 'https://media.giphy.com/media/psmj7c3DbrJKkbRYFj/giphy-downsized.gif'
 
   utter_chitchat/mood_unhappy:
-    - text: Siento mucho escuchar eso 😰. Mira esto es para ti!
-      image: 'https://i.imgur.com/nGF1K8f.jpg'
+    - text: Siento mucho escuchar eso 😰. Mira esto es para alegrarte!
+      image: 'https://media.giphy.com/media/4Zo41lhzKt6iZ8xff9/giphy.gif'
 
   utter_chitchat/bot_challenge:
     - text: Soy un asistente conversacional 👩🏻‍🦰 creado por IVAN. Beep boop!

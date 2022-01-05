@@ -36,7 +36,7 @@ class ActionHelloWorld(Action):
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: Dict[Text, Any],
-    ) -> List[Dict[Text, Any]]:
+    ) -> List[EventType]:
 
         # most_recent_state = tracker.current_state()
         # person_id = most_recent_state["sender_id"]
@@ -62,42 +62,41 @@ class ActionHelloWorld(Action):
                 text="Empecemos!"
             )
 
-        # message = {
-        #     "type": "template",
-        #     "payload": {
-        #             "template_type": "generic",
-        #             "elements": [
-        #                 {
-        #                     "title": "Mira lo que tengo para ti",
-        #                     "subtitle": "Ropa para niños y niñas",
-        #                     "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153114/camiseta_tpow8j.png",
-        #                     "buttons": [
-        #                         {
-        #                             "type": "postback",
-        #                             "payload": "/request_clothes",
-        #                             "title": "Ropita" + " " + "👕" + " . ",
-        #                         },
-        #                     ]
-        #                 },
-        #                 {
-        #                     "title": "¿Quién soy?",
-        #                     "subtitle": "Asistente de Compras",
-        #                     "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641153114/camiseta_tpow8j.png",
-        #                     "buttons": [
-        #                         {
-        #                             "type": "web_url",
-        #                             "url": "https://www.instagram.com/creacionesjasmina/",
-        #                             "title": " Conóceme 👩🏻‍🦰 .",
-        #                         },
-        #                     ]
-        #                 },
-        #             ],
-        #     },
-        # }
+        message = {
+            "type": "template",
+            "payload": {
+                    "template_type": "generic",
+                    "elements": [
+                        {
+                            "title": "Mira lo que tengo para ti",
+                            "subtitle": "Ropa para niños y niñas",
+                            "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641417391/clothes_i3vsm0.png",
+                            "buttons": [
+                                {
+                                    "type": "postback",
+                                    "payload": "/request_clothes",
+                                    "title": "Ropita" + " " + "👕" + " . ",
+                                },
+                            ]
+                        },
+                        {
+                            "title": "¿Quién soy?",
+                            "subtitle": "Asistente de Compras",
+                            "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641417212/introducing_cialm6.png",
+                            "buttons": [
+                                {
+                                    "type": "web_url",
+                                    "url": "https://www.instagram.com/creacionesjasmina/",
+                                    "title": " Conóceme 👩🏻‍🦰 .",
+                                },
+                            ]
+                        },
+                    ],
+            },
+        }
 
-        # dispatcher.utter_message(attachment=message)
-        email_is_fill = True
-        return [SlotSet("email_fill", email_is_fill)]
+        dispatcher.utter_message(attachment=message)
+        return [SlotSet("email_fill", True)]
 
 
 class ValidateClothesForm(FormValidationAction):

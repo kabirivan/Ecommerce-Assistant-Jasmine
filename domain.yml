@@ -78,7 +78,8 @@ slots:
     influence_conversation: false
 responses:
   utter_greet:
-  - text: Hola bienvenido, es un gusto tenerte por aquí.
+  - text: Hola bienvenid@, es un gusto tenerte por aquí.
+    image: "https://media.giphy.com/media/Cmr1OMJ2FN0B2/giphy.gif"
   utter_default:
   - text: Lo siento, pero no te entendí 😭. ¿Puedes repetírmelo?
   - text: Ummm, qué me acabas de decir? 🤔
@@ -183,6 +184,3 @@ forms:
       email:
       - entity: email
         type: from_entity
-
-      # condition:
-      #   - requested_slot: email
