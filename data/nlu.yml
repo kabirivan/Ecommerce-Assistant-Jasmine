@@ -1,0 +1,11 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hola
+- intent: human_handoff
+  examples: |
+    - con [Ivan](PERSON)
+- intent: give_name
+  examples: |
+    - aguas.xavier@gmail.com

@@ -30,8 +30,8 @@ entities:
 slots:
   PERSON:
     type: any
-    influence_conversation: false
     auto_fill: false
+    influence_conversation: false
   email:
     type: text
     influence_conversation: false
@@ -125,9 +125,9 @@ responses:
        - Edad: {size}
        - Color: {color}
   utter_ask_PERSON:
-  - text: Hola bienvenido, es un gusto tenerte por aquí. ¿Cúal es tu nombre?
+  - text: Hola bienvenido, ¿Con quién tengo el gusto?
   utter_ask_email:
-  - text: '{PERSON}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo, ¿Me puedes ayudar con tu correo por favor?'
+  - text: '{PERSON}, por ser una de las primeras personas en probarme te voy a enviar un regalo, ¿Me puedes ayudar con tu correo por favor?'
   utter_complete_information:
   - text: Muchas gracias, pronto recibiras un pequeño detalle de mi parte.
   utter_ask_gender:
