@@ -32,10 +32,15 @@ entities:
 slots:
   first_name:
     type: text
-    auto_fill: true
-    influence_conversation: true
+    auto_fill: false
+    influence_conversation: false
+  last_first_name:
+    type: text
+    auto_fill: false
+    influence_conversation: false
   email:
     type: text
+    auto_fill: false
     influence_conversation: false
   email_fill:
     type: bool
@@ -70,10 +75,10 @@ slots:
   name_spelled_correctly:
     type: bool
     initial_value: null
-    influence_conversation: true
+    influence_conversation: false
 responses:
   utter_greet:
-  - text: Hola! Como estás?
+  - text: Hola bienvenido, es un gusto tenerte por aquí.
   utter_default:
   - text: Lo siento, pero no te entendí 😭. ¿Puedes repetírmelo?
   - text: Ummm, qué me acabas de decir? 🤔
@@ -90,7 +95,7 @@ responses:
        - Edad: {size}
        - Color: {color}
   utter_ask_first_name:
-  - text: Hola bienvenido, es un gusto tenerte por aquí. ¿Cúal es tu nombre?
+  - text: ¿Cúal es tu nombre?
   utter_ask_email:
   - text: '{first_name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo, ¿Me puedes ayudar con tu correo por favor?'
   utter_complete_information:
@@ -175,9 +180,9 @@ forms:
       first_name:
       - entity: PERSON
         type: from_entity
-      - intent:
-        - give_name
-        type: from_text
       email:
       - entity: email
         type: from_entity
+
+      # condition:
+      #   - requested_slot: email

@@ -4,6 +4,7 @@ stories:
 - story: give name form + continue
   steps:
   - intent: greet
+  - action: utter_greet
   - action: name_form
   - active_loop: name_form
   - intent: stop
@@ -17,6 +18,7 @@ stories:
 - story: give name form + stop
   steps:
   - intent: greet
+  - action: utter_greet
   - action: name_form
   - active_loop: name_form
   - intent: stop

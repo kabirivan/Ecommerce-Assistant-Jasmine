@@ -498,7 +498,6 @@ class ValidateNameForm(FormValidationAction):
         domain: "DomainDict",
     ) -> Optional[List[Text]]:
         first_name = tracker.get_slot("first_name")
-        print('first_name', first_name)
         if first_name is not None:
             if first_name.upper() not in names:
                 print('Validacion')
@@ -532,13 +531,10 @@ class ValidateNameForm(FormValidationAction):
         print('intent', intent)
 
         if tracker.get_slot("name_spelled_correctly"):
-            print('1!')
             return {"first_name": tracker.get_slot("first_name"), "name_spelled_correctly": True}
         elif tracker.get_slot("first_name") and intent == "deny":
-            print('2!')
             return {"first_name": None, "name_spelled_correctly": None}
         elif tracker.get_slot("name_spelled_correctly") is None:
-            print('works!')
             return {"name_spelled_correctly": None}
 
     def validate_first_name(
@@ -551,11 +547,20 @@ class ValidateNameForm(FormValidationAction):
         """Validate `first_name` value."""
 
         # If the name is super short, it might be wrong.
+        if isinstance(slot_value, list):
+            slot_value = slot_value[0]
+        
+        print('tesst', tracker.get_slot("requested_slot"))
         print(f"First name given = {slot_value} length = {len(slot_value)}")
-        if len(slot_value) <= 1:
-            dispatcher.utter_message(
-                text=f"El nombre es muy corto, parece que te faltan caracteres.")
-            return {"first_name": None}
-        else:
-            print('slot_value', slot_value)
-            return {"first_name": slot_value}
+
+        if tracker.get_slot("requested_slot") == "first_name":
+            print('first_name_p', tracker.get_slot("first_name"))  
+            if len(slot_value) <= 1:
+                dispatcher.utter_message(
+                    text=f"El nombre es muy corto, parece que te faltan caracteres.")
+                return {"first_name": None}
+            else:
+                print('slot_value', slot_value)
+                return {"first_name": slot_value, "last_first_name": slot_value}
+            
+        return {"first_name": tracker.get_slot("last_first_name")}
