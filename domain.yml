@@ -28,10 +28,10 @@ entities:
 - gender
 - number
 slots:
-  PERSON:
+  name:
     type: any
-    influence_conversation: false
     auto_fill: false
+    influence_conversation: false
   email:
     type: text
     influence_conversation: false
@@ -64,49 +64,13 @@ slots:
     - '4'
   feedback_fill:
     type: bool
+    influence_conversation: false
+  name_spelled_correctly:
+    type: bool
+    initial_value: null
+    auto_fill: true
     influence_conversation: true
 responses:
-  utter_faq/sizing_clarification:
-  - text: Quiero mencionarte que en Creaciones Jasmin manejamos tallas americanas para confeccionar la ropa para niñ@s.
-  utter_faq/payment_methods:
-  - text: Muy buena pregunta! Nosotros aceptamos transferencias, tarjetas de crédito, depositos y efectivo. Así que no te preocupes tenemos varias alternativas de pago.
-  utter_faq/promotions:
-  - text: Lo siento, actualmente no tenemos promociones, pero el proximo mes tendremos descuentos de haste el 50%. Así que mantente alerta!
-  utter_chitchat/thanks:
-  - text: Con mucho gusto.
-  - text: Es un placer 🥰.
-  - text: De nada, cuenta conmigo 😉.
-  - text: Lo hacemos con mucho cariño ❤️.
-  utter_chitchat/confirm_presence:
-  - text: Sí, aquí estoy 👍🏻!
-  - text: Te estoy escuchando 👂🏻!
-  - text: Claro, estoy siempre listo para atenderte 🤓.
-  - text: Por supesto, cuenta conmigo 🤝!
-  utter_chitchat/capabilities:
-  - text: Creeme, tengo muchas habilidades. Soy un asistente creado para brindarte la mejor experiencia de asistencia de compra 🤓.
-  utter_chitchat/mood_great:
-  - text: Súper! Me alegro muchisimo 😁.
-  - text: Excelente! Eres el mejor 😄.
-  utter_chitchat/mood_unhappy:
-  - text: Siento mucho escuchar eso 😰. Mira esto es para ti!
-    image: https://i.imgur.com/nGF1K8f.jpg
-  utter_chitchat/bot_challenge:
-  - text: Soy un asistente conversacional 👩🏻‍🦰 creado por IVAN. Beep boop!
-  utter_chitchat/developer:
-  - text: Mi creador se llama IVAN 👨🏻‍💻. y me creó para ayudarte a encontrar el mejor producto para ti. Puedes chequear su perfil --> https://www.linkedin.com/in/xavier-iv%C3%A1n-aguas-5764b5133/.
-  - text: Fui creado por un apasionado de la tecnología 👨🏻‍💻. Se llama IVAN y puedes chequear su perfil --> https://www.linkedin.com/in/xavier-iv%C3%A1n-aguas-5764b5133/.
-  utter_chitchat/whats_your_name:
-  - text: Me llamo Jasmine 👩🏻‍🦰, es un placer conocerte.
-  - text: Gracias por preguntar, me llamo Jasmine 👩🏻‍🦰.
-  utter_chitchat/ask_weather:
-  - text: Yo no se donde tu vives, pero en mi mundo siempre es soleado 😅.
-  - text: Honestamente, en estos días hace mucho calor 😎.
-  - text: Digamos que no ha llovido en semanas ☀️!
-  utter_chitchat/ask_wherefrom:
-  - text: Yo nací en Ecuador, pero me considero ciudadano de todo el mundo 🌎.
-  - text: Yo nací en la Mitad del Mundo, Ecuador 🇪🇨.
-  utter_chitchat/ask_time:
-  - text: Es el tiempo más bonito del año 🌇.
   utter_greet:
   - text: Hola! Como estás?
   utter_default:
@@ -124,10 +88,10 @@ responses:
        - Categoría: {category}
        - Edad: {size}
        - Color: {color}
-  utter_ask_PERSON:
+  utter_ask_name:
   - text: Hola bienvenido, es un gusto tenerte por aquí. ¿Cúal es tu nombre?
   utter_ask_email:
-  - text: '{PERSON}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo, ¿Me puedes ayudar con tu correo por favor?'
+  - text: '{name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo, ¿Me puedes ayudar con tu correo por favor?'
   utter_complete_information:
   - text: Muchas gracias, pronto recibiras un pequeño detalle de mi parte.
   utter_ask_gender:
@@ -154,6 +118,14 @@ responses:
       payload: '/feedback{{"feedback_value": "3"}}'
     - title: Excelente
       payload: '/feedback{{"feedback_value": "4"}}'
+  utter_ask_name_spelled_correctly:
+  - buttons:
+    - payload: /affirm
+      title: Sí
+    - payload: /deny
+      title: No
+    text: Está correctamente escrito tu nombre, {}?
+
 actions:
 - action_ask_category
 - action_goodbye_world
@@ -162,6 +134,7 @@ actions:
 - utter_chitchat
 - utter_faq
 - validate_clothes_form
+- validate_name_form
 forms:
   clothes_form:
     ignored_intents:
@@ -198,7 +171,7 @@ forms:
     - chichat
     - faq
     required_slots:
-      PERSON:
+      name:
       - entity: PERSON
         type: from_entity
       - intent:
@@ -207,5 +180,3 @@ forms:
       email:
       - entity: email
         type: from_entity
-        not_intent:
-        - give_name

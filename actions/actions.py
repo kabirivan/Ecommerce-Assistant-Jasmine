@@ -1,16 +1,18 @@
 import os
 import json
-from typing import Any, Text, Dict, List
+from typing import Any, Text, Dict, List, Optional
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.events import FormValidation, SlotSet, EventType
 from rasa_sdk.types import DomainDict
 from rasa_sdk.executor import CollectingDispatcher
 from algoliasearch.search_client import SearchClient
 import requests
-
+import pathlib 
 
 client = SearchClient.create("BQCT474121", "b72f4c8a6b93d0afc8221d06c66e1e66")
 index = client.init_index("dev_clothes_v2")
+
+names = pathlib.Path("data/names1.txt").read_text().split("\n")
 
 MOCK_DATA = json.load(open("actions/mock_data.json", "r"))
 
@@ -480,3 +482,59 @@ class ActionGoodbye(Action):
         else:
             dispatcher.utter_message(text=f"Chao, cuidate mucho, gracias por escribirme 😊.")
         return []
+
+
+
+class ValidateNameForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_name_form"
+    
+    async def required_slots(
+        self,
+        slots_mapped_in_domain: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> Optional[List[Text]]:
+        first_name = tracker.slots.get("name")
+        if first_name is not None:
+            if first_name.upper() not in names:
+                print('slots_mapped_in_domain', slots_mapped_in_domain)
+                print('t', ["name_spelled_correctly"] + slots_mapped_in_domain)
+                return ["name_spelled_correctly"] + slots_mapped_in_domain
+        return slots_mapped_in_domain
+    
+    async def extract_name_spelled_correctly(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> Dict[Text, Any]:
+        intent = tracker.get_intent_of_latest_message()
+        return {"name_spelled_correctly": intent == "affirm"}
+
+    def validate_name_spelled_correctly(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `name` value."""
+        if tracker.get_slot("name_spelled_correctly"):
+            return {"name": tracker.get_slot("name"), "name_spelled_correctly": True}
+        return {"name": None, "name_spelled_correctly": None}
+        
+    def validate_name(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `name` value."""
+
+        # If the name is super short, it might be wrong.
+        print(f"First name given = {slot_value} length = {len(slot_value)}")
+        if len(slot_value) <= 1:
+            dispatcher.utter_message(text=f"El nombre es muy corto, parece que te faltan caracteres.")
+            return {"name": None}
+        else:
+            return {"name": slot_value}
