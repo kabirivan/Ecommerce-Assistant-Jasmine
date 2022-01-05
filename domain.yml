@@ -70,7 +70,6 @@ slots:
   name_spelled_correctly:
     type: bool
     initial_value: null
-    auto_fill: true
     influence_conversation: true
 responses:
   utter_greet:
@@ -174,9 +173,11 @@ forms:
     - faq
     required_slots:
       first_name:
-      # - entity: PERSON
-      #   type: from_entity
-      - type: from_text
-      # email:
-      # - entity: email
-      #   type: from_entity
+      - entity: PERSON
+        type: from_entity
+      - intent:
+        - give_name
+        type: from_text
+      email:
+      - entity: email
+        type: from_entity

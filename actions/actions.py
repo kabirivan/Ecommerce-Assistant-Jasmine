@@ -499,9 +499,8 @@ class ValidateNameForm(FormValidationAction):
         first_name = tracker.get_slot("first_name")
         print('first_name', first_name)
         if first_name is not None:
-            print('no tiene nombre')
             if first_name.upper() not in names:
-                print('add verification', ["name_spelled_correctly"] + domain_slots)
+                print('Validacion')
                 return ["name_spelled_correctly"] + domain_slots
         return domain_slots
     
@@ -509,7 +508,10 @@ class ValidateNameForm(FormValidationAction):
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> Dict[Text, Any]:
         intent = tracker.get_intent_of_latest_message()
-        return {"name_spelled_correctly": intent == "affirm"}
+        first_name = tracker.get_slot("first_name")
+        print('first_name', first_name)
+        if first_name is not None and intent != "affirm":
+            return {"name_spelled_correctly": None}
 
     def validate_name_spelled_correctly(
         self,
@@ -518,9 +520,14 @@ class ValidateNameForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `first_name` value."""
-        if tracker.get_slot("name_spelled_correctly"):
+        """Validate `name_spelled_correctly` value."""
+
+        print('slot_spelled', tracker.get_slot("name_spelled_correctly"))
+
+        if tracker.get_slot("first_name") and tracker.get_slot("name_spelled_correctly"):
             return {"first_name": tracker.get_slot("first_name"), "name_spelled_correctly": True}
+        elif tracker.get_slot("first_name") and tracker.get_slot("name_spelled_correctly") is None:
+            return {"name_spelled_correctly": None}
         return {"first_name": None, "name_spelled_correctly": None}
         
     def validate_first_name(
