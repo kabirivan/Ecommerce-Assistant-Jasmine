@@ -149,3 +149,17 @@ nlu:
     - [Sofia](PERSON)
     - Me llamo [Kevin](PERSON)
     - Mi nombre es [Ivan](PERSON)
+
+- intent: give_feedback
+  examples: |
+    - quiero dejar un mensaje
+    - quiero dejar un comentario
+    - quiero dejar una sugerencia
+    - sugerencia
+    - comentario
+    - mensaje
+    - reportar un problema
+    - reportar
+    - quiero dejar un feedback
+    - feedback
+

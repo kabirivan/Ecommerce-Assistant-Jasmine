@@ -1,20 +1,19 @@
-version: "2.0"
+version: '2.0'
 
 rules:
+  - rule: respond to FAQs
+    steps:
+      - intent: faq
+      - action: utter_faq
 
-- rule: respond to FAQs
-  steps:
-  - intent: faq
-  - action: utter_faq
-  
-- rule: respond to chitchat
-  steps:
-  - intent: chitchat
-  - action: utter_chitchat
+  - rule: respond to chitchat
+    steps:
+      - intent: chitchat
+      - action: utter_chitchat
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: action_goodbye_world
-  - action: action_deactivate_loop
-  - active_loop: null
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: action_goodbye_world
+      - action: action_deactivate_loop
+      - active_loop: null

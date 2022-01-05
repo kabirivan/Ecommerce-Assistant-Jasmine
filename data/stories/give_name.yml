@@ -1,29 +1,26 @@
-version: "2.0"
+version: '2.0'
 stories:
+  - story: give name form + continue
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - action: name_form
+      - active_loop: name_form
+      - intent: stop
+      - action: utter_ask_continue
+      - intent: affirm
+      - action: name_form
+      - active_loop: null
+      - action: action_hello_world
 
-- story: give name form + continue
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - action: name_form
-  - active_loop: name_form
-  - intent: stop
-  - action: utter_ask_continue
-  - intent: affirm
-  - action: name_form
-  - active_loop: null
-  - action: action_hello_world
-
-
-- story: give name form + stop
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - action: name_form
-  - active_loop: name_form
-  - intent: stop
-  - action: utter_ask_continue
-  - intent: deny
-  - action: action_deactivate_loop
-  - active_loop: null
-
+  - story: give name form + stop
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - action: name_form
+      - active_loop: name_form
+      - intent: stop
+      - action: utter_ask_continue
+      - intent: deny
+      - action: action_deactivate_loop
+      - active_loop: null

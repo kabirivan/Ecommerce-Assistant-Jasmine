@@ -5,30 +5,30 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- affirm
-- chitchat:
-    is_retrieval_intent: true
-- deny
-- faq:
-    is_retrieval_intent: true
-- feedback
-- give_name
-- goodbye
-- greet
-- human_handoff
-- inform
-- out_of_scope
-- request_clothes
-- request_clothes_price
-- stop
-- who_am_i
+  - affirm
+  - chitchat:
+      is_retrieval_intent: true
+  - deny
+  - faq:
+      is_retrieval_intent: true
+  - give_feedback
+  - give_name
+  - goodbye
+  - greet
+  - human_handoff
+  - inform
+  - out_of_scope
+  - request_clothes
+  - request_clothes_price
+  - stop
+  - who_am_i
 entities:
-- PERSON
-- category
-- color
-- email
-- gender
-- number
+  - PERSON
+  - category
+  - color
+  - email
+  - gender
+  - number
 slots:
   first_name:
     type: text
@@ -50,8 +50,8 @@ slots:
     type: categorical
     influence_conversation: false
     values:
-    - niña
-    - niño
+      - niña
+      - niño
   size:
     type: text
     influence_conversation: false
@@ -65,122 +65,143 @@ slots:
     type: categorical
     influence_conversation: false
     values:
-    - '1'
-    - '2'
-    - '3'
-    - '4'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
   feedback_fill:
     type: bool
+    influence_conversation: false
+  feedback_message:
+    type: text
+    initial_value: null
     influence_conversation: false
   name_spelled_correctly:
     type: bool
     initial_value: null
     influence_conversation: false
+  find_product:
+    type: bool
+    influence_conversation: false
 responses:
   utter_greet:
-  - text: Hola bienvenid@, es un gusto tenerte por aquí.
-    image: "https://media.giphy.com/media/Cmr1OMJ2FN0B2/giphy.gif"
+    - text: Hola bienvenid@, es un gusto tenerte por aquí.
+      image: 'https://media.giphy.com/media/Cmr1OMJ2FN0B2/giphy.gif'
   utter_default:
-  - text: Lo siento, pero no te entendí 😭. ¿Puedes repetírmelo?
-  - text: Ummm, qué me acabas de decir? 🤔
-  - text: beep, boop! 😵 No entiendo lo que me quieres decir!
+    - text: Lo siento, pero no te entendí 😭. ¿Puedes repetírmelo?
+    - text: Ummm, qué me acabas de decir? 🤔
+    - text: beep, boop! 😵 No entiendo lo que me quieres decir!
   utter_out_of_scope:
-  - text: Parece que me estás preguntando cosas raras.
+    - text: Parece que me estás preguntando cosas raras.
   utter_submit:
-  - text: Perfecto! Eso es todo 🤓.
+    - text: Perfecto! Eso es todo 🤓.
   utter_slots_values:
-  - text: |
-      Voy a buscar en nuestro stock, lo siguiente:
-       - Ropa de: {gender}
-       - Categoría: {category}
-       - Edad: {size}
-       - Color: {color}
+    - text: |
+        Voy a buscar en nuestro stock, lo siguiente:
+         - Ropa de: {gender}
+         - Categoría: {category}
+         - Edad: {size}
+         - Color: {color}
   utter_ask_first_name:
-  - text: ¿Cúal es tu nombre?
+    - text: ¿Cúal es tu nombre?
   utter_ask_email:
-  - text: '{first_name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo, ¿Me puedes ayudar con tu correo por favor?'
+    - text: '{first_name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo, ¿Me puedes ayudar con tu correo por favor?'
   utter_complete_information:
-  - text: Muchas gracias, pronto recibiras un pequeño detalle de mi parte.
+    - text: Muchas gracias, pronto recibiras un pequeño detalle de mi parte.
   utter_ask_gender:
-  - text: ¿Para que chiquitín buscas la ropa?
-    buttons:
-    - title: Niña 👧🏻 .
-      payload: /request_clothes{{"gender":"niña"}}
-    - title: Niño 👦🏻 .
-      payload: /request_clothes{{"gender":"niño"}}
+    - text: ¿Para que chiquitín buscas la ropa?
+      buttons:
+        - title: Niña 👧🏻 .
+          payload: /request_clothes{{"gender":"niña"}}
+        - title: Niño 👦🏻 .
+          payload: /request_clothes{{"gender":"niño"}}
   utter_ask_size:
-  - text: ¿Para que edad buscas la ropa de {gender}?
+    - text: ¿Para que edad buscas la ropa de {gender}?
   utter_ask_color:
-  - text: ¿Algún color en particular 🎨?
+    - text: ¿Algún color en particular 🎨?
   utter_ask_continue:
-  - text: ¿Quiéres continuar? 🤔
-  utter_ask_feedback:
-  - text: Hello World!
-    quick_replies:
-    - title: Malo
-      payload: '/feedback{{"feedback_value": "1"}}'
-    - title: Regular
-      payload: '/feedback{{"feedback_value": "2"}}'
-    - title: Bueno
-      payload: '/feedback{{"feedback_value": "3"}}'
-    - title: Excelente
-      payload: '/feedback{{"feedback_value": "4"}}'
+    - text: ¿Quiéres continuar? 🤔
+
+  utter_ask_feedback_message:
+    - text: 'Tus palabras son valiosas para mi, por favor deja un mensaje/sugerencia para seguir mejorando.'
+  utter_ask_feedback_value:
+    - text: '¿Me gustaría saber si te gusto la experiencia?, ¿Puedes calificarme?'
+      quick_replies:
+        - title: Malo
+          payload: '/give_feedback{{"feedback_value": "1"}}'
+        - title: Regular
+          payload: '/give_feedback{{"feedback_value": "2"}}'
+        - title: Bueno
+          payload: '/give_feedback{{"feedback_value": "3"}}'
+        - title: Excelente
+          payload: '/give_feedback{{"feedback_value": "4"}}'
   utter_ask_name_spelled_correctly:
-  - buttons:
-    - payload: /affirm
-      title: Sí
-    - payload: /deny
-      title: No
-    text: Está correctamente escrito tu nombre, {first_name}?
+    - buttons:
+        - payload: /affirm
+          title: Sí
+        - payload: /deny
+          title: No
+      text: Está correctamente escrito tu nombre, {first_name}?
 
 actions:
-- action_ask_category
-- action_goodbye_world
-- action_hello_world
-- action_product_search
-- utter_chitchat
-- utter_faq
-- validate_clothes_form
-- validate_name_form
+  - action_ask_category
+  - action_goodbye_world
+  - action_hello_world
+  - action_product_search
+  - utter_chitchat
+  - utter_faq
+  - validate_clothes_form
+  - validate_name_form
+  - action_ask_feedback_message
 forms:
   clothes_form:
     ignored_intents:
-    - chichat
-    - faq
+      - chichat
+      - faq
     required_slots:
       gender:
-      - entity: gender
-        type: from_entity
-        intent:
-        - inform
-        - request_clothes
+        - entity: gender
+          type: from_entity
+          intent:
+            - inform
+            - request_clothes
       category:
-      - entity: category
-        type: from_entity
+        - entity: category
+          type: from_entity
       size:
-      - entity: number
-        type: from_entity
-        intent:
-        - inform
-        - request_clothes
+        - entity: number
+          type: from_entity
+          intent:
+            - inform
+            - request_clothes
       color:
-      - type: from_entity
-        entity: color
-      - type: from_text
-        not_intent:
-        - chichat
-        - faq
-      - type: from_intent
-        intent: deny
-        value: No
+        - type: from_entity
+          entity: color
+        - type: from_text
+          not_intent:
+            - chichat
+            - faq
+        - type: from_intent
+          intent: deny
+          value: No
   name_form:
     ignored_intents:
-    - chichat
-    - faq
+      - chichat
+      - faq
     required_slots:
       first_name:
-      - entity: PERSON
-        type: from_entity
+        - entity: PERSON
+          type: from_entity
       email:
-      - entity: email
-        type: from_entity
+        - entity: email
+          type: from_entity
+  feedback_form:
+    ignored_intents:
+      - chichat
+      - faq
+    required_slots:
+      feedback_value:
+        - intent: give_feedback
+          type: from_text
+      feedback_message:
+        - type: from_text

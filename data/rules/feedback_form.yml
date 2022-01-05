@@ -1,0 +1,18 @@
+version: '2.0'
+
+rules:
+  - rule: feedback form
+    steps:
+      - intent: give_feedback
+      - action: feedback_form
+      - active_loop: feedback_form
+
+  - rule: submit feedback form
+    condition:
+      - active_loop: feedback_form
+    steps:
+      - action: feedback_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: utter_submit

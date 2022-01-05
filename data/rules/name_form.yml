@@ -1,18 +1,18 @@
-version: "2.0"
+version: '2.0'
 
 rules:
-- rule: activate name form
-  steps:
-    - action: utter_greet
-    - action: name_form
-    - active_loop: name_form
+  - rule: activate name form
+    steps:
+      - action: utter_greet
+      - action: name_form
+      - active_loop: name_form
 
-- rule: submit name form
-  condition:
-  - active_loop: name_form
-  steps:
-    - action: name_form
-    - active_loop: null
-    - slot_was_set:
-      - requested_slot: null
-    - action: action_hello_world
+  - rule: submit name form
+    condition:
+      - active_loop: name_form
+    steps:
+      - action: name_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_hello_world

@@ -449,6 +449,9 @@ class ActionProductSearch(Action):
 
         if clothes:
             dispatcher.utter_message(attachment=message)
+            # text = f"No disponemos de ese producto en específico. Pero te revisar estos que también son bonitos..."
+            # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
+            dispatcher.utter_message(text=text)
 
             slots_to_reset = ["gender", "size", "color", "category"]
 
