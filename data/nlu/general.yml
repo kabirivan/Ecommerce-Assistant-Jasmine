@@ -167,6 +167,8 @@ nlu:
     - calificar
     - reseña
     - recomendacion
+    - añadir opinion
+    - opinion 
 
 - intent: my_feedback
   examples: |

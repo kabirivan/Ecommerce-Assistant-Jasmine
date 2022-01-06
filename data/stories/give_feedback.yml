@@ -18,7 +18,9 @@ stories:
       - intent: give_feedback
       - action: feedback_form
       - active_loop: feedback_form
-      - intent: stop
+      - or:
+        - intent: stop
+        - intent: deny
       - action: utter_ask_continue
       - intent: deny
       - action: action_deactivate_loop
