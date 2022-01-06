@@ -18,4 +18,12 @@ rules:
       - active_loop: null
       - slot_was_set:
           - requested_slot: null
-      - action: utter_submit
+      - action: action_thanks_feedback
+      - action: utter_anything_else
+
+  - rule: my feedback
+    steps:
+      - intent: my_feedback
+      - action: action_feedback_user
+
+

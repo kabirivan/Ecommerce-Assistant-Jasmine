@@ -10,4 +10,17 @@ stories:
       - intent: affirm
       - action: feedback_form
       - active_loop: null
-      - action: utter_submit
+      - action: action_thanks_feedback
+      - action: utter_anything_else
+
+  - story: feedback form + stop
+    steps:
+      - intent: give_feedback
+      - action: feedback_form
+      - active_loop: feedback_form
+      - intent: stop
+      - action: utter_ask_continue
+      - intent: deny
+      - action: action_deactivate_loop
+      - active_loop: null
+      - action: utter_anything_else

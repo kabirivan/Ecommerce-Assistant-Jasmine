@@ -166,5 +166,15 @@ nlu:
     - quiero calificar
     - calificar
     - reseña
-    
+    - recomendacion
 
+- intent: my_feedback
+  examples: |
+    - cual fue mi reseña
+    - cual fue mi recomendacion
+    - dime mi reseña
+    - dime mi comentario
+    - dime mi feedback
+    - dime mi sugerencia
+    - dame mi sugerencia
+    - cual fue mi opinion

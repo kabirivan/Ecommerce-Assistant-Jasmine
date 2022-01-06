@@ -22,6 +22,7 @@ intents:
   - request_clothes_price
   - stop
   - who_am_i
+  - my_feedback
 entities:
   - PERSON
   - category
@@ -72,6 +73,7 @@ slots:
       - '4'
   feedback_fill:
     type: bool
+    initial_value: false
     influence_conversation: false
   feedback_message:
     type: text
@@ -142,6 +144,8 @@ responses:
         - payload: /deny
           title: No
       text: Está correctamente escrito tu nombre, {first_name}?
+  utter_anything_else:
+    - text: ¿Hay algo más que pueda ayudarte?
 
 actions:
   - action_ask_category
@@ -154,6 +158,7 @@ actions:
   - validate_name_form
   - validate_feedback_form
   - action_thanks_feedback
+  - action_feedback_user
 forms:
   clothes_form:
     ignored_intents:

@@ -599,12 +599,12 @@ class ValidateFeedbackForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `feedback_message` value."""
 
-        message = slot_value    
+        message = slot_value
         print('message', message)
 
-        if message:
-            return {"feedback_message": "None"}
-
+        if len(message) <= 5:
+            dispatcher.utter_message(
+                text=f"La reseña es muy corta, ¿quiero saber que piensas de mi?.")
         return {"feedback_message": slot_value}
 
 
@@ -619,6 +619,43 @@ class ActionThanksFeedback(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text=f"Gracias por tu reseña, es muy importante para mi mejoramiento.", image="https://media.giphy.com/media/BYoRqTmcgzHcL9TCy1/giphy.gif")
+        feedback_fill = tracker.get_slot("feedback_fill")
+        print('message', tracker.get_slot("feedback_message"))
 
-        return [SlotSet('feedback_fill', True)]
+        if feedback_fill == False:
+            dispatcher.utter_message(text=f"Gracias por tu reseña, es muy importante para mi mejoramiento.",
+                                     image="https://media.giphy.com/media/BYoRqTmcgzHcL9TCy1/giphy.gif")
+            return [SlotSet('feedback_fill', True)]
+
+        dispatcher.utter_message(
+            text=f"Ya has dejado tu reseña. Muchas gracias, me ayuda a crecer.")
+        return []
+
+
+class ActionThanksFeedback(Action):
+    def name(self) -> Text:
+        return "action_feedback_user"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        feedback_message = tracker.get_slot("feedback_message")
+        feedback_fill = tracker.get_slot("feedback_fill")
+        print('feedback_fill', feedback_fill)
+
+        if feedback_fill == False:
+            dispatcher.utter_message(
+                text=f"Aún no has dejado una reseña.")
+            dispatcher.utter_message(response="utter_ask_feedback_value")
+            return []
+
+        dispatcher.utter_message(
+            text=f"Esto fue lo que mencionaste acerca de mi")
+        dispatcher.utter_message(
+            text=f"Mensaje: {feedback_message}")
+
+        return []
