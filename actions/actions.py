@@ -479,7 +479,7 @@ class ActionGoodbye(Action):
 
         name = tracker.get_slot("first_name")
 
-        if name is None:
+        if name:
             dispatcher.utter_message(
                 text=f"Hasta pronto {name}, fue un placer chatear contigo 🤗.")
         else:

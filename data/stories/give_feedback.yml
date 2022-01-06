@@ -26,3 +26,16 @@ stories:
       - action: action_deactivate_loop
       - active_loop: null
       - action: utter_anything_else
+
+  - story: anything else affirm
+    steps:
+    - action: utter_anything_else
+    - intent: affirm
+    - action: action_hello_world
+  - story: anything else deny
+    steps:
+    - action: utter_anything_else
+    - intent: deny
+    - action: action_goodbye_world
+
+    
