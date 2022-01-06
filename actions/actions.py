@@ -451,7 +451,7 @@ class ActionProductSearch(Action):
             dispatcher.utter_message(attachment=message)
             # text = f"No disponemos de ese producto en específico. Pero te revisar estos que también son bonitos..."
             # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
-            dispatcher.utter_message(text=text)
+            dispatcher.utter_message(response="utter_ask_feedback_value")
 
             slots_to_reset = ["gender", "size", "color", "category"]
 
@@ -477,11 +477,11 @@ class ActionGoodbye(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
 
-        name = tracker.get_slot("PERSON")
+        name = tracker.get_slot("first_name")
 
         if name is None:
             dispatcher.utter_message(
-                text=f"Hasta pronto {name}, es un placer chatear contigo 🤗.")
+                text=f"Hasta pronto {name}, fue un placer chatear contigo 🤗.")
         else:
             dispatcher.utter_message(
                 text=f"Chao, cuidate mucho, gracias por escribirme 😊.")
@@ -551,12 +551,12 @@ class ValidateNameForm(FormValidationAction):
         # If the name is super short, it might be wrong.
         if isinstance(slot_value, list):
             slot_value = slot_value[0]
-        
+
         print('tesst', tracker.get_slot("requested_slot"))
         print(f"First name given = {slot_value} length = {len(slot_value)}")
 
         if tracker.get_slot("requested_slot") == "first_name":
-            print('first_name_p', tracker.get_slot("first_name"))  
+            print('first_name_p', tracker.get_slot("first_name"))
             if len(slot_value) <= 1:
                 dispatcher.utter_message(
                     text=f"El nombre es muy corto, parece que te faltan caracteres.")
@@ -564,5 +564,61 @@ class ValidateNameForm(FormValidationAction):
             else:
                 print('slot_value', slot_value)
                 return {"first_name": slot_value, "last_first_name": slot_value}
-            
+
         return {"first_name": tracker.get_slot("last_first_name")}
+
+
+class ValidateFeedbackForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_feedback_form"
+
+    def validate_feedback_value(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `feedback_value` value."""
+        print('feedback_value', slot_value)
+        if slot_value not in ['1', '2', '3', '4']:
+            buttons = [{"title": 'Malo', "payload": '/give_feedback{{"feedback_value": "1"}}'}, {"title": 'Regular', "payload": '/give_feedback{{"feedback_value": "2"}}'},
+                       {"title": 'Bueno', "payload": '/give_feedback{{"feedback_value": "3"}}'}, {"title": 'Excelente', "payload": '/give_feedback{{"feedback_value": "4"}}'}]
+            dispatcher.utter_message(
+                text=f"La valoración que mencionas no existe. Por favor selecciona una de las siguientes valoraciones:", buttons=buttons)
+            return {"feedback_value": None}
+        else:
+            return {"feedback_value": slot_value}
+
+    def validate_feedback_message(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `feedback_message` value."""
+
+        message = slot_value    
+        print('message', message)
+
+        if message:
+            return {"feedback_message": "None"}
+
+        return {"feedback_message": slot_value}
+
+
+class ActionThanksFeedback(Action):
+    def name(self) -> Text:
+        return "action_thanks_feedback"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text=f"Gracias por tu reseña, es muy importante para mi mejoramiento.", image="https://media.giphy.com/media/BYoRqTmcgzHcL9TCy1/giphy.gif")
+
+        return [SlotSet('feedback_fill', True)]

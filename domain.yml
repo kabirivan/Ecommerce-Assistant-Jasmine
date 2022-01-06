@@ -29,6 +29,7 @@ entities:
   - email
   - gender
   - number
+  - feedback_value
 slots:
   first_name:
     type: text
@@ -121,7 +122,6 @@ responses:
     - text: ¿Algún color en particular 🎨?
   utter_ask_continue:
     - text: ¿Quiéres continuar? 🤔
-
   utter_ask_feedback_message:
     - text: 'Tus palabras son valiosas para mi, por favor deja un mensaje/sugerencia para seguir mejorando.'
   utter_ask_feedback_value:
@@ -152,7 +152,8 @@ actions:
   - utter_faq
   - validate_clothes_form
   - validate_name_form
-  - action_ask_feedback_message
+  - validate_feedback_form
+  - action_thanks_feedback
 forms:
   clothes_form:
     ignored_intents:
@@ -201,7 +202,7 @@ forms:
       - faq
     required_slots:
       feedback_value:
-        - intent: give_feedback
-          type: from_text
+        - entity: feedback_value
+          type: from_entity
       feedback_message:
         - type: from_text

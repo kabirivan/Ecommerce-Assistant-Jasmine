@@ -2,6 +2,9 @@ version: '2.0'
 
 rules:
   - rule: feedback form
+    condition:
+      - slot_was_set:
+        - feedback_fill: null
     steps:
       - intent: give_feedback
       - action: feedback_form
