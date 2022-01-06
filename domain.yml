@@ -146,6 +146,8 @@ responses:
       text: Está correctamente escrito tu nombre, {first_name}?
   utter_anything_else:
     - text: ¿Hay algo más que pueda ayudarte?
+  utter_who_you_are:
+    - text: Aún no nos hemos presentado. Mi nombre es Jasmine, tu asistente de compras.
 
 actions:
   - action_ask_category
