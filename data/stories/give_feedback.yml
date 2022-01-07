@@ -1,25 +1,55 @@
 version: '2.0'
 stories:
-  - story: feedback form + continue
+  # - story: feedback form + continue
+  #   steps:
+  #     - intent: give_feedback
+  #     - action: feedback_form
+  #     - active_loop: feedback_form
+  #     - active_loop: null
+  #     - action: action_thanks_feedback
+  #     - action: utter_anything_else
+
+  - story: member wants to know abilities story.
     steps:
       - intent: give_feedback
+      - slot_was_set:
+          - email_fill: null
+      - action: utter_ask_knows_abilities
+
+  - story: if user knows my abilities
+    steps:
+      - action: utter_ask_knows_abilities
+      - intent: affirm
+      - action: name_form
+      - active_loop: name_form
+      - active_loop: null
+      - action: action_hello_world
+
+  - story: if user doesn't know my abilities.
+    steps:
+      - action: utter_ask_knows_abilities
+      - intent: deny
+      - action: action_goodbye_world
+
+  - story: member wants to know abilities
+    steps:
+      - intent: give_feedback
+      - slot_was_set:
+          - email_fill: true
       - action: feedback_form
       - active_loop: feedback_form
       - active_loop: null
       - action: action_thanks_feedback
       - action: utter_anything_else
 
-
   - story: anything else affirm
     steps:
-    - action: utter_anything_else
-    - intent: affirm
-    - action: action_hello_world
-    
+      - action: utter_anything_else
+      - intent: affirm
+      - action: action_introducing_me
+
   - story: anything else deny
     steps:
-    - action: utter_anything_else
-    - intent: deny
-    - action: action_goodbye_world
-
-    
+      - action: utter_anything_else
+      - intent: deny
+      - action: action_goodbye_world

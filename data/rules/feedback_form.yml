@@ -1,14 +1,14 @@
 version: '2.0'
 
 rules:
-  - rule: feedback form
-    condition:
-      - slot_was_set:
-        - feedback_fill: null
-    steps:
-      - intent: give_feedback
-      - action: feedback_form
-      - active_loop: feedback_form
+  # - rule: feedback form
+  #   condition:
+  #     - slot_was_set:
+  #       - feedback_fill: null
+  #   steps:
+  #     - intent: give_feedback
+  #     - action: feedback_form
+  #     - active_loop: feedback_form
 
   - rule: Exit Feedback Form
     condition:
@@ -21,16 +21,6 @@ rules:
     - action: utter_cancel_get_feedback
     - action: utter_anything_else
 
-  # - rule: submit feedback form
-  #   condition:
-  #     - active_loop: feedback_form
-  #   steps:
-  #     - action: feedback_form
-  #     - active_loop: null
-  #     - slot_was_set:
-  #         - requested_slot: null
-  #     - action: action_thanks_feedback
-  #     - action: utter_anything_else
 
   - rule: my feedback
     steps:
@@ -38,3 +28,11 @@ rules:
       - action: action_feedback_user
 
 
+  - rule: Ask knows claim if no loop
+    condition:
+    - active_loop: null
+    steps:
+    - intent: give_feedback
+    - slot_was_set:
+      - email_fill: null
+    - action: utter_ask_knows_abilities

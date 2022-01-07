@@ -480,7 +480,7 @@ class ActionProductSearch(Action):
             return [SlotSet(slot, None) for slot in slots_to_reset]
         else:
             # provide out of stock
-            text = f"No disponemos de ese producto en específico. Pero te revisar estos que también son bonitos..."
+            text = f"No disponemos de ese producto en específico pero puedes seguir buscando. Tengo bonitos modelos..."
             # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
             dispatcher.utter_message(text=text)
 
@@ -504,10 +504,13 @@ class ActionGoodbye(Action):
 
         if name:
             dispatcher.utter_message(
-                text=f"Hasta pronto {name}, fue un placer chatear contigo 🤗.")
+                text=f"Hasta pronto {name}, fue un placer chatear contigo 🤗.",
+                image="https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif"
+                )
         else:
             dispatcher.utter_message(
-                text=f"Chao, cuidate mucho, gracias por escribirme 😊.")
+                text=f"Chao, cuidate mucho, gracias por escribirme 😊."
+                image="https://media.giphy.com/media/GB0lKzzxIv1te/giphy.gif")
         return []
 
 
