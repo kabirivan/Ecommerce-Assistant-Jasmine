@@ -174,6 +174,7 @@ actions:
   - action_who_you_are
   - action_stop_clothes_form
   - action_stop_feedback_form
+  - action_introducing_me
 forms:
   clothes_form:
     ignored_intents:

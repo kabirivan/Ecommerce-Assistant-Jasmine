@@ -87,9 +87,10 @@ class ActionHelloWorld(Action):
         }
 
         email_fill = tracker.get_slot("email_fill")
+        feedback_fill = tracker.get_slot("email_fill")
         clothes_name_value = tracker.get_slot("clothes_name_value")
 
-        if email_fill == False:
+        if email_fill == False and feedback_fill is None:
             dispatcher.utter_message(
                 response="utter_complete_information"
             )
@@ -98,11 +99,66 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 text="Empecemos!"
             )
+
+        elif feedback_fill == True and clothes_name_value == False:
+            dispatcher.utter_message(
+                text="Empecemos!"
+            )
             # dispatcher.utter_message(attachment=message)
 
         # dispatcher.utter_message(attachment=message)
         # dispatcher.utter_message(text="Opciones")
         return [SlotSet("email_fill", True)]
+
+
+class ActionIntroducingMe(Action):
+    def name(self) -> Text:
+        return "action_introducing_me"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[EventType]:
+
+        message = {
+            "type": "template",
+            "payload": {
+                    "template_type": "generic",
+                    "elements": [
+                        {
+                            "title": "Mira lo que tengo para ti",
+                            "subtitle": "Ropa para niños y niñas",
+                            "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641417391/clothes_i3vsm0.png",
+                            "buttons": [
+                                {
+                                    "type": "postback",
+                                    "payload": "/request_clothes",
+                                    "title": "Ropita" + " " + "👕" + " . ",
+                                },
+                            ]
+                        },
+                        {
+                            "title": "¿Quién soy?",
+                            "subtitle": "Asistente de Compras",
+                            "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641417212/introducing_cialm6.png",
+                            "buttons": [
+                                {
+                                    "type": "web_url",
+                                    "url": "https://www.instagram.com/creacionesjasmina/",
+                                    "title": " Conóceme 👩🏻‍🦰 .",
+                                },
+                            ]
+                        },
+                    ],
+            },
+        }
+
+        dispatcher.utter_message(text="Empecemos!")
+        # dispatcher.utter_message(attachment=message)
+
+        return []
 
 
 class ValidateClothesForm(FormValidationAction):
@@ -411,10 +467,10 @@ class ActionProductSearch(Action):
             # dispatcher.utter_message(attachment=message)
             # text = f"No disponemos de ese producto en específico. Pero te revisar estos que también son bonitos..."
             # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
-            
+
             feedback_fill = tracker.get_slot("feedback_fill")
             if feedback_fill == False:
-                time.sleep(2)
+                time.sleep(5)
                 dispatcher.utter_message(response="utter_ask_feedback_value")
             # dispatcher.utter_message(text="Finish")
 
@@ -566,6 +622,7 @@ class ValidateFeedbackForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `feedback_value` value."""
         print('feedback_value', slot_value)
+
         if slot_value not in ['1', '2', '3', '4']:
             buttons = [{"title": 'Malo', "payload": '/give_feedback{{"feedback_value": "1"}}'}, {"title": 'Regular', "payload": '/give_feedback{{"feedback_value": "2"}}'},
                        {"title": 'Bueno', "payload": '/give_feedback{{"feedback_value": "3"}}'}, {"title": 'Excelente', "payload": '/give_feedback{{"feedback_value": "4"}}'}]
@@ -675,8 +732,6 @@ class ActionMyIntroduction(Action):
         return [SlotSet("clothes_name_value", False)]
 
 
-
-
 class ActionStopRequestClothes(Action):
     """Stops quote form and clears collected data."""
 
@@ -691,10 +746,10 @@ class ActionStopRequestClothes(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict]:
         """Executes the action"""
-        reset_slots = ["gender", "size", "color", "category", "clothes_name_value"]
+        reset_slots = ["gender", "size", "color",
+                       "category", "clothes_name_value"]
         # Reset the slot values.
         return [SlotSet(slot, None) for slot in reset_slots]
-
 
 
 class ActionStopRequestFeedback(Action):
