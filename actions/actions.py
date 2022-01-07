@@ -95,8 +95,9 @@ class ActionHelloWorld(Action):
             },
         }
 
-        dispatcher.utter_message(attachment=message)
-        return [SlotSet("email_fill", True)]
+        # dispatcher.utter_message(attachment=message)
+        dispatcher.utter_message(text="Opciones")
+        return []
 
 
 class ValidateClothesForm(FormValidationAction):
@@ -318,13 +319,13 @@ class AskForCategoryAction(Action):
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niñas 👧🏻:"
             )
-            dispatcher.utter_message(attachment=message_clothes_girls)
+            # dispatcher.utter_message(attachment=message_clothes_girls)
         else:
 
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niños 👦🏻:"
             )
-            dispatcher.utter_message(attachment=message_clothes_boys)
+            # dispatcher.utter_message(attachment=message_clothes_boys)
 
         return []
 
@@ -448,21 +449,22 @@ class ActionProductSearch(Action):
         }
 
         if clothes:
-            dispatcher.utter_message(attachment=message)
+            # dispatcher.utter_message(attachment=message)
             # text = f"No disponemos de ese producto en específico. Pero te revisar estos que también son bonitos..."
             # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
-            dispatcher.utter_message(response="utter_ask_feedback_value")
+            # dispatcher.utter_message(response="utter_ask_feedback_value")
+            dispatcher.utter_message(text="Finish")
 
-            slots_to_reset = ["gender", "size", "color", "category"]
+            slots_to_reset = ["gender", "size", "color", "category", "clothes_name_value"]
 
             return [SlotSet(slot, None) for slot in slots_to_reset]
         else:
             # provide out of stock
             text = f"No disponemos de ese producto en específico. Pero te revisar estos que también son bonitos..."
-            #buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
+            # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
             dispatcher.utter_message(text=text)
 
-            slots_to_reset = ["gender", "size", "color", "category"]
+            slots_to_reset = ["gender", "size", "color", "category", "clothes_name_value"]
             return [SlotSet(slot, None) for slot in slots_to_reset]
 
 
@@ -567,6 +569,24 @@ class ValidateNameForm(FormValidationAction):
 
         return {"first_name": tracker.get_slot("last_first_name")}
 
+    def validate_email(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `first_name` value."""
+
+        # If the name is super short, it might be wrong.
+
+        if len(slot_value) <= 1:
+            dispatcher.utter_message(
+                text=f"Parece que al correo le falta caracteres.")
+            return {"email": None}
+        else:
+            return {"email": slot_value, "email_fill": True}
+
 
 class ValidateFeedbackForm(FormValidationAction):
     def name(self) -> Text:
@@ -605,6 +625,7 @@ class ValidateFeedbackForm(FormValidationAction):
         if len(message) <= 5:
             dispatcher.utter_message(
                 text=f"La reseña es muy corta, ¿quiero saber que piensas de mi?.")
+            return {"feedback_message": None}
         return {"feedback_message": slot_value}
 
 
@@ -659,3 +680,31 @@ class ActionThanksFeedback(Action):
             text=f"Mensaje: {feedback_message}")
 
         return []
+
+
+class ActionMyIntroduction(Action):
+    def name(self) -> Text:
+        return "action_who_you_are"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        email_fill = tracker.get_slot("email_fill")
+        print('intent', tracker.get_intent_of_latest_message())
+        if tracker.get_intent_of_latest_message() == "request_clothes" and email_fill == False:
+            dispatcher.utter_message(
+                text=f"Antes de mostrarte la ropita quisiera presentarme.")
+            dispatcher.utter_message(
+                text=f"Mi nombre es Jasmine, soy un asistente de compras.")
+            return [SlotSet("clothes_name_value", True)]
+
+        elif tracker.get_intent_of_latest_message() == "request_clothes" and email_fill == True:
+            return [SlotSet("clothes_name_value", True)]
+
+        dispatcher.utter_message(
+                text=f"Mi nombre es Jasmine, soy un asistente de compras.")
+        return [SlotSet("clothes_name_value", False)]

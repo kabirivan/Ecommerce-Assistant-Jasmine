@@ -16,3 +16,11 @@ rules:
       - slot_was_set:
           - requested_slot: null
       - action: action_hello_world
+
+  - rule: Ask name if no loop
+    steps:
+      - intent: request_clothes
+      - action: action_who_you_are
+      - action: name_form
+      - active_loop: name_form
+

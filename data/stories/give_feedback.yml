@@ -32,6 +32,7 @@ stories:
     - action: utter_anything_else
     - intent: affirm
     - action: action_hello_world
+    
   - story: anything else deny
     steps:
     - action: utter_anything_else

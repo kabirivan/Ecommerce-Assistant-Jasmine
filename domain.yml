@@ -86,6 +86,10 @@ slots:
   find_product:
     type: bool
     influence_conversation: false
+  clothes_name_value:
+    type: bool
+    initial_value: false
+    influence_conversation: true
 responses:
   utter_greet:
     - text: Hola bienvenid@, es un gusto tenerte por aquí.
@@ -161,6 +165,7 @@ actions:
   - validate_feedback_form
   - action_thanks_feedback
   - action_feedback_user
+  - action_who_you_are
 forms:
   clothes_form:
     ignored_intents:
@@ -185,7 +190,9 @@ forms:
       color:
         - type: from_entity
           entity: color
+          intent: inform
         - type: from_text
+          intent: inform
           not_intent:
             - chichat
             - faq

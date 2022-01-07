@@ -1,20 +1,32 @@
-version: '2.0'
+# version: '2.0'
 
 rules:
   - rule: activate clothes form
     steps:
-      - intent: request_clothes
+      - action: action_hello_world
+      - slot_was_set:
+          - clothes_name_value: true
       - action: clothes_form
       - active_loop: clothes_form
 
-  - rule: submit form
+#   - rule: submit clothes form
+#     condition:
+#       - active_loop: clothes_form
+#     steps:
+#       - action: clothes_form
+#       - active_loop: null
+#       - slot_was_set:
+#           - requested_slot: null
+#       - action: utter_submit
+#       - action: utter_slots_values
+#       - action: action_product_search
+
+
+  - rule: Exit Clothes Form
     condition:
-      - active_loop: clothes_form
+    - active_loop: clothes_form
     steps:
-      - action: clothes_form
-      - active_loop: null
-      - slot_was_set:
-          - requested_slot: null
-      - action: utter_submit
-      - action: utter_slots_values
-      - action: action_product_search
+    - intent: stop
+    - action: action_deactivate_loop
+    - active_loop: null
+    - action: utter_anything_else

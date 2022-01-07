@@ -24,3 +24,40 @@ stories:
       - intent: deny
       - action: action_deactivate_loop
       - active_loop: null
+      - action: utter_anything_else
+
+
+  - story: request clothes with out name
+    steps:
+      - intent: request_clothes
+      - action: action_who_you_are
+      - action: name_form
+      - active_loop: name_form
+      - active_loop: null
+      - action: action_hello_world
+      
+
+  - story: request clothes with name
+    steps:
+    - action: action_hello_world
+    - slot_was_set:
+      - clothes_name_value: true
+    - action: clothes_form
+    - active_loop: clothes_form
+    - active_loop: null
+    - action: utter_submit
+    - action: utter_slots_values
+    - action: action_product_search
+
+  # - story: search clothes form + stop
+  #   steps:
+  #     - action: action_hello_world
+  #     - slot_was_set:
+  #       - clothes_name_value: true
+  #     - action: clothes_form
+  #     - active_loop: clothes_form
+  #     - intent: stop
+  #     - action: utter_ask_continue
+  #     - intent: deny
+  #     - action: action_deactivate_loop
+  #     - active_loop: null
