@@ -132,7 +132,7 @@ responses:
     - text: 'Tus palabras son valiosas para mi, por favor deja un mensaje/sugerencia para seguir mejorando.'
   utter_ask_feedback_value:
     - text: '¿Me gustaría saber si te gusto la experiencia?, ¿Puedes calificarme?'
-      quick_replies:
+      buttons:
         - title: Malo
           payload: '/give_feedback{{"feedback_value": "1"}}'
         - title: Regular
@@ -152,6 +152,9 @@ responses:
     - text: ¿Hay algo más que pueda ayudarte?
   utter_who_you_are:
     - text: Aún no nos hemos presentado. Mi nombre es Jasmine, tu asistente de compras.
+  utter_cancel_search_clothes:
+    - text: Tu búsqueda de ropa ha sido cancelada.
+
 
 actions:
   - action_ask_category
@@ -166,6 +169,7 @@ actions:
   - action_thanks_feedback
   - action_feedback_user
   - action_who_you_are
+  - action_stop_clothes_form
 forms:
   clothes_form:
     ignored_intents:

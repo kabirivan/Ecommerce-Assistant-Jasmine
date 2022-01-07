@@ -8,6 +8,8 @@ from rasa_sdk.executor import CollectingDispatcher
 from algoliasearch.search_client import SearchClient
 import requests
 import pathlib
+import time
+
 
 client = SearchClient.create("BQCT474121", "b72f4c8a6b93d0afc8221d06c66e1e66")
 index = client.init_index("dev_clothes_v2")
@@ -51,17 +53,6 @@ class ActionHelloWorld(Action):
 
         # print('input_channel', input_channel)
 
-        email_fill = tracker.get_slot("email_fill")
-        print('email_fill', email_fill)
-        if email_fill == False:
-            dispatcher.utter_message(
-                response="utter_complete_information"
-            )
-        else:
-            dispatcher.utter_message(
-                text="Empecemos!"
-            )
-
         message = {
             "type": "template",
             "payload": {
@@ -95,9 +86,23 @@ class ActionHelloWorld(Action):
             },
         }
 
+        email_fill = tracker.get_slot("email_fill")
+        clothes_name_value = tracker.get_slot("clothes_name_value")
+
+        if email_fill == False:
+            dispatcher.utter_message(
+                response="utter_complete_information"
+            )
+            # dispatcher.utter_message(attachment=message)
+        elif email_fill == True and clothes_name_value == False:
+            dispatcher.utter_message(
+                text="Empecemos!"
+            )
+            # dispatcher.utter_message(attachment=message)
+
         # dispatcher.utter_message(attachment=message)
-        dispatcher.utter_message(text="Opciones")
-        return []
+        # dispatcher.utter_message(text="Opciones")
+        return [SlotSet("email_fill", True)]
 
 
 class ValidateClothesForm(FormValidationAction):
@@ -269,52 +274,6 @@ class AskForCategoryAction(Action):
 
         gender = tracker.get_slot("gender")
 
-        # message = {
-        #     "text": "Pick a color:",
-        #     "quick_replies": [
-        #         {
-        #             "content_type": "text",
-        #             "title": "Red",
-        #             "payload": "<POSTBACK_PAYLOAD>",
-        #         },
-        #         {
-        #             "content_type": "text",
-        #             "title": "Green",
-        #             "payload": "<POSTBACK_PAYLOAD>",
-        #         },
-        #         {
-        #             "content_type": "text",
-        #             "title": "Green",
-        #             "payload": "<POSTBACK_PAYLOAD>",
-        #         },
-        #         {
-        #             "content_type": "text",
-        #             "title": "Green",
-        #             "payload": "<POSTBACK_PAYLOAD>",
-        #         },
-        #         {
-        #             "content_type": "text",
-        #             "title": "Green",
-        #             "payload": "<POSTBACK_PAYLOAD>",
-        #         },
-        #         {
-        #             "content_type": "text",
-        #             "title": "Green",
-        #             "payload": "<POSTBACK_PAYLOAD>",
-        #         },
-        #         {
-        #             "content_type": "text",
-        #             "title": "Green",
-        #             "payload": "<POSTBACK_PAYLOAD>",
-        #         },
-        #         {
-        #             "content_type": "text",
-        #             "title": "Green",
-        #             "payload": "<POSTBACK_PAYLOAD>",
-        #         },
-        #     ],
-        # }
-
         if gender == "niña":
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niñas 👧🏻:"
@@ -452,10 +411,13 @@ class ActionProductSearch(Action):
             # dispatcher.utter_message(attachment=message)
             # text = f"No disponemos de ese producto en específico. Pero te revisar estos que también son bonitos..."
             # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
-            # dispatcher.utter_message(response="utter_ask_feedback_value")
-            dispatcher.utter_message(text="Finish")
+            
+            time.sleep(2)
+            dispatcher.utter_message(response="utter_ask_feedback_value")
+            # dispatcher.utter_message(text="Finish")
 
-            slots_to_reset = ["gender", "size", "color", "category", "clothes_name_value"]
+            slots_to_reset = ["gender", "size", "color",
+                              "category", "clothes_name_value"]
 
             return [SlotSet(slot, None) for slot in slots_to_reset]
         else:
@@ -464,7 +426,8 @@ class ActionProductSearch(Action):
             # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
             dispatcher.utter_message(text=text)
 
-            slots_to_reset = ["gender", "size", "color", "category", "clothes_name_value"]
+            slots_to_reset = ["gender", "size", "color",
+                              "category", "clothes_name_value"]
             return [SlotSet(slot, None) for slot in slots_to_reset]
 
 
@@ -585,7 +548,7 @@ class ValidateNameForm(FormValidationAction):
                 text=f"Parece que al correo le falta caracteres.")
             return {"email": None}
         else:
-            return {"email": slot_value, "email_fill": True}
+            return {"email": slot_value}
 
 
 class ValidateFeedbackForm(FormValidationAction):
@@ -706,5 +669,26 @@ class ActionMyIntroduction(Action):
             return [SlotSet("clothes_name_value", True)]
 
         dispatcher.utter_message(
-                text=f"Mi nombre es Jasmine, soy un asistente de compras.")
+            text=f"Mi nombre es Jasmine, soy un asistente de compras.")
         return [SlotSet("clothes_name_value", False)]
+
+
+
+
+    class ActionStopRequestClothes(Action):
+        """Stops quote form and clears collected data."""
+
+        def name(self) -> Text:
+            """Unique identifier for the action."""
+            return "action_stop_clothes_form"
+
+        async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+        ) -> List[Dict]:
+            """Executes the action"""
+            reset_slots = ["gender", "size", "color", "category", "clothes_name_value"]
+            # Reset the slot values.
+            return [SlotSet(slot, None) for slot in reset_slots]

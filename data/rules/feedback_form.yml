@@ -10,16 +10,16 @@ rules:
       - action: feedback_form
       - active_loop: feedback_form
 
-  - rule: submit feedback form
-    condition:
-      - active_loop: feedback_form
-    steps:
-      - action: feedback_form
-      - active_loop: null
-      - slot_was_set:
-          - requested_slot: null
-      - action: action_thanks_feedback
-      - action: utter_anything_else
+  # - rule: submit feedback form
+  #   condition:
+  #     - active_loop: feedback_form
+  #   steps:
+  #     - action: feedback_form
+  #     - active_loop: null
+  #     - slot_was_set:
+  #         - requested_slot: null
+  #     - action: action_thanks_feedback
+  #     - action: utter_anything_else
 
   - rule: my feedback
     steps:

@@ -147,6 +147,8 @@ nlu:
     - [Genesis](PERSON)
     - [Carlos](PERSON)
     - [Sofia](PERSON)
+    - [Diego](PERSON)
+    - Me llamo [Juan Carlos](PERSON)
     - Me llamo [Kevin](PERSON)
     - Mi nombre es [Ivan](PERSON)
 
