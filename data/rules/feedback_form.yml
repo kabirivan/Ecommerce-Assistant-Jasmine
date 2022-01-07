@@ -10,6 +10,17 @@ rules:
       - action: feedback_form
       - active_loop: feedback_form
 
+  - rule: Exit Feedback Form
+    condition:
+    - active_loop: feedback_form
+    steps:
+    - intent: stop
+    - action: action_deactivate_loop
+    - active_loop: null
+    - action: action_stop_feedback_form
+    - action: utter_cancel_get_feedback
+    - action: utter_anything_else
+
   # - rule: submit feedback form
   #   condition:
   #     - active_loop: feedback_form

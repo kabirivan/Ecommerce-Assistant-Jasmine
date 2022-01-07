@@ -412,8 +412,10 @@ class ActionProductSearch(Action):
             # text = f"No disponemos de ese producto en específico. Pero te revisar estos que también son bonitos..."
             # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
             
-            time.sleep(2)
-            dispatcher.utter_message(response="utter_ask_feedback_value")
+            feedback_fill = tracker.get_slot("feedback_fill")
+            if feedback_fill == False:
+                time.sleep(2)
+                dispatcher.utter_message(response="utter_ask_feedback_value")
             # dispatcher.utter_message(text="Finish")
 
             slots_to_reset = ["gender", "size", "color",
@@ -675,20 +677,40 @@ class ActionMyIntroduction(Action):
 
 
 
-    class ActionStopRequestClothes(Action):
-        """Stops quote form and clears collected data."""
+class ActionStopRequestClothes(Action):
+    """Stops quote form and clears collected data."""
 
-        def name(self) -> Text:
-            """Unique identifier for the action."""
-            return "action_stop_clothes_form"
+    def name(self) -> Text:
+        """Unique identifier for the action."""
+        return "action_stop_clothes_form"
 
-        async def run(
-            self,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any],
-        ) -> List[Dict]:
-            """Executes the action"""
-            reset_slots = ["gender", "size", "color", "category", "clothes_name_value"]
-            # Reset the slot values.
-            return [SlotSet(slot, None) for slot in reset_slots]
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        """Executes the action"""
+        reset_slots = ["gender", "size", "color", "category", "clothes_name_value"]
+        # Reset the slot values.
+        return [SlotSet(slot, None) for slot in reset_slots]
+
+
+
+class ActionStopRequestFeedback(Action):
+    """Stops quote form and clears collected data."""
+
+    def name(self) -> Text:
+        """Unique identifier for the action."""
+        return "action_stop_feedback_form"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        """Executes the action"""
+        reset_slots = ["feedback_value", "feedback_message"]
+        # Reset the slot values.
+        return [SlotSet(slot, None) for slot in reset_slots]

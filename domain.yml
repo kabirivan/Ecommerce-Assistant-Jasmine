@@ -154,6 +154,9 @@ responses:
     - text: Aún no nos hemos presentado. Mi nombre es Jasmine, tu asistente de compras.
   utter_cancel_search_clothes:
     - text: Tu búsqueda de ropa ha sido cancelada.
+  utter_cancel_get_feedback:
+    - text: Bueno, será para una proxima ocasión.
+
 
 
 actions:
@@ -170,6 +173,7 @@ actions:
   - action_feedback_user
   - action_who_you_are
   - action_stop_clothes_form
+  - action_stop_feedback_form
 forms:
   clothes_form:
     ignored_intents:

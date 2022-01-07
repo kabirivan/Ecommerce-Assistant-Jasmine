@@ -17,10 +17,20 @@ rules:
           - requested_slot: null
       - action: action_hello_world
 
-  - rule: Ask name if no loop
+  - rule: Ask name if no clothes form
     steps:
       - intent: request_clothes
       - action: action_who_you_are
       - action: name_form
       - active_loop: name_form
 
+
+  # - rule: Ask name if no feedback form
+  #   condition:
+  #     - slot_was_set:
+  #       - feedback_fill: null
+  #   steps:
+  #     - intent: give_feedback
+  #     - action: action_who_you_are
+  #     - action: name_form
+  #     - active_loop: name_form
