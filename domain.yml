@@ -159,6 +159,9 @@ responses:
     - text: Tu búsqueda de ropa ha sido cancelada 😐.
   utter_cancel_get_feedback:
     - text: Bueno, será para una proxima ocasión ✌️.
+  
+  utter_feedack_already_fill:
+    - text: Ya has dejado una reseña sobre mi. Muchas gracias por tu colaboración.
 
   utter_ask_knows_abilities:
     - buttons:

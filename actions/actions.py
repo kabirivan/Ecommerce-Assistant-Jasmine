@@ -106,18 +106,6 @@ class ActionHelloWorld(Action):
             )
             #dispatcher.utter_message(attachment=message)
 
-        # elif email_fill == True and clothes_name_value == False:
-        #     dispatcher.utter_message(
-        #         text="Empecemos!"
-        #     )
-        #     dispatcher.utter_message(attachment=message)
-
-        # elif feedback_fill == True and clothes_name_value == False:
-        #     dispatcher.utter_message(
-        #         text="Empecemos!"
-        #     )
-        #     dispatcher.utter_message(attachment=message)
-
         # dispatcher.utter_message(attachment=message)
         # dispatcher.utter_message(text="Opciones")
         return [SlotSet("email_fill", True)]
