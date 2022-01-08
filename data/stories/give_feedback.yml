@@ -20,6 +20,7 @@ stories:
     steps:
       - action: utter_ask_knows_abilities
       - intent: affirm
+      - action: action_feedack_already_fill
       - action: name_form
       - active_loop: name_form
       - active_loop: null

@@ -38,11 +38,11 @@ rules:
     - action: utter_ask_knows_abilities
 
 
-  - rule: Ask feedback when is fill
-    condition:
-    - active_loop: null
-    steps:
-    - intent: give_feedback
-    - slot_was_set:
-      - feedback_fill: true
-    - action: utter_feedack_already_fill
+  # - rule: Ask feedback when is fill
+  #   condition:
+  #   - active_loop: null
+  #   steps:
+  #   - intent: give_feedback
+  #   - slot_was_set:
+  #     - feedback_fill: true
+  #   - action: utter_feedack_already_fill

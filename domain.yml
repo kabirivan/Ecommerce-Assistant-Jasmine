@@ -74,7 +74,7 @@ slots:
       - '4'
   feedback_fill:
     type: bool
-    initial_value: null
+    initial_value: true
     influence_conversation: true
   feedback_message:
     type: text
@@ -160,9 +160,6 @@ responses:
   utter_cancel_get_feedback:
     - text: Bueno, será para una proxima ocasión ✌️.
   
-  utter_feedack_already_fill:
-    - text: Ya has dejado una reseña sobre mi. Muchas gracias por tu colaboración.
-
   utter_ask_knows_abilities:
     - buttons:
         - payload: /affirm
@@ -187,6 +184,7 @@ actions:
   - action_stop_clothes_form
   - action_stop_feedback_form
   - action_introducing_me
+  - action_feedack_already_fill
 forms:
   clothes_form:
     ignored_intents:

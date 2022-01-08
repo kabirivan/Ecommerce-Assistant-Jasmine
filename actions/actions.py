@@ -9,6 +9,11 @@ from algoliasearch.search_client import SearchClient
 import requests
 import pathlib
 import time
+from actions.utils import get_html_data, send_email
+
+
+this_path = pathlib.Path(os.path.realpath(__file__))
+email_content = get_html_data(f"{this_path.parent}/user_email.html")
 
 
 client = SearchClient.create("BQCT474121", "b72f4c8a6b93d0afc8221d06c66e1e66")
@@ -474,21 +479,17 @@ class ActionProductSearch(Action):
                 dispatcher.utter_message(response="utter_ask_feedback_value")
             else:
                 dispatcher.utter_message(text="Tu reseña ya ha sido almacenada.")
-            # dispatcher.utter_message(text="Finish")
 
-            slots_to_reset = ["gender", "size", "color",
-                              "category", "clothes_name_value"]
-
-            return [SlotSet(slot, None) for slot in slots_to_reset]
         else:
             # provide out of stock
             text = f"No disponemos de ese producto en específico pero puedes seguir buscando. Tengo bonitos modelos..."
             # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
             dispatcher.utter_message(text=text)
+            dispatcher.utter_message(response="utter_anything_else")
 
-            slots_to_reset = ["gender", "size", "color",
+        slots_to_reset = ["gender", "size", "color",
                               "category", "clothes_name_value"]
-            return [SlotSet(slot, None) for slot in slots_to_reset]
+        return [SlotSet(slot, None) for slot in slots_to_reset]
 
 
 class ActionGoodbye(Action):
@@ -671,11 +672,13 @@ class ActionThanksFeedback(Action):
     ) -> List[Dict[Text, Any]]:
 
         feedback_fill = tracker.get_slot("feedback_fill")
+        email = tracker.get_slot("email")
         print('message', tracker.get_slot("feedback_message"))
 
         if feedback_fill is None:
             dispatcher.utter_message(text=f"Gracias por tu reseña, con esto puedo seguir mejorando cada vez más.",
                                      image="https://media.giphy.com/media/Guccz4Oq87bncsm1j4/giphy-downsized.gif")
+            send_email("Gracias por tu aporte al desarrollo tecnológico", email, email_content)
             return [SlotSet('feedback_fill', True)]
 
         dispatcher.utter_message(
@@ -777,3 +780,24 @@ class ActionStopRequestFeedback(Action):
         reset_slots = ["feedback_value", "feedback_message"]
         # Reset the slot values.
         return [SlotSet(slot, None) for slot in reset_slots]
+
+
+
+
+class ActionReviewFeedbackFill(Action):
+    def name(self) -> Text:
+        return "action_feedack_already_fill"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        feedback_fill = tracker.get_slot("feedback_fill")
+
+        if feedback_fill is True:
+            dispatcher.utter_message(
+                text=f"Tú ya me has dejado un mensajito para mejorar, pero puedes seguir buscando más ropa.")
+        return []
