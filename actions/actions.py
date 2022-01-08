@@ -95,17 +95,28 @@ class ActionHelloWorld(Action):
                 response="utter_complete_information"
             )
             #dispatcher.utter_message(attachment=message)
-        elif email_fill == True and clothes_name_value == False:
+
+        elif clothes_name_value == True:
+            dispatcher.utter_message(
+                text="Aquí vamos!"
+            )
+        else:
             dispatcher.utter_message(
                 text="Empecemos!"
             )
             #dispatcher.utter_message(attachment=message)
 
-        elif feedback_fill == True and clothes_name_value == False:
-            dispatcher.utter_message(
-                text="Empecemos!"
-            )
-            #dispatcher.utter_message(attachment=message)
+        # elif email_fill == True and clothes_name_value == False:
+        #     dispatcher.utter_message(
+        #         text="Empecemos!"
+        #     )
+        #     dispatcher.utter_message(attachment=message)
+
+        # elif feedback_fill == True and clothes_name_value == False:
+        #     dispatcher.utter_message(
+        #         text="Empecemos!"
+        #     )
+        #     dispatcher.utter_message(attachment=message)
 
         # dispatcher.utter_message(attachment=message)
         # dispatcher.utter_message(text="Opciones")
@@ -470,9 +481,11 @@ class ActionProductSearch(Action):
             # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
 
             feedback_fill = tracker.get_slot("feedback_fill")
-            if feedback_fill == False:
+            if feedback_fill is None:
                 #time.sleep(10)
                 dispatcher.utter_message(response="utter_ask_feedback_value")
+            else:
+                dispatcher.utter_message(text="Tu reseña ya ha sido almacenada.")
             # dispatcher.utter_message(text="Finish")
 
             slots_to_reset = ["gender", "size", "color",
@@ -672,8 +685,8 @@ class ActionThanksFeedback(Action):
         feedback_fill = tracker.get_slot("feedback_fill")
         print('message', tracker.get_slot("feedback_message"))
 
-        if feedback_fill == False:
-            dispatcher.utter_message(text=f"Gracias por tu reseña, es muy importante para mi mejoramiento.",
+        if feedback_fill is None:
+            dispatcher.utter_message(text=f"Gracias por tu reseña, con esto puedo seguir mejorando cada vez más.",
                                      image="https://media.giphy.com/media/Guccz4Oq87bncsm1j4/giphy-downsized.gif")
             return [SlotSet('feedback_fill', True)]
 
@@ -697,7 +710,7 @@ class ActionThanksFeedback(Action):
         feedback_fill = tracker.get_slot("feedback_fill")
         print('feedback_fill', feedback_fill)
 
-        if feedback_fill == False:
+        if feedback_fill is None:
             dispatcher.utter_message(
                 text=f"Aún no has dejado una reseña.")
             dispatcher.utter_message(response="utter_ask_feedback_value")

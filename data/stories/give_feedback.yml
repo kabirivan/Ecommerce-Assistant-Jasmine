@@ -25,6 +25,7 @@ stories:
       - active_loop: null
       - action: action_hello_world
 
+
   - story: if user doesn't know my abilities.
     steps:
       - action: utter_ask_knows_abilities
