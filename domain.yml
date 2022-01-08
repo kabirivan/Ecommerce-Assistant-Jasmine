@@ -156,15 +156,15 @@ responses:
   utter_cancel_search_clothes:
     - text: Tu búsqueda de ropa ha sido cancelada 😐.
   utter_cancel_get_feedback:
-    - text: Bueno, será para una proxima ocasión ✌️. 
+    - text: Bueno, será para una proxima ocasión ✌️.
 
   utter_ask_knows_abilities:
-  - buttons:
-    - payload: /affirm
-      title: Sí 👍.
-    - payload: /deny
-      title: No 👎.
-    text: Primero necesitas probar mis habilidades. ¿Quiéres intentarlo?
+    - buttons:
+        - payload: /affirm
+          title: Sí 👍.
+        - payload: /deny
+          title: No 👎.
+      text: Primero necesitas probar mis habilidades. ¿Quiéres intentarlo?
 
 actions:
   - action_ask_category
@@ -221,8 +221,7 @@ forms:
       - faq
     required_slots:
       first_name:
-        - entity: PERSON
-          type: from_entity
+        - type: from_text
       email:
         - entity: email
           type: from_entity
