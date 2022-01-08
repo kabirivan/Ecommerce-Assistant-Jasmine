@@ -475,7 +475,7 @@ class ActionProductSearch(Action):
 
             feedback_fill = tracker.get_slot("feedback_fill")
             if feedback_fill is None:
-                #time.sleep(10)
+                time.sleep(10)
                 dispatcher.utter_message(response="utter_ask_feedback_value")
             else:
                 dispatcher.utter_message(text="Tu reseña ya ha sido almacenada.")
@@ -678,7 +678,9 @@ class ActionThanksFeedback(Action):
         if feedback_fill is None:
             dispatcher.utter_message(text=f"Gracias por tu reseña, con esto puedo seguir mejorando cada vez más.",
                                      image="https://media.giphy.com/media/Guccz4Oq87bncsm1j4/giphy-downsized.gif")
-            send_email("Gracias por tu aporte al desarrollo tecnológico", email, email_content)
+
+            dispatcher.utter_message(text=f"Pronto, recibirás un correo de agradecimiento")
+            # send_email("Gracias por tu aporte al desarrollo tecnológico", email, email_content)
             return [SlotSet('feedback_fill', True)]
 
         dispatcher.utter_message(
