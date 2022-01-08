@@ -84,8 +84,10 @@ slots:
     type: bool
     initial_value: null
     influence_conversation: false
-  find_product:
-    type: bool
+  count_find_product:
+    type: float
+    min_value: 0.0
+    max_value: 3.0
     influence_conversation: false
   clothes_name_value:
     type: bool
@@ -159,7 +161,7 @@ responses:
     - text: Tu búsqueda de ropa ha sido cancelada 😐.
   utter_cancel_get_feedback:
     - text: Bueno, será para una proxima ocasión ✌️.
-  
+
   utter_ask_knows_abilities:
     - buttons:
         - payload: /affirm

@@ -135,6 +135,8 @@ nlu:
     - 5
     - 7
     - 1
+    - quiero seguir buscando ropa
+    - quiero seguir buscando
 - intent: request_clothes_price
   examples: |
     - quiero comprar ropa que cueste [menos](comparator) de 25 dolares

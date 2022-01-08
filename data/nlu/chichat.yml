@@ -60,6 +60,7 @@ nlu:
     - estoy decepcionado
     - estoy muy triste
     - no tuve un buen dia
+    - :(
 - intent: chitchat/mood_great
   examples: |
     - perfecto
@@ -78,6 +79,8 @@ nlu:
     - super
     - super bien
     - buen
+    - XD
+    - :)
 - intent: chitchat/capabilities
   examples: |
     - que no más puedes hacer?

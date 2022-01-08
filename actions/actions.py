@@ -99,7 +99,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 response="utter_complete_information"
             )
-            #dispatcher.utter_message(attachment=message)
+            dispatcher.utter_message(attachment=message)
 
         elif clothes_name_value == True:
             dispatcher.utter_message(
@@ -109,10 +109,8 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 text="Empecemos!"
             )
-            #dispatcher.utter_message(attachment=message)
+            dispatcher.utter_message(attachment=message)
 
-        # dispatcher.utter_message(attachment=message)
-        # dispatcher.utter_message(text="Opciones")
         return [SlotSet("email_fill", True)]
 
 
@@ -161,7 +159,7 @@ class ActionIntroducingMe(Action):
         }
 
         dispatcher.utter_message(text="Mira, esto es para ti!")
-        #dispatcher.utter_message(attachment=message)
+        dispatcher.utter_message(attachment=message)
 
         return []
 
@@ -281,7 +279,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Lo siento eso no tenemos, pero te cuento que contamos con los siguientes tipos de ropa para niñas:",
                 )
-                #dispatcher.utter_message(attachment=message_clothes_girls)
+                dispatcher.utter_message(attachment=message_clothes_girls)
 
                 return {"category": None}
             else:
@@ -293,7 +291,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Te cuento que contamos con los siguientes tipos de ropa para niños:"
                 )
-                #dispatcher.utter_message(attachment=message_clothes_boys)
+                dispatcher.utter_message(attachment=message_clothes_boys)
                 return {"category": None}
             else:
                 dispatcher.utter_message(text=f"Excelente elección 👍🏻")
@@ -339,13 +337,13 @@ class AskForCategoryAction(Action):
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niñas 👧🏻:"
             )
-            #dispatcher.utter_message(attachment=message_clothes_girls)
+            dispatcher.utter_message(attachment=message_clothes_girls)
         else:
 
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niños 👦🏻:"
             )
-            #dispatcher.utter_message(attachment=message_clothes_boys)
+            dispatcher.utter_message(attachment=message_clothes_boys)
 
         return []
 
@@ -469,16 +467,25 @@ class ActionProductSearch(Action):
         }
 
         if clothes:
-            #dispatcher.utter_message(attachment=message) #Show respuestas
-            # text = f"No disponemos de ese producto en específico. Pero te revisar estos que también son bonitos..."
-            # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
+            dispatcher.utter_message(attachment=message)  # Show respuestas
 
             feedback_fill = tracker.get_slot("feedback_fill")
-            if feedback_fill is None:
-                time.sleep(10)
-                dispatcher.utter_message(response="utter_ask_feedback_value")
+            count_find_product = tracker.get_slot("count_find_product")
+
+            if count_find_product <= 3:
+                result_finds = 3 - count_find_product
+                update_count = count_find_product + 1
+                dispatcher.utter_message(
+                    text=f"Debes buscar por lo menos {result_finds} para dejar un comentario")
+                SlotSet("count_find_product", update_count)
             else:
-                dispatcher.utter_message(text="Tu reseña ya ha sido almacenada.")
+                if feedback_fill is None:
+                    time.sleep(5)
+                    dispatcher.utter_message(
+                        response="utter_ask_feedback_value")
+                else:
+                    dispatcher.utter_message(
+                        text="Tu reseña ya ha sido almacenada.")
 
         else:
             # provide out of stock
@@ -487,9 +494,15 @@ class ActionProductSearch(Action):
             dispatcher.utter_message(text=text)
             dispatcher.utter_message(response="utter_anything_else")
 
-        slots_to_reset = ["gender", "size", "color",
-                              "category", "clothes_name_value"]
-        return [SlotSet(slot, None) for slot in slots_to_reset]
+        slots_to_reset = {
+            "gender": None,
+            "size": None,
+            "color": None,
+            "category": None,
+            "clothes_name_value": None,
+        }
+
+        return [SlotSet(k, v) for k, v in slots_to_reset.items()]
 
 
 class ActionGoodbye(Action):
@@ -509,14 +522,14 @@ class ActionGoodbye(Action):
             dispatcher.utter_message(
                 text=f"Hasta pronto {name}, fue un placer chatear contigo 🤗.",
                 image="https://media.giphy.com/media/jUwpNzg9IcyrK/giphy.gif"
-                )
+            )
         else:
             dispatcher.utter_message(
                 text=f"Chao, cuidate mucho, gracias por escribirme 😊.",
                 image="https://media.giphy.com/media/GB0lKzzxIv1te/giphy.gif")
 
         slots_to_reset = ["gender", "size", "color",
-                              "category", "clothes_name_value"]
+                          "category", "clothes_name_value"]
         return [SlotSet(slot, None) for slot in slots_to_reset]
 
 
@@ -632,9 +645,9 @@ class ValidateFeedbackForm(FormValidationAction):
         """Validate `feedback_value` value."""
         print('feedback_value', slot_value)
 
-        if slot_value not in ['1', '2', '3', '4']:
+        if slot_value not in ['1', '2', '3', '4', '5']:
             buttons = [{"title": 'Malo', "payload": '/give_feedback{{"feedback_value": "1"}}'}, {"title": 'Regular', "payload": '/give_feedback{{"feedback_value": "2"}}'},
-                       {"title": 'Bueno', "payload": '/give_feedback{{"feedback_value": "3"}}'}, {"title": 'Excelente', "payload": '/give_feedback{{"feedback_value": "4"}}'}]
+                       {"title": 'Bueno', "payload": '/give_feedback{{"feedback_value": "3"}}'}, {"title": 'Muy Bueno', "payload": '/give_feedback{{"feedback_value": "4"}}'}, {"title": 'Excelente', "payload": '/give_feedback{{"feedback_value": "5"}}'}]
             dispatcher.utter_message(
                 text=f"La valoración que mencionas no existe. Por favor selecciona una de las siguientes valoraciones:", buttons=buttons)
             return {"feedback_value": None}
@@ -679,7 +692,8 @@ class ActionThanksFeedback(Action):
             dispatcher.utter_message(text=f"Gracias por tu reseña, con esto puedo seguir mejorando cada vez más.",
                                      image="https://media.giphy.com/media/Guccz4Oq87bncsm1j4/giphy-downsized.gif")
 
-            dispatcher.utter_message(text=f"Pronto, recibirás un correo de agradecimiento")
+            dispatcher.utter_message(
+                text=f"Pronto, recibirás un correo de agradecimiento")
             # send_email("Gracias por tu aporte al desarrollo tecnológico", email, email_content)
             return [SlotSet('feedback_fill', True)]
 
@@ -782,8 +796,6 @@ class ActionStopRequestFeedback(Action):
         reset_slots = ["feedback_value", "feedback_message"]
         # Reset the slot values.
         return [SlotSet(slot, None) for slot in reset_slots]
-
-
 
 
 class ActionReviewFeedbackFill(Action):
