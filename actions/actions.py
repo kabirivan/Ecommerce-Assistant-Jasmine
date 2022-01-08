@@ -90,21 +90,22 @@ class ActionHelloWorld(Action):
         feedback_fill = tracker.get_slot("email_fill")
         clothes_name_value = tracker.get_slot("clothes_name_value")
 
-        if email_fill == False and feedback_fill is None:
+        if email_fill is None and feedback_fill is None:
             dispatcher.utter_message(
                 response="utter_complete_information"
             )
-            # dispatcher.utter_message(attachment=message)
+            #dispatcher.utter_message(attachment=message)
         elif email_fill == True and clothes_name_value == False:
             dispatcher.utter_message(
                 text="Empecemos!"
             )
+            #dispatcher.utter_message(attachment=message)
 
         elif feedback_fill == True and clothes_name_value == False:
             dispatcher.utter_message(
                 text="Empecemos!"
             )
-            # dispatcher.utter_message(attachment=message)
+            #dispatcher.utter_message(attachment=message)
 
         # dispatcher.utter_message(attachment=message)
         # dispatcher.utter_message(text="Opciones")
@@ -155,8 +156,8 @@ class ActionIntroducingMe(Action):
             },
         }
 
-        dispatcher.utter_message(text="Empecemos!")
-        # dispatcher.utter_message(attachment=message)
+        dispatcher.utter_message(text="Mira, esto es para ti!")
+        #dispatcher.utter_message(attachment=message)
 
         return []
 
@@ -276,7 +277,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Lo siento eso no tenemos, pero te cuento que contamos con los siguientes tipos de ropa para niñas:",
                 )
-                dispatcher.utter_message(attachment=message_clothes_girls)
+                #dispatcher.utter_message(attachment=message_clothes_girls)
 
                 return {"category": None}
             else:
@@ -288,7 +289,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Te cuento que contamos con los siguientes tipos de ropa para niños:"
                 )
-                dispatcher.utter_message(attachment=message_clothes_boys)
+                #dispatcher.utter_message(attachment=message_clothes_boys)
                 return {"category": None}
             else:
                 dispatcher.utter_message(text=f"Excelente elección 👍🏻")
@@ -334,13 +335,13 @@ class AskForCategoryAction(Action):
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niñas 👧🏻:"
             )
-            # dispatcher.utter_message(attachment=message_clothes_girls)
+            #dispatcher.utter_message(attachment=message_clothes_girls)
         else:
 
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niños 👦🏻:"
             )
-            # dispatcher.utter_message(attachment=message_clothes_boys)
+            #dispatcher.utter_message(attachment=message_clothes_boys)
 
         return []
 
@@ -464,13 +465,13 @@ class ActionProductSearch(Action):
         }
 
         if clothes:
-            # dispatcher.utter_message(attachment=message)
+            #dispatcher.utter_message(attachment=message) #Show respuestas
             # text = f"No disponemos de ese producto en específico. Pero te revisar estos que también son bonitos..."
             # buttons = [{"title": 'Ver más', "payload": '/action_more_productos'}, {"title": 'No gracias', "payload": 'utter_chitchat/thanks'}]
 
             feedback_fill = tracker.get_slot("feedback_fill")
             if feedback_fill == False:
-                time.sleep(5)
+                #time.sleep(10)
                 dispatcher.utter_message(response="utter_ask_feedback_value")
             # dispatcher.utter_message(text="Finish")
 
@@ -509,9 +510,12 @@ class ActionGoodbye(Action):
                 )
         else:
             dispatcher.utter_message(
-                text=f"Chao, cuidate mucho, gracias por escribirme 😊."
+                text=f"Chao, cuidate mucho, gracias por escribirme 😊.",
                 image="https://media.giphy.com/media/GB0lKzzxIv1te/giphy.gif")
-        return []
+
+        slots_to_reset = ["gender", "size", "color",
+                              "category", "clothes_name_value"]
+        return [SlotSet(slot, None) for slot in slots_to_reset]
 
 
 class ValidateNameForm(FormValidationAction):
@@ -670,7 +674,7 @@ class ActionThanksFeedback(Action):
 
         if feedback_fill == False:
             dispatcher.utter_message(text=f"Gracias por tu reseña, es muy importante para mi mejoramiento.",
-                                     image="https://media.giphy.com/media/BYoRqTmcgzHcL9TCy1/giphy.gif")
+                                     image="https://media.giphy.com/media/Guccz4Oq87bncsm1j4/giphy-downsized.gif")
             return [SlotSet('feedback_fill', True)]
 
         dispatcher.utter_message(
@@ -720,7 +724,7 @@ class ActionMyIntroduction(Action):
 
         email_fill = tracker.get_slot("email_fill")
         print('intent', tracker.get_intent_of_latest_message())
-        if tracker.get_intent_of_latest_message() == "request_clothes" and email_fill == False:
+        if tracker.get_intent_of_latest_message() == "request_clothes" and email_fill is None:
             dispatcher.utter_message(
                 text=f"Antes de mostrarte la ropita quisiera presentarme.")
             dispatcher.utter_message(

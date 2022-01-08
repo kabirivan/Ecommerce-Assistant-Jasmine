@@ -111,7 +111,7 @@ responses:
          - Edad: {size}
          - Color: {color}
   utter_ask_first_name:
-    - text: ¿Cúal es tu nombre?
+    - text: ¿Cuál es tu nombre?
   utter_ask_email:
     - text: '{first_name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo 🍻🍺, ¿Me puedes ayudar con tu correo por favor?'
   utter_complete_information:
@@ -132,7 +132,7 @@ responses:
   utter_ask_feedback_message:
     - text: 'Tus palabras son valiosas para mi, por favor deja un mensaje/sugerencia para seguir mejorando.'
   utter_ask_feedback_value:
-    - text: '¿Me gustaría saber si te gusto la experiencia? 👩‍💻, ¿Puedes calificarme? 📝'
+    - text: '¿Me gustaría saber si te gustó la experiencia? 👩‍💻, ¿Puedes calificarme? 📝'
       buttons:
         - title: Malo
           payload: '/give_feedback{{"feedback_value": "1"}}'
