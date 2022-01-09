@@ -17,7 +17,18 @@ base_id = os.getenv('BASE_ID')
 table_name = os.getenv('TABLE_NAME')
 api_key_airtable = os.getenv('API_KEY_AIRTABLE')
 
+date = datetime.datetime.now().isoformat()
 table = Table(api_key_airtable, base_id, table_name)
+
+# new_record = {
+#         "name": 'ivan',
+#         "email": 'email@gmail.com',
+#         "feedback_value": int('3'),
+#         "feedback_message": 'funciona',
+#         "created_at": date
+#     }
+
+# table.create(new_record)
 
 
 this_path = pathlib.Path(os.path.realpath(__file__))
@@ -108,7 +119,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 response="utter_complete_information"
             )
-            # dispatcher.utter_message(attachment=message)
+            dispatcher.utter_message(attachment=message)
 
         elif clothes_name_value == True:
             dispatcher.utter_message(
@@ -118,7 +129,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 text="Empecemos!"
             )
-            # dispatcher.utter_message(attachment=message)
+            dispatcher.utter_message(attachment=message)
 
         return [SlotSet("email_fill", True)]
 
@@ -168,7 +179,7 @@ class ActionIntroducingMe(Action):
         }
 
         dispatcher.utter_message(text="Mira, esto es para ti!")
-        # dispatcher.utter_message(attachment=message)
+        dispatcher.utter_message(attachment=message)
 
         return []
 
@@ -293,7 +304,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Lo siento eso no tenemos, pero te cuento que contamos con los siguientes tipos de ropa para niñas:",
                 )
-                # dispatcher.utter_message(attachment=message_clothes_girls)
+                dispatcher.utter_message(attachment=message_clothes_girls)
 
                 return {"category": None}
             else:
@@ -305,7 +316,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Te cuento que contamos con los siguientes tipos de ropa para niños:"
                 )
-                # dispatcher.utter_message(attachment=message_clothes_boys)
+                dispatcher.utter_message(attachment=message_clothes_boys)
                 return {"category": None}
             else:
                 dispatcher.utter_message(text=f"Excelente elección 👍🏻")
@@ -354,13 +365,13 @@ class AskForCategoryAction(Action):
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niñas 👧🏻:"
             )
-            # dispatcher.utter_message(attachment=message_clothes_girls)
+            dispatcher.utter_message(attachment=message_clothes_girls)
         else:
 
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niños 👦🏻:"
             )
-            # dispatcher.utter_message(attachment=message_clothes_boys)
+            dispatcher.utter_message(attachment=message_clothes_boys)
 
         return []
 
@@ -484,7 +495,7 @@ class ActionProductSearch(Action):
         }
 
         if clothes:
-            # dispatcher.utter_message(attachment=message)  # Show respuestas
+            dispatcher.utter_message(attachment=message)  # Show respuestas
 
             feedback_fill = tracker.get_slot("feedback_fill")
             count_find_product = tracker.get_slot("count_find_product")
@@ -514,8 +525,7 @@ class ActionProductSearch(Action):
                     dispatcher.utter_message(
                         response="utter_ask_feedback_value")
                 else:
-                    dispatcher.utter_message(
-                        text="Tu reseña ya ha sido almacenada.")
+                    dispatcher.utter_message(response="utter_anything_else")
 
                     slots_to_reset = {
                         "gender": None,
@@ -737,7 +747,7 @@ class ActionThanksFeedback(Action):
             new_record = {
                     "name": tracker.get_slot("first_name"),
                     "email": email,
-                    "feedback_value": tracker.get_slot("feedback_value"),
+                    "feedback_value": int(tracker.get_slot("feedback_value")),
                     "feedback_message": tracker.get_slot("feedback_message"),
                     "created_at": date
                 }
