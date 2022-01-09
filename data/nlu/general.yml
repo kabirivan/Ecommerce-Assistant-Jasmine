@@ -85,6 +85,7 @@ nlu:
     - no gracias
     - mmm no
     - no quiero
+    - no por el momento
 
 - intent: goodbye
   examples: |
@@ -124,6 +125,8 @@ nlu:
     - no quiero comprar ropa
     - ya no quiero
     - no quiero continuar
+    - basta
+    - hasta ahi no mas
 
 - intent: give_name
   examples: |
@@ -151,6 +154,8 @@ nlu:
     - Me llamo [Juan Carlos](PERSON)
     - Me llamo [Kevin](PERSON)
     - Mi nombre es [Ivan](PERSON)
+    - email@gmail.com
+    - xavier@hotmail.com
 
 - intent: give_feedback
   examples: |

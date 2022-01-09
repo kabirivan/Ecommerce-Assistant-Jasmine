@@ -19,7 +19,9 @@ rules:
 
   - rule: Ask name if no clothes form
     steps:
-      - intent: request_clothes
+      - or:
+        - intent: request_clothes
+        - intent: inform
       - action: action_who_you_are
       - action: name_form
       - active_loop: name_form

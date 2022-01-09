@@ -210,6 +210,7 @@ nlu:
     - [rosada](color)
     - [morado](color)
     - [morada](color)
+    - [celeste](color)
 - synonym: menor
   examples: |
     - tengo

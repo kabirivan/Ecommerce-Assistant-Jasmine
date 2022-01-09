@@ -2,7 +2,9 @@ version: '2.0'
 stories:
   - story: request clothes with out name
     steps:
-      - intent: request_clothes
+      - or:
+        - intent: inform
+        - intent: request_clothes
       - action: action_who_you_are
       - action: name_form
       - active_loop: name_form
@@ -17,6 +19,8 @@ stories:
       - action: clothes_form
       - active_loop: clothes_form
       - active_loop: null
+      - slot_was_set:
+        - requested_slot: null
       - action: utter_submit
       - action: utter_slots_values
       - action: action_product_search

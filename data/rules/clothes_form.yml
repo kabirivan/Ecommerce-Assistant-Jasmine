@@ -9,19 +9,31 @@ rules:
       - action: clothes_form
       - active_loop: clothes_form
 
+  - rule: submit form
+    condition:
+      - active_loop: clothes_form
+    steps:
+      - action: clothes_form
+      - active_loop: null
+      - slot_was_set:
+        - requested_slot: null
+      - action: utter_submit
+      - action: utter_slots_values
+      - action: action_product_search
+
   - rule: Exit Clothes Form
     condition:
       - active_loop: clothes_form
       - slot_was_set:
           - clothes_name_value: true
     steps:
-      - intent: stop
+      - or:
+          - intent: stop
       - action: action_deactivate_loop
       - active_loop: null
       - action: action_stop_clothes_form
       - action: utter_cancel_search_clothes
       - action: utter_anything_else
-
   # - rule: when default fallback
   #   steps:
   #     - action: action_default_fallback

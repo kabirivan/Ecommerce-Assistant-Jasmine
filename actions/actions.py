@@ -99,7 +99,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 response="utter_complete_information"
             )
-            dispatcher.utter_message(attachment=message)
+            #dispatcher.utter_message(attachment=message)
 
         elif clothes_name_value == True:
             dispatcher.utter_message(
@@ -109,7 +109,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 text="Empecemos!"
             )
-            dispatcher.utter_message(attachment=message)
+            #dispatcher.utter_message(attachment=message)
 
         return [SlotSet("email_fill", True)]
 
@@ -159,7 +159,7 @@ class ActionIntroducingMe(Action):
         }
 
         dispatcher.utter_message(text="Mira, esto es para ti!")
-        dispatcher.utter_message(attachment=message)
+        #dispatcher.utter_message(attachment=message)
 
         return []
 
@@ -211,6 +211,11 @@ class ValidateClothesForm(FormValidationAction):
         intent_name = tracker.latest_message["intent"]["name"]
         if intent_name == "deny":
             return {"color": "no"}
+
+        if intent_name == "affirm":
+            dispatcher.utter_message(
+                text=f"Esto es lo que tengo para ti."
+            )
 
         if gender == "niña":
             if clothes_type == "legging" and slot_value.lower() not in MOCK_DATA["ALLOWED_COLORS_GIRLS_LEGGINGS"]:
@@ -279,7 +284,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Lo siento eso no tenemos, pero te cuento que contamos con los siguientes tipos de ropa para niñas:",
                 )
-                dispatcher.utter_message(attachment=message_clothes_girls)
+                #dispatcher.utter_message(attachment=message_clothes_girls)
 
                 return {"category": None}
             else:
@@ -291,7 +296,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Te cuento que contamos con los siguientes tipos de ropa para niños:"
                 )
-                dispatcher.utter_message(attachment=message_clothes_boys)
+                #dispatcher.utter_message(attachment=message_clothes_boys)
                 return {"category": None}
             else:
                 dispatcher.utter_message(text=f"Excelente elección 👍🏻")
@@ -337,13 +342,13 @@ class AskForCategoryAction(Action):
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niñas 👧🏻:"
             )
-            dispatcher.utter_message(attachment=message_clothes_girls)
+            #dispatcher.utter_message(attachment=message_clothes_girls)
         else:
 
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niños 👦🏻:"
             )
-            dispatcher.utter_message(attachment=message_clothes_boys)
+            #dispatcher.utter_message(attachment=message_clothes_boys)
 
         return []
 
@@ -467,17 +472,30 @@ class ActionProductSearch(Action):
         }
 
         if clothes:
-            dispatcher.utter_message(attachment=message)  # Show respuestas
+            #dispatcher.utter_message(attachment=message)  # Show respuestas
 
             feedback_fill = tracker.get_slot("feedback_fill")
             count_find_product = tracker.get_slot("count_find_product")
+            print('count_find_product', count_find_product)
 
-            if count_find_product <= 3:
-                result_finds = 3 - count_find_product
+            if count_find_product < 2.0:
+                result_finds = 2.0 - count_find_product
                 update_count = count_find_product + 1
                 dispatcher.utter_message(
-                    text=f"Debes buscar por lo menos {result_finds} para dejar un comentario")
-                SlotSet("count_find_product", update_count)
+                    text=f"Debes buscar por lo menos {int(result_finds)} veces para dejar un comentario")
+                dispatcher.utter_message(response="utter_anything_else")
+
+                slots_to_reset = {
+                    "gender": None,
+                    "size": None,
+                    "color": None,
+                    "category": None,
+                    "clothes_name_value": None,
+                    "count_find_product": update_count
+                }
+
+                return [SlotSet(k, v) for k, v in slots_to_reset.items()]
+
             else:
                 if feedback_fill is None:
                     time.sleep(5)
@@ -486,6 +504,17 @@ class ActionProductSearch(Action):
                 else:
                     dispatcher.utter_message(
                         text="Tu reseña ya ha sido almacenada.")
+
+                    slots_to_reset = {
+                        "gender": None,
+                        "size": None,
+                        "color": None,
+                        "category": None,
+                        "clothes_name_value": None,
+                        "count_find_product": 3
+                    }
+
+                    return [SlotSet(k, v) for k, v in slots_to_reset.items()]
 
         else:
             # provide out of stock
@@ -744,14 +773,14 @@ class ActionMyIntroduction(Action):
 
         email_fill = tracker.get_slot("email_fill")
         print('intent', tracker.get_intent_of_latest_message())
-        if tracker.get_intent_of_latest_message() == "request_clothes" and email_fill is None:
+        if (tracker.get_intent_of_latest_message() == "request_clothes" or tracker.get_intent_of_latest_message() == "inform") and email_fill is None:
             dispatcher.utter_message(
                 text=f"Antes de mostrarte la ropita quisiera presentarme.")
             dispatcher.utter_message(
                 text=f"Mi nombre es Jasmine, soy un asistente de compras.")
             return [SlotSet("clothes_name_value", True)]
 
-        elif tracker.get_intent_of_latest_message() == "request_clothes" and email_fill == True:
+        elif (tracker.get_intent_of_latest_message() == "request_clothes" or tracker.get_intent_of_latest_message() == "inform") and email_fill == True:
             return [SlotSet("clothes_name_value", True)]
 
         dispatcher.utter_message(

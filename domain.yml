@@ -86,6 +86,7 @@ slots:
     influence_conversation: false
   count_find_product:
     type: float
+    initial_value: 0
     min_value: 0.0
     max_value: 3.0
     influence_conversation: false
@@ -154,7 +155,7 @@ responses:
           title: No 👎.
       text: Está correctamente escrito tu nombre, {first_name}?
   utter_anything_else:
-    - text: ¿Hay algo más que pueda ayudarte? 🥰
+    - text: ¿Hay algo más en que pueda ayudarte? 🥰
   utter_who_you_are:
     - text: Aún no nos hemos presentado. Mi nombre es Jasmine 👩🏻‍🦰, tu asistente de compras.
   utter_cancel_search_clothes:
