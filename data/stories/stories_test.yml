@@ -23,3 +23,19 @@ stories:
   - action: utter_submit
   - action: utter_slots_values
   - action: action_product_search
+
+- story: interactive_story_2
+  steps:
+  
+  - intent: goodbye
+  - action: action_goodbye_world
+  - slot_was_set:
+    - gender: null
+  - slot_was_set:
+    - size: null
+  - slot_was_set:
+    - color: null
+  - slot_was_set:
+    - category: null
+  - slot_was_set:
+    - clothes_name_value: null

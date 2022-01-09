@@ -121,6 +121,7 @@ nlu:
     - quiero roap
     - me gustaría comprar ropa de ropa de [niña](gender) para siete años
     - ropa de [niña](gender) para ocho años
+    - quiero una [blusa](category) de color [negro](color)
     - ropa
     - que tienes?
     - que vendes?
