@@ -15,6 +15,7 @@ from actions.utils import get_html_data, send_email
 this_path = pathlib.Path(os.path.realpath(__file__))
 email_content = get_html_data(f"{this_path.parent}/user_email.html")
 
+#send_email("Gracias por tu aporte al desarrollo tecnológico", 'xavier.aguas@epn.edu.ec', email_content)
 
 client = SearchClient.create("BQCT474121", "b72f4c8a6b93d0afc8221d06c66e1e66")
 index = client.init_index("dev_clothes_v2")

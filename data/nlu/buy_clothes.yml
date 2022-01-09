@@ -248,13 +248,18 @@ nlu:
 - synonym: cafe
   examples: |
     - café
+    - marron
+    - marrón
 - synonym: rosada
   examples: |
     - rosado
+    - rosa
 
 - synonym: morado
   examples: |
     - morada
+    - purpura
+    - violeta
 
 - synonym: pijama
   examples: |
@@ -291,3 +296,50 @@ nlu:
   examples: |
     - polos
     - camisetas
+
+
+- lookup: color
+  examples: |
+    - rojo
+    - amarillo
+    - azul
+    - verde 
+    - morado
+    - naranja
+    - rosa
+    - blanco
+    - negro
+    - plata
+    - gris
+    - turquesa
+    - cafe
+    - oro
+    - marron
+    - dorado
+    - indigo
+    - lavanda
+    - magenta
+    - salmon
+    - cian
+    - lila
+    - aceituna
+    - jade
+    - verde oliva
+    - fucsia
+    - malva
+    - lila
+    - celeste
+    - ambar
+    - chocolate
+    - castaño
+    - caqui
+    - siena
+    - violeta
+    - purpura
+    - zanahoria
+    - durazno
+    - nieve
+    - lino
+    - hueso
+    - marfil
+    - plateado
