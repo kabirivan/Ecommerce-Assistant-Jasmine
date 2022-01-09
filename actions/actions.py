@@ -312,6 +312,9 @@ class ValidateClothesForm(FormValidationAction):
         """Validate `size` value."""
         print("size", slot_value)
 
+        if isinstance(slot_value, list):
+            slot_value = slot_value[0]
+
         if self.is_int(slot_value) and (int(slot_value) >= 1 and int(slot_value) <= 5):
             return {"size": slot_value}
         else:
