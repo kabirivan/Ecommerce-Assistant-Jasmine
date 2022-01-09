@@ -3,7 +3,6 @@ import os
 import json
 import smtplib
 import traceback
-# from pyairtable import Api, Base, Table
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
@@ -59,3 +58,8 @@ new_record = {
 #airtable_upload(table_name, new_record, False, api_key_airtable, base_id, None)
 # table = Table('api_key_airtable', 'base_id', 'table_name')
 # table.create(new_record)
+
+
+# def add_new_record(item):
+#     table = Table(api_key_airtable, base_id, table_name)
+#     table.create(item)

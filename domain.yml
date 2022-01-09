@@ -88,7 +88,7 @@ slots:
     type: float
     initial_value: 0
     min_value: 0.0
-    max_value: 3.0
+    max_value: 2.0
     influence_conversation: false
   clothes_name_value:
     type: bool
@@ -203,6 +203,9 @@ forms:
       category:
         - entity: category
           type: from_entity
+          intent:
+            - inform
+            - request_clothes
       size:
         - entity: number
           type: from_entity

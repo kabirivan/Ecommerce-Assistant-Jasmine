@@ -39,3 +39,30 @@ stories:
     - category: null
   - slot_was_set:
     - clothes_name_value: null
+
+  
+
+- story: interactive_story_3
+  steps:
+  - intent: inform
+  - action: action_who_you_are
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: action_product_search
+  - intent: affirm
+  - action: action_introducing_me

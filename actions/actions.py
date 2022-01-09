@@ -10,12 +10,20 @@ import requests
 import pathlib
 import time
 from actions.utils import get_html_data, send_email
+from pyairtable import Table
+import datetime
+
+base_id = os.getenv('BASE_ID')
+table_name = os.getenv('TABLE_NAME')
+api_key_airtable = os.getenv('API_KEY_AIRTABLE')
+
+table = Table(api_key_airtable, base_id, table_name)
 
 
 this_path = pathlib.Path(os.path.realpath(__file__))
 email_content = get_html_data(f"{this_path.parent}/user_email.html")
 
-#send_email("Gracias por tu aporte al desarrollo tecnológico", 'xavier.aguas@epn.edu.ec', email_content)
+# send_email("Gracias por tu aporte al desarrollo tecnológico", 'xavier.aguas@epn.edu.ec', email_content)
 
 client = SearchClient.create("BQCT474121", "b72f4c8a6b93d0afc8221d06c66e1e66")
 index = client.init_index("dev_clothes_v2")
@@ -100,7 +108,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 response="utter_complete_information"
             )
-            #dispatcher.utter_message(attachment=message)
+            # dispatcher.utter_message(attachment=message)
 
         elif clothes_name_value == True:
             dispatcher.utter_message(
@@ -110,7 +118,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 text="Empecemos!"
             )
-            #dispatcher.utter_message(attachment=message)
+            # dispatcher.utter_message(attachment=message)
 
         return [SlotSet("email_fill", True)]
 
@@ -160,7 +168,7 @@ class ActionIntroducingMe(Action):
         }
 
         dispatcher.utter_message(text="Mira, esto es para ti!")
-        #dispatcher.utter_message(attachment=message)
+        # dispatcher.utter_message(attachment=message)
 
         return []
 
@@ -285,7 +293,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Lo siento eso no tenemos, pero te cuento que contamos con los siguientes tipos de ropa para niñas:",
                 )
-                #dispatcher.utter_message(attachment=message_clothes_girls)
+                # dispatcher.utter_message(attachment=message_clothes_girls)
 
                 return {"category": None}
             else:
@@ -297,7 +305,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Te cuento que contamos con los siguientes tipos de ropa para niños:"
                 )
-                #dispatcher.utter_message(attachment=message_clothes_boys)
+                # dispatcher.utter_message(attachment=message_clothes_boys)
                 return {"category": None}
             else:
                 dispatcher.utter_message(text=f"Excelente elección 👍🏻")
@@ -346,13 +354,13 @@ class AskForCategoryAction(Action):
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niñas 👧🏻:"
             )
-            #dispatcher.utter_message(attachment=message_clothes_girls)
+            # dispatcher.utter_message(attachment=message_clothes_girls)
         else:
 
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niños 👦🏻:"
             )
-            #dispatcher.utter_message(attachment=message_clothes_boys)
+            # dispatcher.utter_message(attachment=message_clothes_boys)
 
         return []
 
@@ -476,14 +484,14 @@ class ActionProductSearch(Action):
         }
 
         if clothes:
-            #dispatcher.utter_message(attachment=message)  # Show respuestas
+            # dispatcher.utter_message(attachment=message)  # Show respuestas
 
             feedback_fill = tracker.get_slot("feedback_fill")
             count_find_product = tracker.get_slot("count_find_product")
             print('count_find_product', count_find_product)
 
-            if count_find_product < 2.0:
-                result_finds = 2.0 - count_find_product
+            if count_find_product < 1.0:
+                result_finds = 1.0 - count_find_product
                 update_count = count_find_product + 1
                 dispatcher.utter_message(
                     text=f"Debes buscar por lo menos {int(result_finds)} veces para dejar un comentario")
@@ -515,7 +523,7 @@ class ActionProductSearch(Action):
                         "color": None,
                         "category": None,
                         "clothes_name_value": None,
-                        "count_find_product": 3
+                        "count_find_product": 2
                     }
 
                     return [SlotSet(k, v) for k, v in slots_to_reset.items()]
@@ -725,9 +733,23 @@ class ActionThanksFeedback(Action):
             dispatcher.utter_message(text=f"Gracias por tu reseña, con esto puedo seguir mejorando cada vez más.",
                                      image="https://media.giphy.com/media/Guccz4Oq87bncsm1j4/giphy-downsized.gif")
 
-            dispatcher.utter_message(
-                text=f"Pronto, recibirás un correo de agradecimiento")
-            # send_email("Gracias por tu aporte al desarrollo tecnológico", email, email_content)
+            date = datetime.datetime.now().isoformat()
+            new_record = {
+                    "name": tracker.get_slot("first_name"),
+                    "email": email,
+                    "feedback_value": tracker.get_slot("feedback_value"),
+                    "feedback_message": tracker.get_slot("feedback_message"),
+                    "created_at": date
+                }
+
+            table.create(new_record)
+
+
+            is_mail_sent = send_email("Gracias por tu aporte al desarrollo tecnológico", email, email_content)
+
+            if is_mail_sent:
+                dispatcher.utter_message(text=f"Pronto, recibirás un correo de agradecimiento")
+            
             return [SlotSet('feedback_fill', True)]
 
         dispatcher.utter_message(
