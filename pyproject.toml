@@ -10,6 +10,7 @@ rasa = {extras = ["full"], version = "^2.8.14"}
 spacy = "^3.2.1"
 algoliasearch = "^2.6.1"
 pyairtable = "^1.0.0"
+python-dotenv = "^0.19.2"
 
 [tool.poetry.dev-dependencies]
 
