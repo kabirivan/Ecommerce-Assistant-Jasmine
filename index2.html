@@ -10,12 +10,15 @@
             (e.onload = () => {
             window.WebChat.default(
                 {
-                    // initPayload: '/greet',
+                    selector:'#webchat',
+                    initPayload: '/greet',
                     customData: { language: "es" },
                     title: "Jasmine",
                     subtitle: "Asistente de Compras",
                     profileAvatar: "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641417625/jasmine_ztyzdf.png",
-                    socketUrl: "http://localhost:5005",
+                    socketUrl: "https://assistant.creacionesjasmin.com",
+                    socketPath:"/socket.io/",
+                    params:{'storage':'session'}
                     // add other props here
                 },
                 null
