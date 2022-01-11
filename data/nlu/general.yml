@@ -1,6 +1,4 @@
-
 version: "2.0"
-
 nlu:
 - intent: who_am_i
   examples: |
@@ -8,7 +6,6 @@ nlu:
     - dime quien soy yo
     - yo soy
     - quien soy
-
 - intent: out_of_scope
   examples: |
     - todo esta bien?
@@ -26,7 +23,6 @@ nlu:
     - blah blah blah
     - cuanto es 5 + 5
     - cual es la raiz cuadrada de 25
-
 - intent: human_handoff
   examples: |
     - quiero hablar con alguien que pueda ayudarme
@@ -44,7 +40,6 @@ nlu:
     - conversar con una persona real
     - quiero una persona
     - dejame hablar con una persona real
-
 - intent: greet
   examples: |
     - hola
@@ -63,7 +58,11 @@ nlu:
     - hola bot
     - saludo
     - hola robot
-
+    - Hola
+    - holi
+    - HOLA
+    - hol
+    - HOla
 - intent: affirm
   examples: |
     - si
@@ -74,7 +73,7 @@ nlu:
     - por supusto
     - suena bien
     - esta bien
-
+    - Si
 - intent: deny
   examples: |
     - no
@@ -86,7 +85,7 @@ nlu:
     - mmm no
     - no quiero
     - no por el momento
-
+    - No
 - intent: goodbye
   examples: |
     - chao
@@ -104,7 +103,6 @@ nlu:
     - chao chao
     - chao, cuidate
     - nos vemos mañana
-
 - intent: stop
   examples: |
     - tu no puedes ayudarme
@@ -127,7 +125,6 @@ nlu:
     - no quiero continuar
     - basta
     - hasta ahi no mas
-
 - intent: give_name
   examples: |
     - Mi nombre es [Xavier](PERSON)
@@ -156,7 +153,11 @@ nlu:
     - Mi nombre es [Ivan](PERSON)
     - email@gmail.com
     - xavier@hotmail.com
-
+    - Juan@gmail.com
+    - [juan](PERSON)
+    - aguas.xavier2013a@gmail.com
+    - [Xavier](PERSON)
+    - xavier.aguas@epn.edu.ec
 - intent: give_feedback
   examples: |
     - quiero dejar un mensaje
@@ -175,8 +176,7 @@ nlu:
     - reseña
     - recomendacion
     - añadir opinion
-    - opinion 
-
+    - opinion
 - intent: my_feedback
   examples: |
     - cual fue mi reseña
@@ -189,4 +189,3 @@ nlu:
     - cual fue mi opinion
     - dime mi resena
     - dime mi reseñan
-

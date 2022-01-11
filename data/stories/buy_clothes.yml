@@ -1,26 +1,105 @@
-version: '2.0'
+version: "2.0"
 stories:
-  - story: request clothes with out name
-    steps:
-      - or:
-        - intent: inform
-        - intent: request_clothes
-      - action: action_who_you_are
-      - action: name_form
-      - active_loop: name_form
-      - active_loop: null
-      - action: action_hello_world
-
-  - story: request clothes with name
-    steps:
-      - action: action_hello_world
-      - slot_was_set:
-          - clothes_name_value: true
-      - action: clothes_form
-      - active_loop: clothes_form
-      - active_loop: null
-      - slot_was_set:
-        - requested_slot: null
-      - action: utter_submit
-      - action: utter_slots_values
-      - action: action_product_search
+- story: request clothes with out name
+  steps:
+  - or:
+    - intent: inform
+    - intent: request_clothes
+  - action: action_who_you_are
+  - action: name_form
+  - active_loop: name_form
+  - active_loop: null
+  - action: action_hello_world
+- story: request clothes with name
+  steps:
+  - action: action_hello_world
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: action_product_search
+- story: Story from Conversation ID 3fd72ab929184291bf248e8502f195d8
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name: juan
+  - slot_was_set:
+    - last_first_name: juan
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: Juan@gmail.com
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - intent: request_clothes
+  - action: action_who_you_are
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - first_name: juan
+  - slot_was_set:
+    - email: Juan@gmail.com
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - slot_was_set:
+    - requested_slot: gender
+  - slot_was_set:
+    - gender: niña
+  - slot_was_set:
+    - gender: niña
+  - slot_was_set:
+    - requested_slot: category
+  - slot_was_set:
+    - category: blusa
+  - slot_was_set:
+    - category: blusa
+  - slot_was_set:
+    - requested_slot: size
+  - slot_was_set:
+    - size: 2
+  - slot_was_set:
+    - requested_slot: color
+  - slot_was_set:
+    - color: no
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: action_product_search
+  - slot_was_set:
+    - gender: null
+  - slot_was_set:
+    - size: null
+  - slot_was_set:
+    - color: null
+  - slot_was_set:
+    - category: null
+  - slot_was_set:
+    - clothes_name_value: null
+  - slot_was_set:
+    - count_find_product: 1
+  - intent: affirm
+  - action: action_introducing_me
