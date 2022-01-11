@@ -24,7 +24,7 @@ pipeline:
     ambiguity_threshold: 0.1
   - name: "DucklingEntityExtractor"
     # url of the running duckling server
-    url: "http://localhost:8000"
+    url: "http://duckling:8000"
     locale: "es_GB"
     # dimensions to extract
     dimensions:
