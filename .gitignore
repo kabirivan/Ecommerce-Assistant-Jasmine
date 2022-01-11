@@ -129,3 +129,5 @@ dmypy.json
 /models
 /credentials.yml
 .pyre/
+
+.DS_store
