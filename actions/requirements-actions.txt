@@ -1,0 +1,4 @@
+algoliasearch==2.6.1
+requests==2.25.1
+pyairtable==1.0.0
+python-dotenv==0.19.2
