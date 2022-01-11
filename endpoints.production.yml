@@ -1,0 +1,80 @@
+# This file contains the different endpoints your bot can use.
+
+# Server where the models are pulled from.
+# https://rasa.com/docs/rasa/model-storage#fetching-models-from-a-server
+
+#models:
+#  url: http://my-server.com/models/default_core@latest
+#  wait_time_between_pulls:  10   # [optional](default: 100)
+
+# Server which runs your custom actions.
+# https://rasa.com/docs/rasa/custom-actions
+
+action_endpoint:
+ url: "http://action-server:5055/webhook"
+
+# Tracker store which is used to store the conversations.
+# By default the conversations are stored in memory.
+# https://rasa.com/docs/rasa/tracker-stores
+
+#tracker_store:
+#    type: redis
+#    url: <host of the redis instance, e.g. localhost>
+#    port: <port of your redis instance, usually 6379>
+#    db: <number of your database within redis, e.g. 0>
+#    password: <password used for authentication>
+#    use_ssl: <whether or not the communication is encrypted, default false>
+
+# tracker_store:
+#     type: SQL
+#     dialect: "postgresql"  # the dialect used to interact with the db
+#     url: "localhost"  # (optional) host of the sql db, e.g. "localhost"
+#     db: "rasa"  # path to your db
+#     username: postgres # username used for authentication
+#     password: ivan # password used for authentication
+
+models:
+   url: ${RASA_MODEL_SERVER}
+   token: ${RASA_X_TOKEN}
+   wait_time_between_pulls: ${RASA_MODEL_PULL_INTERVAL}
+
+tracker_store:
+   type: sql
+   dialect: postgresql
+   url: ${DB_HOST}
+   username: ${DB_USER}
+   password: ${DB_PASSWORD}
+   db: ${DB_DATABASE}
+   login_db: ${DB_LOGIN_DB}
+   
+lock_store:
+   type: "redis"
+   url: ${REDIS_HOST}
+   port: ${REDIS_PORT}
+   password: ${REDIS_PASSWORD}
+   db: ${REDIS_DB}
+
+cache:
+   type: "redis"
+   url: ${REDIS_HOST}
+   port: ${REDIS_PORT}
+   password: ${REDIS_PASSWORD}
+   db: ${REDIS_CACHE_DB}
+   key_prefix: "rasax_cache"
+
+event_broker:
+   type: "pika"
+   url: ${RABBITMQ_HOST}
+   username: ${RABBITMQ_USERNAME}
+   password: ${RABBITMQ_PASSWORD}
+   queues:
+   - ${RABBITMQ_QUEUE}
+
+# Event broker which all conversation events should be streamed to.
+# https://rasa.com/docs/rasa/event-brokers
+
+#event_broker:
+#  url: localhost
+#  username: username
+#  password: password
+#  queue: queue
