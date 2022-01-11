@@ -1,0 +1,270 @@
+version: "3.4"
+
+x-database-credentials: &database-credentials
+  DB_HOST: "${DB_HOST}"
+  DB_PORT: "5432"
+  DB_USER: "${DB_USER}"
+  DB_PASSWORD: "${DB_PASSWORD}"
+  DB_LOGIN_DB: "${DB_LOGIN_DB}"
+
+x-rabbitmq-credentials: &rabbitmq-credentials
+  RABBITMQ_HOST: "rabbit"
+  RABBITMQ_USERNAME: "${RABBITMQ_USERNAME}"
+  RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
+
+x-redis-credentials: &redis-credentials
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
+  REDIS_PASSWORD: ${REDIS_PASSWORD}
+  REDIS_DB: "1"
+  REDIS_CACHE_DB: "2"
+  ACCEPTABLE_QUERY_COUNT_NUMBER: "50000"
+  
+x-duckling-credentials: &duckling-credentials
+  RASA_DUCKLING_HTTP_URL: "http://duckling:8000"
+
+x-s3-credentials: &s3-credentials
+  AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+  AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+  AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
+  BUCKET_NAME: "${BUCKET_NAME}"
+  AWS_ENDPOINT_URL: "${AWS_ENDPOINT_URL}"
+
+x-telegram-credentials: &telegram-credentials
+  TELEGRAM_ACCESS_TOKEN: "${TELEGRAM_ACCESS_TOKEN}"
+  TELEGRAM_VERIFY: "${TELEGRAM_VERIFY}"
+  TELEGRAM_WEB_HOOK: "${TELEGRAM_WEB_HOOK}"
+
+x-facebook-credentials: &facebook-credentials
+  FACEBOOK_VERIFY: "${FACEBOOK_VERIFY}"
+  FACEBOOK_SECRET: "${FACEBOOK_SECRET}"
+  FACEBOOK_PAGE_ACCESS_TOKEN: "${FACEBOOK_PAGE_ACCESS_TOKEN}"
+
+x-nginx-host-variables: &nginx-host-variables
+  RASA_X_HOST: "rasa-x:5002"
+  RASA_USER_APP: "action-server:5055"
+  RASA_PRODUCTION_HOST: "rasa-production:5005"
+
+x-rasax-credentials: &rasax-credentials
+  RASA_X_HOST: "http://rasa-x:5002"
+  RASA_X_USERNAME: ${RASA_X_USERNAME}
+  RASA_X_PASSWORD: ${RASA_X_PASSWORD}
+  RASA_X_TOKEN: ${RASA_X_TOKEN}
+  JWT_SECRET: ${JWT_SECRET}
+  RASA_USER_APP: "http://action-server:5055"
+  RASA_PRODUCTION_HOST: "http://rasa-production:5005"
+  RASA_WORKER_HOST: "http://rasa-worker:5005"
+  RASA_TOKEN: ${RASA_TOKEN}
+
+x-rasa-credentials: &rasa-credentials
+  <<: *rabbitmq-credentials
+  <<: *rasax-credentials
+  <<: *database-credentials
+  <<: *redis-credentials
+  <<: *duckling-credentials
+  <<: *s3-credentials
+  <<: *telegram-credentials
+  <<: *facebook-credentials
+  RASA_TOKEN: ${RASA_TOKEN}
+  RASA_MODEL_PULL_INTERVAL: 10
+  RABBITMQ_QUEUE: "rasa_production_events"
+  RASA_TELEMETRY_ENABLED: ${RASA_TELEMETRY_ENABLED}
+
+
+x-rasa-services: &default-rasa-service
+  restart: always
+  image: "jrtec/rasa-spacy-es"
+  volumes:
+      - ./.config:/.config
+  expose:
+    - "5005"
+  command: >
+    x
+    --no-prompt
+    --production
+    --config-endpoint http://rasa-x:5002/api/config?token=${RASA_X_TOKEN}
+    --port 5005
+    --jwt-method HS256
+    --jwt-secret ${JWT_SECRET}
+    --auth-token '${RASA_TOKEN}'
+    --cors "*"
+  depends_on:
+    - rasa-x
+    - rabbit
+    - redis
+
+services:
+  rasa-x:
+    container_name: rasa-x
+    restart: always
+    image: "rasa/rasa-x:${RASA_X_VERSION}"
+    expose:
+      - "5002"
+    volumes:
+      - ./config.production.yml:/app/config.yml
+      - ./models:/app/models
+      - ./environments.yml:/app/environments.yml
+      - ./credentials.production.yml:/app/credentials.yml
+      - ./endpoints.production.yml:/app/endpoints.yml
+      - ./logs:/logs
+      - ./auth:/app/auth
+    environment:
+      <<: *database-credentials
+      <<: *rasa-credentials
+      SELF_PORT: "5002"
+      DB_DATABASE: "${DB_DATABASE}"
+      RASA_MODEL_DIR: "/app/models"
+      PASSWORD_SALT: ${PASSWORD_SALT}
+      RABBITMQ_QUEUE: "rasa_production_events"
+      RASA_X_USER_ANALYTICS: "0"
+      SANIC_RESPONSE_TIMEOUT: "3600"
+      RUN_DATABASE_MIGRATION_AS_SEPARATE_SERVICE: "true"
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.rasax.entrypoints=web"
+    #   - "traefik.http.routers.rasax.rule=Host(`rasax.${LOCAL_1}`, `rasax.${LOCAL_2}`, `rasax.${EXT_ENDPOINT1}`, `rasax.${EXT_ENDPOINT2}`, `rasax.${EXT_ENDPOINT3}`)"
+    #   - "traefik.http.services.rasax.loadbalancer.server.port=5002"   
+
+  db-migration:
+    entrypoint: ["python"]
+    logging:
+      driver: none
+    command: ["-m", "rasax.community.services.db_migration_service"]
+    restart: always
+    image: "rasa/rasa-x:${RASA_X_VERSION}"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || kill 1"]
+      interval: 5s
+      timeout: 1s
+      retries: 3
+      start_period: 2s
+    expose:
+      - "8000"
+    environment:
+      <<: *database-credentials
+      RUN_DATABASE_MIGRATION_AS_SEPARATE_SERVICE: "true"
+      MPLCONFIGDIR: "/tmp/.matplotlib"
+
+  rasa-production:
+    container_name: rasa-production 
+    <<: *default-rasa-service
+    environment:
+      <<: *rasa-credentials
+      RASA_ENVIRONMENT: "production"
+      DB_DATABASE: "tracker"
+      MPLCONFIGDIR: "/tmp/.matplotlib"
+      RASA_MODEL_SERVER: "http://rasa-x:5002/api/projects/default/models/tags/production"
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.rasa-production.entrypoints=web"
+    #   - "traefik.http.routers.rasa-production.rule=Host(`rasa-production.${LOCAL_1}`, `rasa-production.${LOCAL_2}`, `rasa-production.${EXT_ENDPOINT1}`, `rasa-production.${EXT_ENDPOINT2}`, `rasa-production.${EXT_ENDPOINT3}`)"
+    #   - "traefik.http.services.rasa-production.loadbalancer.server.port=5005"   
+
+  rasa-worker:
+    container_name: rasa-worker
+    <<: *default-rasa-service
+    environment:
+      <<: *rasa-credentials
+      RASA_ENVIRONMENT: "worker"
+      DB_DATABASE: "worker_tracker"
+      MPLCONFIGDIR: "/tmp/.matplotlib"
+      RASA_MODEL_SERVER: "http://rasa-x:5002/api/projects/default/models/tags/production"
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.rasa-worker.entrypoints=web"
+    #   - "traefik.http.routers.rasa-worker.rule=Host(`rasa-worker.${LOCAL_1}`, `rasa-worker.${LOCAL_2}`, `rasa-worker.${EXT_ENDPOINT1}`, `rasa-worker.${EXT_ENDPOINT2}`, `rasa-worker.${EXT_ENDPOINT3}`)"
+    #   - "traefik.http.services.rasa-worker.loadbalancer.server.port=5005"   
+
+  action-server:
+    container_name: action-server 
+    restart: always
+    image: "jrtec/rasa-action-server"
+    environment:
+      <<: *facebook-credentials
+    expose:
+      - "5055"
+    volumes:        
+      - ./actions:/app/actions
+    depends_on:
+      - rasa-production
+
+  rabbit:
+    container_name: rabbit
+    restart: always
+    logging:
+      driver: none
+    image: "bitnami/rabbitmq:${RABBITMQ_VERSION}"
+    environment:
+      RABBITMQ_HOST: "rabbit"
+      RABBITMQ_USERNAME: ${RABBITMQ_USERNAME}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
+      RABBITMQ_DISK_FREE_RELATIVE_LIMIT: "0.1"
+    expose:
+      - "5672"
+
+  duckling:
+    container_name: duckling
+    restart: always
+    image: "rasa/duckling:${RASA_DUCKLING_VERSION}"
+    expose:
+      - "8000"
+    command: ["duckling-example-exe", "--no-access-log", "--no-error-log"]
+
+  redis:
+    container_name: redis
+    restart: always
+    image: "bitnami/redis:${REDIS_VERSION}"
+    logging:
+      driver: none
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    expose:
+      - "6379"
+
+  nginx:
+    restart: always
+    logging:
+      driver: none
+    image: "nginx:1.19"
+    ports:
+      - "80:8080"
+      - "443:8443"
+    volumes:
+      - ./certs:/etc/certs
+      - ./nginx-config-files/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx-config-files/ssl.conf.template:/etc/nginx/templates/ssl.conf.template
+      - ./nginx-config-files/rasax.nginx.template:/etc/nginx/templates/rasax.nginx.template
+    environment:
+      <<: *nginx-host-variables
+    depends_on:
+      - rasa-x
+      - rasa-production
+      - action-server
+
+  # traefik:
+  #   image: "traefik:latest"
+  #   container_name: "traefik"
+  #   restart: always
+  #   command:
+  #     - "--providers.docker=true"
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - "/var/run/docker.sock:/var/run/docker.sock:ro"
+  #     - "./traefik/traefik.yml:/traefik.yml:ro"
+  #     - "./traefik/.htpasswd:/.htpasswd"      
+  #     - "${EB_LOG_BASE_DIR:-./traefik}/traefik-proxy:/logs"
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.dashboard.rule=Host(`traefik.${LOCAL_1}`, `traefik.${LOCAL_2}`,`traefik.${EXT_ENDPOINT1}`, `traefik.${EXT_ENDPOINT2}`, `traefik.${EXT_ENDPOINT3}`)"
+  #     - "traefik.http.routers.dashboard.service=api@internal"
+  #     - "traefik.http.routers.dashboard.middlewares=auth"
+  #     - "traefik.http.middlewares.auth.basicauth.usersfile=/.htpasswd"
+  #   depends_on:
+  #     - rasa-x
+  #     - rasa-production
+  #     - action-server
+
+
+    
