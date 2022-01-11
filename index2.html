@@ -4,21 +4,18 @@
         let e = document.createElement("script"),
             t = document.head || document.getElementsByTagName("head")[0];
         (e.src =
-            "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"),
+            "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.0/lib/index.js"),
             // Replace 1.x.x with the version that you want
             (e.async = !0),
             (e.onload = () => {
             window.WebChat.default(
                 {
-                    selector:'#webchat',
-                    initPayload: '/greet',
                     customData: { language: "es" },
                     title: "Jasmine",
                     subtitle: "Asistente de Compras",
                     profileAvatar: "https://res.cloudinary.com/ecommercejasmine/image/upload/v1641417625/jasmine_ztyzdf.png",
                     socketUrl: "https://assistant.creacionesjasmin.com",
                     socketPath:"/socket.io/",
-                    params:{'storage':'session'}
                     // add other props here
                 },
                 null
