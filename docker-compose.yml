@@ -40,6 +40,15 @@ x-facebook-credentials: &facebook-credentials
   FACEBOOK_SECRET: "${FACEBOOK_SECRET}"
   FACEBOOK_PAGE_ACCESS_TOKEN: "${FACEBOOK_PAGE_ACCESS_TOKEN}"
 
+x-email-credentials: &email-credentials
+  EMAIL_USERNAME: "${EMAIL_USERNAME}"
+  EMAIL_PASSWORD: "${EMAIL_PASSWORD}"
+
+x-airtable-credentials: &airtable-credentials
+  BASE_ID: "${BASE_ID}"
+  TABLE_NAME: "${TABLE_NAME}"
+  API_KEY_AIRTABLE: "${API_KEY_AIRTABLE}"
+
 x-nginx-host-variables: &nginx-host-variables
   RASA_X_HOST: "rasa-x:5002"
   RASA_USER_APP: "action-server:5055"
