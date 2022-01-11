@@ -39,7 +39,7 @@ email_content = get_html_data(f"{this_path.parent}/user_email.html")
 client = SearchClient.create("BQCT474121", "b72f4c8a6b93d0afc8221d06c66e1e66")
 index = client.init_index("dev_clothes_v2")
 
-names = pathlib.Path("data/names1.txt").read_text().split("\n")
+names = pathlib.Path(f"{this_path.parent}/names1.txt").read_text().split("\n")
 
 MOCK_DATA = json.load(open("actions/mock_data.json", "r"))
 
