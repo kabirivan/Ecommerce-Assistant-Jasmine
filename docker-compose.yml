@@ -74,6 +74,8 @@ x-rasa-credentials: &rasa-credentials
   <<: *s3-credentials
   <<: *telegram-credentials
   <<: *facebook-credentials
+  <<: *email-credentials
+  <<: *airtable-credentials
   RASA_TOKEN: ${RASA_TOKEN}
   RASA_MODEL_PULL_INTERVAL: 10
   RABBITMQ_QUEUE: "rasa_production_events"
@@ -128,11 +130,6 @@ services:
       RASA_X_USER_ANALYTICS: "0"
       SANIC_RESPONSE_TIMEOUT: "3600"
       RUN_DATABASE_MIGRATION_AS_SEPARATE_SERVICE: "true"
-    # labels:
-    #   - "traefik.enable=true"
-    #   - "traefik.http.routers.rasax.entrypoints=web"
-    #   - "traefik.http.routers.rasax.rule=Host(`rasax.${LOCAL_1}`, `rasax.${LOCAL_2}`, `rasax.${EXT_ENDPOINT1}`, `rasax.${EXT_ENDPOINT2}`, `rasax.${EXT_ENDPOINT3}`)"
-    #   - "traefik.http.services.rasax.loadbalancer.server.port=5002"   
 
   db-migration:
     entrypoint: ["python"]
@@ -163,11 +160,6 @@ services:
       DB_DATABASE: "tracker"
       MPLCONFIGDIR: "/tmp/.matplotlib"
       RASA_MODEL_SERVER: "http://rasa-x:5002/api/projects/default/models/tags/production"
-    # labels:
-    #   - "traefik.enable=true"
-    #   - "traefik.http.routers.rasa-production.entrypoints=web"
-    #   - "traefik.http.routers.rasa-production.rule=Host(`rasa-production.${LOCAL_1}`, `rasa-production.${LOCAL_2}`, `rasa-production.${EXT_ENDPOINT1}`, `rasa-production.${EXT_ENDPOINT2}`, `rasa-production.${EXT_ENDPOINT3}`)"
-    #   - "traefik.http.services.rasa-production.loadbalancer.server.port=5005"   
 
   rasa-worker:
     container_name: rasa-worker
@@ -178,11 +170,7 @@ services:
       DB_DATABASE: "worker_tracker"
       MPLCONFIGDIR: "/tmp/.matplotlib"
       RASA_MODEL_SERVER: "http://rasa-x:5002/api/projects/default/models/tags/production"
-    # labels:
-    #   - "traefik.enable=true"
-    #   - "traefik.http.routers.rasa-worker.entrypoints=web"
-    #   - "traefik.http.routers.rasa-worker.rule=Host(`rasa-worker.${LOCAL_1}`, `rasa-worker.${LOCAL_2}`, `rasa-worker.${EXT_ENDPOINT1}`, `rasa-worker.${EXT_ENDPOINT2}`, `rasa-worker.${EXT_ENDPOINT3}`)"
-    #   - "traefik.http.services.rasa-worker.loadbalancer.server.port=5005"   
+
 
   action-server:
     container_name: action-server 
@@ -190,6 +178,8 @@ services:
     image: "jrtec/rasa-action-server"
     environment:
       <<: *facebook-credentials
+      <<: *email-credentials
+      <<: *airtable-credentials
     expose:
       - "5055"
     volumes:        
@@ -249,31 +239,5 @@ services:
       - rasa-x
       - rasa-production
       - action-server
-
-  # traefik:
-  #   image: "traefik:latest"
-  #   container_name: "traefik"
-  #   restart: always
-  #   command:
-  #     - "--providers.docker=true"
-  #   ports:
-  #     - "80:80"
-  #     - "443:443"
-  #   volumes:
-  #     - "/var/run/docker.sock:/var/run/docker.sock:ro"
-  #     - "./traefik/traefik.yml:/traefik.yml:ro"
-  #     - "./traefik/.htpasswd:/.htpasswd"      
-  #     - "${EB_LOG_BASE_DIR:-./traefik}/traefik-proxy:/logs"
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.routers.dashboard.rule=Host(`traefik.${LOCAL_1}`, `traefik.${LOCAL_2}`,`traefik.${EXT_ENDPOINT1}`, `traefik.${EXT_ENDPOINT2}`, `traefik.${EXT_ENDPOINT3}`)"
-  #     - "traefik.http.routers.dashboard.service=api@internal"
-  #     - "traefik.http.routers.dashboard.middlewares=auth"
-  #     - "traefik.http.middlewares.auth.basicauth.usersfile=/.htpasswd"
-  #   depends_on:
-  #     - rasa-x
-  #     - rasa-production
-  #     - action-server
-
 
     
