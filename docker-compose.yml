@@ -84,7 +84,7 @@ x-rasa-credentials: &rasa-credentials
 
 x-rasa-services: &default-rasa-service
   restart: always
-  image: "jrtec/rasa-spacy-es"
+  image: "jrtec/rasa-spacy-es:latest"
   volumes:
       - ./.config:/.config
   expose:
@@ -175,7 +175,7 @@ services:
   action-server:
     container_name: action-server 
     restart: always
-    image: "jrtec/rasa-action-server"
+    image: "jrtec/rasa-action-server:latest"
     environment:
       <<: *facebook-credentials
       <<: *email-credentials
