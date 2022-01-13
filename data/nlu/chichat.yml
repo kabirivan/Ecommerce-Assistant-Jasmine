@@ -1,5 +1,4 @@
 version: "2.0"
-
 nlu:
 - intent: chitchat/bot_challenge
   examples: |
@@ -12,6 +11,7 @@ nlu:
     - robot?
     - quien eres?
     - hablame de ti
+    - quien eres
 - intent: chitchat/whats_your_name
   examples: |
     - cual es tu nombre?
@@ -28,6 +28,7 @@ nlu:
     - eres el mejor, gracias
     - gracias por tu respuesta
     - ok, gracias
+    - utter_chitchat/thanks
 - intent: chitchat/developer
   examples: |
     - quiero conocer a tu creador
@@ -42,6 +43,7 @@ nlu:
     - quien es tu creador
     - quien es tu papa?
     - quen es tu mamá?
+    - quien te creo
 - intent: chitchat/confirm_presence
   examples: |
     - estas ahi?

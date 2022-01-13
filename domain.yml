@@ -1,36 +1,34 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-  - affirm
-  - chitchat:
-      is_retrieval_intent: true
-  - deny
-  - faq:
-      is_retrieval_intent: true
-  - give_feedback
-  - give_name
-  - goodbye
-  - greet
-  - human_handoff
-  - inform
-  - out_of_scope
-  - request_clothes
-  - request_clothes_price
-  - stop
-  - who_am_i
-  - my_feedback
+- affirm
+- chitchat
+- deny
+- faq
+- give_feedback
+- give_name
+- goodbye
+- greet
+- human_handoff
+- inform
+- out_of_scope
+- request_clothes
+- request_clothes_price
+- stop
+- who_am_i
+- my_feedback
+- nlu_fallback
 entities:
-  - PERSON
-  - category
-  - color
-  - email
-  - gender
-  - number
-  - feedback_value
+- PERSON
+- category
+- color
+- email
+- gender
+- number
+- feedback_value
+- comparator
 slots:
   first_name:
     type: text
@@ -46,15 +44,13 @@ slots:
     influence_conversation: false
   email_fill:
     type: bool
-    auto_fill: true
-    initial_value: null
     influence_conversation: true
   gender:
     type: categorical
     influence_conversation: false
     values:
-      - niña
-      - niño
+    - niña
+    - niño
   size:
     type: text
     influence_conversation: false
@@ -68,177 +64,175 @@ slots:
     type: categorical
     influence_conversation: false
     values:
-      - '1'
-      - '2'
-      - '3'
-      - '4'
+    - '1'
+    - '2'
+    - '3'
+    - '4'
   feedback_fill:
     type: bool
-    initial_value: null
     influence_conversation: false
   feedback_message:
     type: text
-    initial_value: null
     influence_conversation: false
   name_spelled_correctly:
     type: bool
-    initial_value: null
     influence_conversation: false
   count_find_product:
     type: float
     initial_value: 0
-    min_value: 0.0
-    max_value: 2.0
     influence_conversation: false
+    max_value: 2.0
+    min_value: 0.0
   clothes_name_value:
     type: bool
     initial_value: false
     influence_conversation: true
+  requested_slot:
+    type: unfeaturized
+    influence_conversation: false
 responses:
   utter_greet:
-    - text: Hola bienvenid@, es un gusto tenerte por aquí.
-      image: 'https://media.giphy.com/media/Cmr1OMJ2FN0B2/giphy.gif'
+  - image: https://media.giphy.com/media/Cmr1OMJ2FN0B2/giphy.gif
+    text: Hola bienvenid@, es un gusto tenerte por aquí.
   utter_default:
-    - text: Lo siento, pero no te entendí 😭. ¿Puedes repetírmelo?
-    - text: Ummm, qué me acabas de decir? 🤔
-    - text: beep, boop! 😵 No entiendo lo que me quieres decir!
+  - text: Lo siento, pero no te entendí 😭. ¿Puedes repetírmelo?
+  - text: Ummm, qué me acabas de decir? 🤔
+  - text: beep, boop! 😵 No entiendo lo que me quieres decir!
   utter_out_of_scope:
-    - text: Parece que me estás preguntando cosas raras.
+  - text: Parece que me estás preguntando cosas raras.
   utter_submit:
-    - text: Perfecto! Eso es todo 🤓.
+  - text: Perfecto! Eso es todo 🤓.
   utter_slots_values:
-    - text: |
-        Voy a buscar en nuestro stock, lo siguiente:
-         - Ropa de: {gender}
-         - Categoría: {category}
-         - Edad: {size}
-         - Color: {color}
+  - text: |
+      Voy a buscar en nuestro stock, lo siguiente:
+       - Ropa de: {gender}
+       - Categoría: {category}
+       - Edad: {size}
+       - Color: {color}
   utter_ask_first_name:
-    - text: ¿Cuál es tu primer nombre?
+  - text: ¿Cuál es tu primer nombre?
   utter_ask_email:
-    - text: 'Mucho gusto {first_name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo 🍻🍺, ¿Me puedes ayudar con tu correo, por favor?'
+  - text: Mucho gusto {first_name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo 🍻🍺, ¿Me puedes ayudar con tu correo, por favor?
   utter_complete_information:
-    - text: Muchas gracias, pronto recibiras un pequeño detalle de mi parte ❤️.
+  - text: Muchas gracias, pronto recibiras un pequeño detalle de mi parte ❤️.
   utter_ask_gender:
-    - text: ¿Para que chiquitín buscas la ropa?
-      buttons:
-        - title: Niña 👧🏻 .
-          payload: /request_clothes{{"gender":"niña"}}
-        - title: Niño 👦🏻 .
-          payload: /request_clothes{{"gender":"niño"}}
+  - buttons:
+    - payload: /request_clothes{{"gender":"niña"}}
+      title: Niña 👧🏻 .
+    - payload: /request_clothes{{"gender":"niño"}}
+      title: Niño 👦🏻 .
+    text: ¿Para que chiquitín buscas la ropa?
   utter_ask_size:
-    - text: ¿Para que edad buscas la ropa de {gender}?
+  - text: ¿Para que edad buscas la ropa de {gender}?
   utter_ask_color:
-    - text: ¿Algún color en particular 🎨?
+  - text: ¿Algún color en particular 🎨?
   utter_ask_continue:
-    - text: ¿Quiéres continuar? 🤔
+  - text: ¿Quiéres continuar? 🤔
   utter_ask_feedback_message:
-    - text: 'Tus palabras son valiosas para mi, por favor deja un mensaje/sugerencia para seguir mejorando.'
+  - text: Tus palabras son valiosas para mi, por favor deja un mensaje/sugerencia para seguir mejorando.
   utter_ask_feedback_value:
-    - text: '¿Me gustaría saber si te gustó la experiencia? 👩‍💻, ¿Te importaría calificarme? 📝'
-      buttons:
-        - title: Malo
-          payload: '/give_feedback{{"feedback_value": "1"}}'
-        - title: Regular
-          payload: '/give_feedback{{"feedback_value": "2"}}'
-        - title: Bueno
-          payload: '/give_feedback{{"feedback_value": "3"}}'
-        - title: Muy Bueno
-          payload: '/give_feedback{{"feedback_value": "4"}}'
-        - title: Excelente
-          payload: '/give_feedback{{"feedback_value": "5"}}'
+  - buttons:
+    - payload: '/give_feedback{{"feedback_value": "1"}}'
+      title: Malo
+    - payload: '/give_feedback{{"feedback_value": "2"}}'
+      title: Regular
+    - payload: '/give_feedback{{"feedback_value": "3"}}'
+      title: Bueno
+    - payload: '/give_feedback{{"feedback_value": "4"}}'
+      title: Muy Bueno
+    - payload: '/give_feedback{{"feedback_value": "5"}}'
+      title: Excelente
+    text: ¿Me gustaría saber si te gustó la experiencia? 👩‍💻, ¿Te importaría calificarme? 📝
   utter_ask_name_spelled_correctly:
-    - buttons:
-        - payload: /affirm
-          title: Sí 👍.
-        - payload: /deny
-          title: No 👎.
-      text: Está correctamente escrito tu nombre, {first_name}?
+  - buttons:
+    - payload: /affirm
+      title: Sí 👍.
+    - payload: /deny
+      title: No 👎.
+    text: Está correctamente escrito tu nombre, {first_name}?
   utter_anything_else:
-    - text: ¿Hay algo más en que pueda ayudarte? 🥰
+  - text: ¿Hay algo más en que pueda ayudarte? 🥰
   utter_who_you_are:
-    - text: Aún no nos hemos presentado. Mi nombre es Jasmine 👩🏻‍🦰, tu asistente de compras.
+  - text: Aún no nos hemos presentado. Mi nombre es Jasmine 👩🏻‍🦰, tu asistente de compras.
   utter_cancel_search_clothes:
-    - text: Tu búsqueda de ropa ha sido cancelada 😐.
+  - text: Tu búsqueda de ropa ha sido cancelada 😐.
   utter_cancel_get_feedback:
-    - text: Bueno, será para una proxima ocasión ✌️.
-
+  - text: Bueno, será para una proxima ocasión ✌️.
   utter_ask_knows_abilities:
-    - buttons:
-        - payload: /affirm
-          title: Sí 👍.
-        - payload: /deny
-          title: No 👎.
-      text: Primero necesitas probar mis habilidades. ¿Quiéres intentarlo?
-
+  - buttons:
+    - payload: /affirm
+      title: Sí 👍.
+    - payload: /deny
+      title: No 👎.
+    text: Primero necesitas probar mis habilidades. ¿Quiéres intentarlo?
 actions:
-  - action_ask_category
-  - action_goodbye_world
-  - action_hello_world
-  - action_product_search
-  - utter_chitchat
-  - utter_faq
-  - validate_clothes_form
-  - validate_name_form
-  - validate_feedback_form
-  - action_thanks_feedback
-  - action_feedback_user
-  - action_who_you_are
-  - action_stop_clothes_form
-  - action_stop_feedback_form
-  - action_introducing_me
-  - action_feedack_already_fill
+- action_ask_category
+- action_goodbye_world
+- action_hello_world
+- action_product_search
+- utter_chitchat
+- utter_faq
+- validate_clothes_form
+- validate_name_form
+- validate_feedback_form
+- action_thanks_feedback
+- action_feedback_user
+- action_who_you_are
+- action_stop_clothes_form
+- action_stop_feedback_form
+- action_introducing_me
+- action_feedack_already_fill
 forms:
   clothes_form:
     ignored_intents:
-      - chichat
-      - faq
+    - chichat
+    - faq
     required_slots:
       gender:
-        - entity: gender
-          type: from_entity
-          intent:
-            - inform
-            - request_clothes
+      - entity: gender
+        type: from_entity
+        intent:
+        - inform
+        - request_clothes
       category:
-        - entity: category
-          type: from_entity
-          intent:
-            - inform
-            - request_clothes
+      - entity: category
+        type: from_entity
+        intent:
+        - inform
+        - request_clothes
       size:
-        - entity: number
-          type: from_entity
-          intent:
-            - inform
-            - request_clothes
+      - entity: number
+        type: from_entity
+        intent:
+        - inform
+        - request_clothes
       color:
-        - type: from_entity
-          entity: color
-        - type: from_text
-          not_intent:
-            - chichat
-            - faq
-        - type: from_intent
-          intent: deny
-          value: No
+      - type: from_entity
+        entity: color
+      - type: from_text
+        not_intent:
+        - chichat
+        - faq
+      - type: from_intent
+        intent: deny
+        value: No
   name_form:
     ignored_intents:
-      - chichat
-      - faq
+    - chichat
+    - faq
     required_slots:
       first_name:
-        - type: from_text
+      - type: from_text
       email:
-        - entity: email
-          type: from_entity
+      - entity: email
+        type: from_entity
   feedback_form:
     ignored_intents:
-      - chichat
-      - faq
+    - chichat
+    - faq
     required_slots:
       feedback_value:
-        - entity: feedback_value
-          type: from_entity
+      - entity: feedback_value
+        type: from_entity
       feedback_message:
-        - type: from_text
+      - type: from_text
