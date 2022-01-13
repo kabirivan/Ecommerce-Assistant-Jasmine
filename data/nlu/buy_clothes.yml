@@ -1,5 +1,4 @@
 version: "2.0"
-
 nlu:
 - intent: request_clothes
   examples: |
@@ -40,7 +39,6 @@ nlu:
     - me gustaria comprar [busos](category)
     - me gustaria comprar un [buso](category)
     - me gustaria comprar [camisetas](category)
-    - me gustaria comprar [polos](category)
     - me gustaria comprar una [polo](category)
     - quiero comprar [busos](category)
     - quiero comprar [buso](category)
@@ -138,6 +136,20 @@ nlu:
     - 1
     - quiero seguir buscando ropa
     - quiero seguir buscando
+    - 3
+    - 12
+    - ropita
+    - 1 ano
+    - [buso](category)
+    - Necesito ropa
+    - 2
+    - 2 años
+    - Quiero ropa
+    - quiero comprar [blusas]{"entity": "category", "value": "blusa"} de [nina]{"entity": "gender", "value": "ni\u00f1a"}
+    - [blusa](category)
+    - [nino]{"entity": "gender", "value": "ni\u00f1o"}
+    - quiero ropa
+    - [busos](category)
 - intent: request_clothes_price
   examples: |
     - quiero comprar ropa que cueste [menos](comparator) de 25 dolares
@@ -209,9 +221,11 @@ nlu:
     - [café](color)
     - [rosado](color)
     - [rosada](color)
-    - [morado](color)
     - [morada](color)
-    - [celeste](color)
+    - [Mirado](color)
+    - [Negro](color)
+    - [Morado](color)
+    - [rojo](color)
 - synonym: menor
   examples: |
     - tengo
@@ -244,7 +258,6 @@ nlu:
   examples: |
     - mas
     - más
-
 - synonym: cafe
   examples: |
     - café
@@ -254,29 +267,25 @@ nlu:
   examples: |
     - rosado
     - rosa
-
 - synonym: morado
   examples: |
     - morada
     - purpura
     - violeta
-
+    - Mirado
 - synonym: pijama
   examples: |
     - pijamas
-
 - synonym: buso
   examples: |
     - busos
     - busito
-
 - synonym: blusa
   examples: |
     - blusas
     - blusitas
     - blucita
     - blucitas
-
 - synonym: pantalon
   examples: |
     - pantalón
@@ -285,25 +294,21 @@ nlu:
     - pantalonsito
     - pantalonsitos
     - pantalones
-
 - synonym: legging
   examples: |
     - leggings
     - pantalones de licra
     - licras
-
 - synonym: polo
   examples: |
     - polos
     - camisetas
-
-
 - lookup: color
   examples: |
     - rojo
     - amarillo
     - azul
-    - verde 
+    - verde
     - morado
     - naranja
     - rosa
