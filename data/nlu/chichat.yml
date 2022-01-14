@@ -142,3 +142,10 @@ nlu:
     - necesito la hora
     - dime la hora
     - que hora es exactamente.
+
+- intent: chitchat/ask_somenthing_nice
+  examples: |
+    - di algo bonito
+    - dime algo lindo
+    - dime algo especial
+    

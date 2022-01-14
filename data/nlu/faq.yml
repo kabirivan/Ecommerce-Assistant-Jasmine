@@ -32,3 +32,68 @@ nlu:
     - rebajas
     - cupones
     - rebaje
+- intent: faq/delivery
+  examples: |
+    - cuanto tiempo se demora la entrega
+    - cuanto tardan en entregarme mi ropa
+    - cuanto tardan en entregarme mi producto
+- intent: faq/has_delivery
+  examples: |
+    - tienen entrega a domiciolio
+    - entregan a domicilio
+    - tienen delivery
+    - me pueden entregar a la casa
+    - me pueden traer mi ropa
+
+- intent: faq/where_buy
+  examples: |
+    - Donde vende su ropa
+    - tienen algún local
+    - tienen local?
+    - donde los puedo visitar
+    - donde los puedo encontrar
+    - donde puedo comprar su ropa
+    - tienen local fisico
+
+- intent: faq/material:
+  examples: |
+    - de que material es la ropa
+    - material de la ropa
+    - dime como esta hecho la ropa
+    - dime la materia prima
+
+- intent: faq/quality:
+  examples: |
+    - de que calidad es
+    - que calidad tiene
+    - cual es la calidad
+
+- intent: faq/garanty:
+  examples: |
+    - tiene garantia
+    - hablame de la garantia
+    - garantia
+    - si tiene garantia?
+
+- intent: faq/mission:
+  examples: |
+    - Cual es la mision
+    - que mision tienen
+
+- intent: faq/history:
+  examples: |
+    - hablame de tu empresa
+    - a que se dedica tu empresa
+    - que hace tu negocio
+    - que hacen en creaciones jasmin
+
+- intent: faq/hows_works:
+  examples: |
+    - como funcionas
+    - como funciona
+    - que debo hacer
+    - no se que hacer
+    - que hago ahora
+    - que hago
+    - estoy perdido
+    

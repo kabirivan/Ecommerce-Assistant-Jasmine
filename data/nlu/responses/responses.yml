@@ -1,7 +1,6 @@
-version: "2.0"
+version: '2.0'
 
 responses:
-
   utter_faq/sizing_clarification:
     - text: Quiero mencionarte que en Creaciones Jasmin manejamos tallas americanas para confeccionar la ropa para niñ@s.
 
@@ -9,7 +8,40 @@ responses:
     - text: Muy buena pregunta! Nosotros aceptamos transferencias, tarjetas de crédito, depositos y efectivo. Así que no te preocupes tenemos varias alternativas de pago.
 
   utter_faq/promotions:
-    - text: Lo siento, actualmente no tenemos promociones, pero el proximo mes tendremos descuentos de haste el 50%. Así que mantente alerta!
+    - text: Actualmente tenemos una promoción con descuentos de hasta el 50%. Así que mantente pilas!
+
+  utter_faq/delivery:
+    - text: El tiempo de entrega de tu ropita tarde 1 día después de que hayas comprado el producto.
+
+  utter_faq/has_delivery:
+    - text: |
+      Claro que sí, tenemos entrega a domicilio con un pequeño recargo adicional. Por ejemplo: 
+        - Norte: $ 2.00
+        - Centro: $ 2.50
+        - Sur: $ 3.00
+        - Valles: $ 3.00
+
+  utter_faq/where_buy:
+    - text: Tenemos un local en el Centro Comercial de Negocios Andinos, Asociación La Campana, Pasillo 13A.
+  
+  utter_faq/material:
+    - text: La tela con la que trabajamos contiene tejidos naturales, no tóxicos. Con esto, tus niñ@s evitarán alergias y amarán su ropa ❤️.
+  
+  utter_faq/quality:
+    - text: La calidad de nuestras ropitas permite que el niño se sienta cómodo y seguro. No solamente queremos que se vea bien sino que su ropa le dure por mucho más tiempo.
+    
+  utter_faq/garanty:
+    - text: Los niños pasan gran parte de su vida jugando en el suelo y ensuciándose. Ofrecemos prendas con texturas cómodas, de buena calidad y resistentes. Garantizados !!
+
+  utter_faq/mission:
+    - text: Nuestra principal misión es diseñar, fabricar y comercializar ropa de niñ@s a nivel nacional, a través de prendas de calidad con un precio excepcional y un servicio al cliente superior. 
+  
+  utter_faq/history:
+    - text: Es una tienda de ropa para niños y niñas de la más alta calidad al mejor precio del mercado. La originalidad y exclusividad con estilos novedosos, de colores llamativos y de hermosos acabados son nuestra clave al momento de vender.
+  
+  utter_faq/hows_works:
+    - text: Sólo escribe **quiero ropa**
+    
 
   utter_chitchat/thanks:
     - text: Con mucho gusto.
@@ -56,3 +88,9 @@ responses:
 
   utter_chitchat/ask_time:
     - text: Es el tiempo más bonito del año 🌇.
+  
+  utter_chitchat/ask_somenthing_nice:
+    - text: En la moda, no importa la marca en la etiqueta, ni el monto en la factura. Se trata del sentimiento que produce, en las personas que la visten
+    - text: La elegancia es la única belleza que nunca desaparece.
+    - text: La moda no sólo existe en los vestidos. La moda está en el cielo, en las calles, la moda tiene que ver con ideas, la forma en que vivimos y lo qué está sucediendo
+    - text: Lo que se estrena, siempre alegra.
