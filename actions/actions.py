@@ -246,7 +246,7 @@ class ValidateClothesForm(FormValidationAction):
 
             if clothes_type == "blusa" and (slot_value.lower() not in MOCK_DATA["ALLOWED_COLORS_GIRLS_BLUSAS"]):
                 dispatcher.utter_message(
-                    text=f"Por el momento disponemos de colores de blusas como: \n- Morado\n- Amarillo\n- Beige\n- Celeste\n- Plomo"
+                    text=f"Por el momento disponemos de colores de blusas como: \n- Morado\n- Amarillo\n- Beige\n- Celeste\n- Plomo\n- Turquesa"
                 )
                 return {"color": None}
 
@@ -261,19 +261,19 @@ class ValidateClothesForm(FormValidationAction):
         if gender == "niño":
             if clothes_type == "buso" and slot_value.lower() not in MOCK_DATA["ALLOWED_COLORS_BOYS_BUSOS"]:
                 dispatcher.utter_message(
-                    text=f"Por el momento disponemos de colores de busos como: \n- Azul\n- Plomo\n- Negro\n- Beige\n- Celeste\n- Amarillo\n- Rojo"
+                    text=f"Por el momento disponemos de colores de busos como: \n- Azul\n- Rojo\n- Beige\n- Plomo\n- Amarillo"
                 )
                 return {"color": None}
 
             if clothes_type == "polo" and slot_value.lower() not in MOCK_DATA["ALLOWED_COLORS_BOYS_POLOS"]:
                 dispatcher.utter_message(
-                    text=f"Por el momento disponemos de colores de polos como: \n- Rojo\n- Celeste\n- Azul\n- Anaranjado\n- Verde\n- Amarillo"
+                    text=f"Por el momento disponemos de colores de polos como: \n- Café\n- Verde\n- Azul\n- Rojo"
                 )
                 return {"color": None}
 
             if clothes_type == "pantalon" and slot_value.lower() not in MOCK_DATA["ALLOWED_COLORS_BOYS_PANTALONES"]:
                 dispatcher.utter_message(
-                    text=f"Por el momento disponemos de colores de pantalones como: \n- Amarillo\n- Azul\n- Rojo\n- Plomo\n- Gris"
+                    text=f"Por el momento disponemos de colores de pantalones como: \n- Azul\n- Rojo\n- Plomo\n- Gris"
                 )
                 return {"color": None}
 
