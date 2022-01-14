@@ -498,45 +498,45 @@ class ActionProductSearch(Action):
             dispatcher.utter_message(attachment=message)  # Show respuestas
 
             feedback_fill = tracker.get_slot("feedback_fill")
-            count_find_product = tracker.get_slot("count_find_product")
-            print('count_find_product', count_find_product)
+            # count_find_product = tracker.get_slot("count_find_product")
+            # print('count_find_product', count_find_product)
 
-            if count_find_product < 1.0:
-                result_finds = 1.0 - count_find_product
-                update_count = count_find_product + 1
+            # if count_find_product < 1.0:
+            #     result_finds = 1.0 - count_find_product
+            #     update_count = count_find_product + 1
+            #     dispatcher.utter_message(
+            #         text=f"Debes buscar por lo menos {int(result_finds)} veces para dejar un comentario")
+            #     dispatcher.utter_message(response="utter_anything_else")
+
+            #     slots_to_reset = {
+            #         "gender": None,
+            #         "size": None,
+            #         "color": None,
+            #         "category": None,
+            #         "clothes_name_value": None,
+            #         "count_find_product": update_count
+            #     }
+
+            #     return [SlotSet(k, v) for k, v in slots_to_reset.items()]
+
+            # else:
+            if feedback_fill is None:
+                time.sleep(5)
                 dispatcher.utter_message(
-                    text=f"Debes buscar por lo menos {int(result_finds)} veces para dejar un comentario")
+                    response="utter_ask_feedback_value")
+            else:
                 dispatcher.utter_message(response="utter_anything_else")
 
-                slots_to_reset = {
-                    "gender": None,
-                    "size": None,
-                    "color": None,
-                    "category": None,
-                    "clothes_name_value": None,
-                    "count_find_product": update_count
-                }
+            slots_to_reset = {
+                "gender": None,
+                "size": None,
+                "color": None,
+                "category": None,
+                "clothes_name_value": None,
 
-                return [SlotSet(k, v) for k, v in slots_to_reset.items()]
+            }
 
-            else:
-                if feedback_fill is None:
-                    time.sleep(5)
-                    dispatcher.utter_message(
-                        response="utter_ask_feedback_value")
-                else:
-                    dispatcher.utter_message(response="utter_anything_else")
-
-                    slots_to_reset = {
-                        "gender": None,
-                        "size": None,
-                        "color": None,
-                        "category": None,
-                        "clothes_name_value": None,
-                        "count_find_product": 2
-                    }
-
-                    return [SlotSet(k, v) for k, v in slots_to_reset.items()]
+            return [SlotSet(k, v) for k, v in slots_to_reset.items()]
 
         else:
             # provide out of stock
