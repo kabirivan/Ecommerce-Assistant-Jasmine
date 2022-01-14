@@ -15,7 +15,7 @@ responses:
 
   utter_faq/has_delivery:
     - text: |
-      Claro que sí, tenemos entrega a domicilio con un pequeño recargo adicional. Por ejemplo: 
+        Claro que sí, tenemos entrega a domicilio con un pequeño recargo adicional. Por ejemplo: 
         - Norte: $ 2.00
         - Centro: $ 2.50
         - Sur: $ 3.00
@@ -24,8 +24,8 @@ responses:
   utter_faq/where_buy:
     - text: Tenemos un local en el Centro Comercial de Negocios Andinos, Asociación La Campana, Pasillo 13A.
   
-  utter_faq/material:
-    - text: La tela con la que trabajamos contiene tejidos naturales, no tóxicos. Con esto, tus niñ@s evitarán alergias y amarán su ropa ❤️.
+  utter_faq/material_clothes:
+    - text: 'La tela con la que trabajamos contiene tejidos naturales, no tóxicos. Con esto, tus niñ@s evitarán alergias y amarán su ropa ❤️.'
   
   utter_faq/quality:
     - text: La calidad de nuestras ropitas permite que el niño se sienta cómodo y seguro. No solamente queremos que se vea bien sino que su ropa le dure por mucho más tiempo.
@@ -42,7 +42,6 @@ responses:
   utter_faq/hows_works:
     - text: Sólo escribe **quiero ropa**
     
-
   utter_chitchat/thanks:
     - text: Con mucho gusto.
     - text: Es un placer 🥰.

@@ -55,39 +55,39 @@ nlu:
     - donde puedo comprar su ropa
     - tienen local fisico
 
-- intent: faq/material:
+- intent: faq/material_clothes
   examples: |
     - de que material es la ropa
     - material de la ropa
     - dime como esta hecho la ropa
     - dime la materia prima
 
-- intent: faq/quality:
+- intent: faq/quality
   examples: |
     - de que calidad es
     - que calidad tiene
     - cual es la calidad
 
-- intent: faq/garanty:
+- intent: faq/garanty
   examples: |
     - tiene garantia
     - hablame de la garantia
     - garantia
     - si tiene garantia?
 
-- intent: faq/mission:
+- intent: faq/mission
   examples: |
     - Cual es la mision
     - que mision tienen
 
-- intent: faq/history:
+- intent: faq/history
   examples: |
     - hablame de tu empresa
     - a que se dedica tu empresa
     - que hace tu negocio
     - que hacen en creaciones jasmin
 
-- intent: faq/hows_works:
+- intent: faq/hows_works
   examples: |
     - como funcionas
     - como funciona
