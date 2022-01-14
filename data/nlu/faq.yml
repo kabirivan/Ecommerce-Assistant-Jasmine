@@ -1,5 +1,4 @@
 version: "2.0"
-
 nlu:
 - intent: faq/sizing_clarification
   examples: |
@@ -18,6 +17,7 @@ nlu:
     - quiero pagar
     - alternativas de pago
     - quiero saber como pagar
+    - Acepta trasferencias
 - intent: faq/promotions
   examples: |
     - que tipo de promociones tienen?

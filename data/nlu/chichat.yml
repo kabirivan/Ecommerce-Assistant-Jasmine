@@ -29,6 +29,7 @@ nlu:
     - gracias por tu respuesta
     - ok, gracias
     - utter_chitchat/thanks
+    - Gracias
 - intent: chitchat/developer
   examples: |
     - quiero conocer a tu creador
