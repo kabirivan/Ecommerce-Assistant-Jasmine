@@ -63,6 +63,7 @@ nlu:
     - hol
     - holi
     - HOla
+    - Hola hola
 - intent: affirm
   examples: |
     - si
@@ -160,6 +161,9 @@ nlu:
     - [Xavier](PERSON)
     - xavier.aguas@epn.edu.ec
     - aguas.xavier2013a@gmail.com
+    - hz-hertzio@hotmail.com
+    - [Darío](PERSON)
+    - Xavier.aguas@epn.Edu.ec
 - intent: give_feedback
   examples: |
     - quiero dejar un mensaje

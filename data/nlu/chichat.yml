@@ -29,6 +29,7 @@ nlu:
     - gracias por tu respuesta
     - ok, gracias
     - utter_chitchat/thanks
+    - Gracias
 - intent: chitchat/developer
   examples: |
     - quiero conocer a tu creador
@@ -142,3 +143,10 @@ nlu:
     - necesito la hora
     - dime la hora
     - que hora es exactamente.
+
+- intent: chitchat/ask_somenthing_nice
+  examples: |
+    - di algo bonito
+    - dime algo lindo
+    - dime algo especial
+    

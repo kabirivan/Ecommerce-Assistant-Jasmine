@@ -150,6 +150,9 @@ nlu:
     - [nino]{"entity": "gender", "value": "ni\u00f1o"}
     - quiero ropa
     - [busos](category)
+    - 15 años
+    - [pijama](category)
+    - quiero ropa de [nina]{"entity": "gender", "value": "ni\u00f1a"}
 - intent: request_clothes_price
   examples: |
     - quiero comprar ropa que cueste [menos](comparator) de 25 dolares
@@ -226,28 +229,37 @@ nlu:
     - [Negro](color)
     - [Morado](color)
     - [rojo](color)
-- synonym: menor
+    - [Plomo](color)
+    - [Anaranjado](color)
+    - [Rojo](color)
+- synonym: blusa
   examples: |
-    - tengo
-    - alcanza
-    - menos
+    - blusas
+    - blusitas
+    - blucita
+    - blucitas
 - synonym: niña
   examples: |
-    - niñas
     - nina
+    - niñas
     - ninas
     - mujer
     - mujeres
     - mujercitas
 - synonym: niño
   examples: |
-    - niños
     - nino
+    - niños
     - ninos
     - hombre
     - hombres
     - varón
     - varon
+- synonym: menor
+  examples: |
+    - tengo
+    - alcanza
+    - menos
 - synonym: todos
   examples: |
     - ver todo
@@ -280,12 +292,6 @@ nlu:
   examples: |
     - busos
     - busito
-- synonym: blusa
-  examples: |
-    - blusas
-    - blusitas
-    - blucita
-    - blucitas
 - synonym: pantalon
   examples: |
     - pantalón
