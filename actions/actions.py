@@ -107,6 +107,18 @@ class ActionHelloWorld(Action):
                                 },
                             ]
                         },
+                                                {
+                            "title": "Mi Creador",
+                            "subtitle": "I want to be a Hero",
+                            "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1642204690/developer_bxr0na.png",
+                            "buttons": [
+                                {
+                                    "type": "web_url",
+                                    "url": "https://www.linkedin.com/in/xavier-iv%C3%A1n-aguas-5764b5133/",
+                                    "title": " Descubre 👨🏻‍🚀 .",
+                                },
+                            ]
+                        },
                     ],
             },
         }

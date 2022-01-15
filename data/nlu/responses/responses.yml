@@ -41,6 +41,12 @@ responses:
   
   utter_faq/hows_works:
     - text: Sólo escribe **quiero ropa**
+
+  utter_faq/devolutions:
+    - text: Claro aceptamos devoluciones y te cambiamos la ropita por el color que te guste, siempre y cuando la ropita que devuelves esté intacta.
+  
+  utter_faq/artesans:
+    - text: Si, somos artesanos en la confección de la ropa. Vendemos al por mayor y menor.
     
   utter_chitchat/thanks:
     - text: Con mucho gusto.
