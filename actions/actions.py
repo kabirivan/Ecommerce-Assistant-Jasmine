@@ -141,6 +141,9 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 text="Empecemos!"
             )
+            dispatcher.utter_message(
+                text="Elige una opción para iniciar"
+            )
             dispatcher.utter_message(attachment=message)
 
         return [SlotSet("email_fill", True)]
@@ -660,18 +663,14 @@ class ValidateNameForm(FormValidationAction):
         if isinstance(slot_value, list):
             slot_value = slot_value[0]
 
-        print('tesst', tracker.get_slot("requested_slot"))
-        print(f"First name given = {slot_value} length = {len(slot_value)}")
-
         if tracker.get_slot("requested_slot") == "first_name":
-            print('first_name_p', tracker.get_slot("first_name"))
             if len(slot_value) <= 1:
                 dispatcher.utter_message(
                     text=f"El nombre es muy corto, parece que te faltan caracteres.")
                 return {"first_name": None}
             else:
                 print('slot_value', slot_value)
-                return {"first_name": slot_value, "last_first_name": slot_value}
+                return {"first_name": slot_value.capitalize(), "last_first_name": slot_value.capitalize()}
 
         return {"first_name": tracker.get_slot("last_first_name")}
 
