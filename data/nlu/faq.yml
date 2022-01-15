@@ -96,4 +96,16 @@ nlu:
     - que hago ahora
     - que hago
     - estoy perdido
-    
+
+- intent: faq/devolutions
+  examples: |
+    - existen devoluciones
+    - puedo devolver la ropa
+    - si no me queda, puedo devolverlo
+
+- intent: faq/artesans
+  examples: |
+    - son artesanos
+    - ustedes son artesanos
+    - dime si son artesanos
+    - acaso son artesanos
