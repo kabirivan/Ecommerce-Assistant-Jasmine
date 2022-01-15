@@ -109,7 +109,7 @@ class ActionHelloWorld(Action):
                         },
                                                 {
                             "title": "Mi Creador",
-                            "subtitle": "I want to be a Hero",
+                            "subtitle": "El poder de la imaginación nos hace infinitos",
                             "image_url": "https://res.cloudinary.com/ecommercejasmine/image/upload/v1642204690/developer_bxr0na.png",
                             "buttons": [
                                 {
