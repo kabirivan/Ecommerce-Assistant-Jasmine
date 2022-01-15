@@ -21,7 +21,7 @@ api_key_airtable = os.getenv('API_KEY_AIRTABLE')
 
 date = datetime.datetime.now().isoformat()
 table = Table(api_key_airtable, base_id, table_name)
-
+table2 = Table(api_key_airtable, base_id, 'Clothes')
 # new_record = {
 #         "name": 'ivan',
 #         "email": 'email@gmail.com',
@@ -31,7 +31,6 @@ table = Table(api_key_airtable, base_id, table_name)
 #     }
 
 # table.create(new_record)
-
 
 this_path = pathlib.Path(os.path.realpath(__file__))
 email_content = get_html_data(f"{this_path.parent}/user_email.html")
@@ -479,6 +478,17 @@ class ActionProductSearch(Action):
 
         print(parameters)
 
+        date = datetime.datetime.now().isoformat()
+        new_record = {
+                    "category": parameters[2],
+                    "age": parameters[1],
+                    "color": parameters[3],
+                    "gender": parameters[0],
+                    "created_at": date
+                }
+
+        table2.create(new_record)
+
         if parameters[3] == "no":
             objects = self.search_gender_age_category(parameters)
         else:
@@ -811,7 +821,7 @@ class ActionThanksFeedback(Action):
             is_mail_sent = send_email("Gracias por tu aporte al desarrollo tecnológico", email, email_content)
 
             if is_mail_sent:
-                dispatcher.utter_message(text=f"Pronto, recibirás un correo de agradecimiento")
+                dispatcher.utter_message(text=f"Pronto, recibirás un correo de parte de mi")
             
             return [SlotSet('feedback_fill', True)]
 
