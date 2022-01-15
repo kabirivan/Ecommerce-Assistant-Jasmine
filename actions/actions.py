@@ -12,14 +12,16 @@ import time
 from actions.utils import get_html_data, send_email
 from pyairtable import Table
 import datetime
+import re
 
+regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 base_id = os.getenv('BASE_ID')
 table_name = os.getenv('TABLE_NAME')
 api_key_airtable = os.getenv('API_KEY_AIRTABLE')
 
 date = datetime.datetime.now().isoformat()
 table = Table(api_key_airtable, base_id, table_name)
-
+table2 = Table(api_key_airtable, base_id, 'Clothes')
 # new_record = {
 #         "name": 'ivan',
 #         "email": 'email@gmail.com',
@@ -29,7 +31,6 @@ table = Table(api_key_airtable, base_id, table_name)
 #     }
 
 # table.create(new_record)
-
 
 this_path = pathlib.Path(os.path.realpath(__file__))
 email_content = get_html_data(f"{this_path.parent}/user_email.html")
@@ -477,6 +478,17 @@ class ActionProductSearch(Action):
 
         print(parameters)
 
+        date = datetime.datetime.now().isoformat()
+        new_record = {
+                    "category": parameters[2],
+                    "age": parameters[1],
+                    "color": parameters[3],
+                    "gender": parameters[0],
+                    "created_at": date
+                }
+
+        table2.create(new_record)
+
         if parameters[3] == "no":
             objects = self.search_gender_age_category(parameters)
         else:
@@ -613,7 +625,6 @@ class ValidateNameForm(FormValidationAction):
         first_name = tracker.get_slot("first_name")
         if first_name is not None:
             if first_name.upper() not in names:
-                print('Validacion')
                 return ["name_spelled_correctly"] + domain_slots
         return domain_slots
 
@@ -681,21 +692,61 @@ class ValidateNameForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `first_name` value."""
+        """Validate `email` value."""
 
         # If the name is super short, it might be wrong.
 
-        if len(slot_value) <= 1:
+        if (re.fullmatch(regex, slot_value)):
             dispatcher.utter_message(
-                text=f"Parece que al correo le falta caracteres.")
-            return {"email": None}
-        else:
+                response="utter_thumbsup")
             return {"email": slot_value}
+        else:
+            dispatcher.utter_message(
+                text=f"Parece que la dirección de correo es inválida. Vuelve a ingresarla, por favor.")
+            return {"email": None}
 
 
 class ValidateFeedbackForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_feedback_form"
+
+    # async def required_slots(
+    #     self,
+    #     domain_slots: List[Text],
+    #     dispatcher: "CollectingDispatcher",
+    #     tracker: "Tracker",
+    #     domain: "DomainDict",
+    # ) -> Optional[List[Text]]:
+    #     feedback_value = tracker.get_slot("feedback_value")
+    #     if feedback_value is not None:
+    #         if feedback_value in ['1', '2', '3', '4', '5']:
+    #             return ["feedback_message"] + domain_slots
+    #     return domain_slots
+
+
+    # async def extract_feedback_message(
+    #     self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    # ) -> Dict[Text, Any]:
+    #     feedback_value = tracker.get_slot("feedback_value")
+    #     text_of_last_user_message = tracker.latest_message.get("text")
+        
+    #     if feedback_value == '1':
+    #         dispatcher.utter_message(
+    #             text=f"Lo siento que no te haya agradado, voy a mejorar gracias a tu mensaje.")
+    #     elif feedback_value == '2':
+    #         dispatcher.utter_message(
+    #             text=f"Chuta, creo que debo mejorar. Voy a ser mejor para la próxima vez.")
+    #     elif feedback_value == '3':
+    #         dispatcher.utter_message(
+    #             text=f"Voy a tomar tus comentarios al pie de la letra para mejorar. No te defraudaré!")
+    #     elif feedback_value == '4':
+    #         dispatcher.utter_message(
+    #             text=f"Gracias por tu comentario, de seguro la próxima vez que me escribas te sorprenderé.")
+    #     else:
+    #         dispatcher.utter_message(
+    #             text=f"Gracias por tus palabras, me ayuda a mejorar constantemente")
+        
+    #     return {}
 
     def validate_feedback_value(
         self,
@@ -726,13 +777,14 @@ class ValidateFeedbackForm(FormValidationAction):
         """Validate `feedback_message` value."""
 
         message = slot_value
+        text_of_last_user_message = tracker.latest_message.get("text")
         print('message', message)
 
-        if len(message) <= 5:
+        if len(text_of_last_user_message) <= 5:
             dispatcher.utter_message(
                 text=f"La reseña es muy corta, ¿quiero saber que piensas de mi?.")
             return {"feedback_message": None}
-        return {"feedback_message": slot_value}
+        return {"feedback_message": text_of_last_user_message}
 
 
 class ActionThanksFeedback(Action):
@@ -769,7 +821,7 @@ class ActionThanksFeedback(Action):
             is_mail_sent = send_email("Gracias por tu aporte al desarrollo tecnológico", email, email_content)
 
             if is_mail_sent:
-                dispatcher.utter_message(text=f"Pronto, recibirás un correo de agradecimiento")
+                dispatcher.utter_message(text=f"Pronto, recibirás un correo de parte de mi")
             
             return [SlotSet('feedback_fill', True)]
 
