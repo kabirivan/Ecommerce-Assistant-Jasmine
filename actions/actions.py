@@ -133,7 +133,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 response="utter_complete_information"
             )
-            #dispatcher.utter_message(attachment=message)
+            dispatcher.utter_message(attachment=message)
 
         elif clothes_name_value == True:
             dispatcher.utter_message(
@@ -146,7 +146,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 text="Elige una opción para iniciar"
             )
-            #dispatcher.utter_message(attachment=message)
+            dispatcher.utter_message(attachment=message)
 
         return [SlotSet("email_fill", True)]
 
@@ -196,7 +196,7 @@ class ActionIntroducingMe(Action):
         }
 
         dispatcher.utter_message(text="Mira, esto es para ti!")
-        #dispatcher.utter_message(attachment=message)
+        dispatcher.utter_message(attachment=message)
 
         return []
 
@@ -321,7 +321,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Lo siento eso no tenemos, pero te cuento que contamos con los siguientes tipos de ropa para niñas:",
                 )
-                #dispatcher.utter_message(attachment=message_clothes_girls)
+                dispatcher.utter_message(attachment=message_clothes_girls)
 
                 return {"category": None}
             else:
@@ -333,7 +333,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Te cuento que contamos con los siguientes tipos de ropa para niños:"
                 )
-                #dispatcher.utter_message(attachment=message_clothes_boys)
+                dispatcher.utter_message(attachment=message_clothes_boys)
                 return {"category": None}
             else:
                 dispatcher.utter_message(text=f"Excelente elección 👍🏻")
@@ -382,13 +382,13 @@ class AskForCategoryAction(Action):
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niñas 👧🏻:"
             )
-            #dispatcher.utter_message(attachment=message_clothes_girls)
+            dispatcher.utter_message(attachment=message_clothes_girls)
         else:
 
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niños 👦🏻:"
             )
-            #dispatcher.utter_message(attachment=message_clothes_boys)
+            dispatcher.utter_message(attachment=message_clothes_boys)
 
         return []
 
@@ -512,7 +512,7 @@ class ActionProductSearch(Action):
         }
 
         if clothes:
-            #dispatcher.utter_message(attachment=message)  # Show respuestas
+            dispatcher.utter_message(attachment=message)  # Show respuestas
 
             feedback_fill = tracker.get_slot("feedback_fill")
             # count_find_product = tracker.get_slot("count_find_product")
@@ -700,43 +700,43 @@ class ValidateFeedbackForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_feedback_form"
 
-    async def required_slots(
-        self,
-        domain_slots: List[Text],
-        dispatcher: "CollectingDispatcher",
-        tracker: "Tracker",
-        domain: "DomainDict",
-    ) -> Optional[List[Text]]:
-        feedback_value = tracker.get_slot("feedback_value")
-        if feedback_value is not None:
-            if feedback_value in ['1', '2', '3', '4', '5']:
-                return ["feedback_message"] + domain_slots
-        return domain_slots
+    # async def required_slots(
+    #     self,
+    #     domain_slots: List[Text],
+    #     dispatcher: "CollectingDispatcher",
+    #     tracker: "Tracker",
+    #     domain: "DomainDict",
+    # ) -> Optional[List[Text]]:
+    #     feedback_value = tracker.get_slot("feedback_value")
+    #     if feedback_value is not None:
+    #         if feedback_value in ['1', '2', '3', '4', '5']:
+    #             return ["feedback_message"] + domain_slots
+    #     return domain_slots
 
 
-    async def extract_feedback_message(
-        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
-    ) -> Dict[Text, Any]:
-        feedback_value = tracker.get_slot("feedback_value")
-        text_of_last_user_message = tracker.latest_message.get("text")
+    # async def extract_feedback_message(
+    #     self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    # ) -> Dict[Text, Any]:
+    #     feedback_value = tracker.get_slot("feedback_value")
+    #     text_of_last_user_message = tracker.latest_message.get("text")
         
-        if feedback_value == '1':
-            dispatcher.utter_message(
-                text=f"Lo siento que no te haya agradado, voy a mejorar gracias a tu mensaje.")
-        elif feedback_value == '2':
-            dispatcher.utter_message(
-                text=f"Chuta, creo que debo mejorar. Voy a ser mejor para la próxima vez.")
-        elif feedback_value == '3':
-            dispatcher.utter_message(
-                text=f"Voy a tomar tus comentarios al pie de la letra para mejorar. No te defraudaré!")
-        elif feedback_value == '4':
-            dispatcher.utter_message(
-                text=f"Gracias por tu comentario, de seguro la próxima vez que me escribas te sorprenderé.")
-        else:
-            dispatcher.utter_message(
-                text=f"Gracias por tus palabras, me ayuda a mejorar constantemente")
+    #     if feedback_value == '1':
+    #         dispatcher.utter_message(
+    #             text=f"Lo siento que no te haya agradado, voy a mejorar gracias a tu mensaje.")
+    #     elif feedback_value == '2':
+    #         dispatcher.utter_message(
+    #             text=f"Chuta, creo que debo mejorar. Voy a ser mejor para la próxima vez.")
+    #     elif feedback_value == '3':
+    #         dispatcher.utter_message(
+    #             text=f"Voy a tomar tus comentarios al pie de la letra para mejorar. No te defraudaré!")
+    #     elif feedback_value == '4':
+    #         dispatcher.utter_message(
+    #             text=f"Gracias por tu comentario, de seguro la próxima vez que me escribas te sorprenderé.")
+    #     else:
+    #         dispatcher.utter_message(
+    #             text=f"Gracias por tus palabras, me ayuda a mejorar constantemente")
         
-        return {"feedback_message": text_of_last_user_message}
+    #     return {}
 
     def validate_feedback_value(
         self,
@@ -767,13 +767,14 @@ class ValidateFeedbackForm(FormValidationAction):
         """Validate `feedback_message` value."""
 
         message = slot_value
+        text_of_last_user_message = tracker.latest_message.get("text")
         print('message', message)
 
-        if len(message) <= 5:
+        if len(text_of_last_user_message) <= 5:
             dispatcher.utter_message(
                 text=f"La reseña es muy corta, ¿quiero saber que piensas de mi?.")
             return {"feedback_message": None}
-        return {"feedback_message": slot_value}
+        return {"feedback_message": text_of_last_user_message}
 
 
 class ActionThanksFeedback(Action):

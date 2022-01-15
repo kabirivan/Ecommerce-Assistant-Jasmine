@@ -231,11 +231,14 @@ forms:
       email:
         - entity: email
           type: from_entity
+        - type: from_text
+          intent:
+            - give_name
   feedback_form:
-    ignored_intents:
-      - chichat
-      - faq
     required_slots:
       feedback_value:
         - entity: feedback_value
           type: from_entity
+      feedback_message:
+        - type: from_text
+          not_intent: None
