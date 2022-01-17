@@ -218,14 +218,14 @@ forms:
           entity: color
         - type: from_text
           not_intent:
-            - chichat
+            - chitchat
             - faq
         - type: from_intent
           intent: deny
           value: No
   name_form:
     ignored_intents:
-      - chichat
+      - chitchat
       - faq
     required_slots:
       first_name:

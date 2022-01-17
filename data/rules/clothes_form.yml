@@ -21,22 +21,22 @@ rules:
       - action: utter_slots_values
       - action: action_product_search
 
-  - rule: Exit Clothes Form
-    condition:
-      - active_loop: clothes_form
-      - slot_was_set:
-          - clothes_name_value: true
-    steps:
-      - or:
-          - intent: stop
-      - action: action_deactivate_loop
-      - active_loop: null
-      - action: action_stop_clothes_form
-      - action: utter_cancel_search_clothes
-      - action: utter_anything_else
+  # - rule: Exit Clothes Form
+  #   condition:
+  #     - active_loop: clothes_form
+  #     - slot_was_set:
+  #         - clothes_name_value: true
+  #   steps:
+  #     - or:
+  #         - intent: stop
+  #     - action: action_deactivate_loop
+  #     - active_loop: null
+  #     - action: action_stop_clothes_form
+  #     - action: utter_cancel_search_clothes
+  #     - action: utter_anything_else
 
 
-  - rule: Example of an unhappy path clothes form - chichat
+  - rule: Example of an unhappy path clothes form - chitchat
     condition:
     # Condition that form is active.
     - active_loop: clothes_form
@@ -45,8 +45,7 @@ rules:
     - intent: chitchat
     - action: utter_chitchat
     # Return to form after handling the `chitchat` intent
-    - action: clothes_form
-    - active_loop: clothes_form
+    - action: utter_ask_continue
 
 
   - rule: Example of an unhappy path clothes form - faq
@@ -58,5 +57,34 @@ rules:
     - intent: faq
     - action: utter_faq
     # Return to form after handling the `faq` intent
-    - action: clothes_form
+    - action: utter_ask_continue
+
+
+  - rule: continue clothes_form
+    condition:
     - active_loop: clothes_form
+    steps:
+    - action: utter_ask_continue
+    - intent: affirm
+    - action: clothes_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_submit
+    - action: utter_slots_values
+    - action: action_product_search
+
+
+
+  - rule: don't continue clothes_form
+    condition:
+    - active_loop: clothes_form
+    steps:
+    - action: utter_ask_continue_
+    - intent: deny
+    - action: utter_thumbsup
+    - action: action_deactivate_loop
+    - active_loop: null
+    - action: action_stop_clothes_form
+    - action: utter_cancel_search_clothes
+    - action: utter_anything_else
