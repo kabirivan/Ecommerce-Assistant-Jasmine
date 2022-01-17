@@ -4,9 +4,11 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
   - affirm
-  - chitchat
   - deny
-  - faq
+  - chitchat:
+      is_retrieval_intent: true
+  - faq:
+      is_retrieval_intent: true
   - give_feedback
   - give_name
   - goodbye
@@ -189,9 +191,9 @@ actions:
   - action_feedack_already_fill
 forms:
   clothes_form:
-    ignored_intents:
-      - chichat
-      - faq
+    # ignored_intents:
+    #   - chichat
+    #   - faq
     required_slots:
       gender:
         - entity: gender

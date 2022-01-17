@@ -132,7 +132,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 response="utter_complete_information"
             )
-            dispatcher.utter_message(attachment=message)
+            #dispatcher.utter_message(attachment=message)
 
         elif clothes_name_value == True:
             dispatcher.utter_message(
@@ -145,7 +145,7 @@ class ActionHelloWorld(Action):
             dispatcher.utter_message(
                 text="Elige una opción para iniciar"
             )
-            dispatcher.utter_message(attachment=message)
+            #dispatcher.utter_message(attachment=message)
 
         return [SlotSet("email_fill", True)]
 
@@ -195,7 +195,7 @@ class ActionIntroducingMe(Action):
         }
 
         dispatcher.utter_message(text="Mira, esto es para ti!")
-        dispatcher.utter_message(attachment=message)
+        #dispatcher.utter_message(attachment=message)
 
         return []
 
@@ -320,7 +320,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Lo siento eso no tenemos, pero te cuento que contamos con los siguientes tipos de ropa para niñas:",
                 )
-                dispatcher.utter_message(attachment=message_clothes_girls)
+                #dispatcher.utter_message(attachment=message_clothes_girls)
 
                 return {"category": None}
             else:
@@ -332,7 +332,7 @@ class ValidateClothesForm(FormValidationAction):
                 dispatcher.utter_message(
                     text=f"Te cuento que contamos con los siguientes tipos de ropa para niños:"
                 )
-                dispatcher.utter_message(attachment=message_clothes_boys)
+                #dispatcher.utter_message(attachment=message_clothes_boys)
                 return {"category": None}
             else:
                 dispatcher.utter_message(text=f"Excelente elección 👍🏻")
@@ -381,13 +381,13 @@ class AskForCategoryAction(Action):
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niñas 👧🏻:"
             )
-            dispatcher.utter_message(attachment=message_clothes_girls)
+            #dispatcher.utter_message(attachment=message_clothes_girls)
         else:
 
             dispatcher.utter_message(
                 text=f"Te cuento que contamos con los siguientes tipos de ropa para niños 👦🏻:"
             )
-            dispatcher.utter_message(attachment=message_clothes_boys)
+            #dispatcher.utter_message(attachment=message_clothes_boys)
 
         return []
 
@@ -522,7 +522,7 @@ class ActionProductSearch(Action):
         }
 
         if clothes:
-            dispatcher.utter_message(attachment=message)  # Show respuestas
+            #dispatcher.utter_message(attachment=message)  # Show respuestas
 
             feedback_fill = tracker.get_slot("feedback_fill")
             # count_find_product = tracker.get_slot("count_find_product")

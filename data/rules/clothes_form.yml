@@ -34,8 +34,29 @@ rules:
       - action: action_stop_clothes_form
       - action: utter_cancel_search_clothes
       - action: utter_anything_else
-  # - rule: when default fallback
-  #   steps:
-  #     - action: action_default_fallback
-  #     - action: action_deactivate_loop
-  #     - active_loop: null
+
+
+  - rule: Example of an unhappy path clothes form - chichat
+    condition:
+    # Condition that form is active.
+    - active_loop: clothes_form
+    steps:
+    # This unhappy path handles the case of an intent `chitchat`.
+    - intent: chitchat
+    - action: utter_chitchat
+    # Return to form after handling the `chitchat` intent
+    - action: clothes_form
+    - active_loop: clothes_form
+
+
+  - rule: Example of an unhappy path clothes form - faq
+    condition:
+    # Condition that form is active.
+    - active_loop: clothes_form
+    steps:
+    # This unhappy path handles the case of an intent `faq`.
+    - intent: faq
+    - action: utter_faq
+    # Return to form after handling the `faq` intent
+    - action: clothes_form
+    - active_loop: clothes_form

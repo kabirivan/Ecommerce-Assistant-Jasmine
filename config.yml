@@ -19,6 +19,11 @@ pipeline:
   - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 100
+    retrieval_intent: faq
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 100
+    retrieval_intent: chitchat
   - name: FallbackClassifier
     threshold: 0.6
     ambiguity_threshold: 0.1
