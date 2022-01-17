@@ -18,10 +18,11 @@ pipeline:
     epochs: 100
   - name: EntitySynonymMapper
   - name: ResponseSelector
+    scale_loss: false
     epochs: 100
     retrieval_intent: faq
-  - name: EntitySynonymMapper
   - name: ResponseSelector
+    scale_loss: false
     epochs: 100
     retrieval_intent: chitchat
   - name: FallbackClassifier

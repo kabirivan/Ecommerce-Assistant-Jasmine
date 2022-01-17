@@ -11,6 +11,7 @@ stories:
   - intent: chitchat
   - action: utter_chitchat
   - action: clothes_form
+  - active_loop: clothes_form
   - slot_was_set:
     - requested_slot: null
   - active_loop: null

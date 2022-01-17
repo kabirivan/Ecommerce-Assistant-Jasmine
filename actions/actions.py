@@ -634,11 +634,14 @@ class ValidateNameForm(FormValidationAction):
         intent = tracker.get_intent_of_latest_message()
         first_name = tracker.get_slot("first_name")
         print('first_name', first_name)
-        if first_name is not None and intent == "give_name":
-            return {"name_spelled_correctly": None}
-        elif intent == "affirm":
+        # if first_name is not None and intent == "give_name":
+        #     print('Lo lleno')
+        #     return {"name_spelled_correctly": None}
+        if intent == "affirm":
+            print('esta bien escrito')
             return {"name_spelled_correctly": intent == "affirm"}
         elif intent == "deny":
+            print('esta mal escrito')
             return {"name_spelled_correctly": None}
 
     def validate_name_spelled_correctly(
@@ -655,10 +658,13 @@ class ValidateNameForm(FormValidationAction):
         print('intent', intent)
 
         if tracker.get_slot("name_spelled_correctly"):
+            print('todo bien')
             return {"first_name": tracker.get_slot("first_name"), "name_spelled_correctly": True}
         elif tracker.get_slot("first_name") and intent == "deny":
+            print('aplasto negar')
             return {"first_name": None, "name_spelled_correctly": None}
         elif tracker.get_slot("name_spelled_correctly") is None:
+            print('no se lleno')
             return {"name_spelled_correctly": None}
 
     def validate_first_name(
@@ -697,8 +703,8 @@ class ValidateNameForm(FormValidationAction):
         # If the name is super short, it might be wrong.
 
         if (re.fullmatch(regex, slot_value)):
-            dispatcher.utter_message(
-                response="utter_thumbsup")
+            # dispatcher.utter_message(
+            #     response="utter_thumbsup")
             return {"email": slot_value}
         else:
             dispatcher.utter_message(
@@ -800,7 +806,6 @@ class ActionThanksFeedback(Action):
 
         feedback_fill = tracker.get_slot("feedback_fill")
         email = tracker.get_slot("email")
-        print('message', tracker.get_slot("feedback_message"))
 
         if feedback_fill is None:
             dispatcher.utter_message(text=f"Gracias por tu reseña, con esto puedo seguir mejorando cada vez más.",
@@ -821,7 +826,7 @@ class ActionThanksFeedback(Action):
             is_mail_sent = send_email("Gracias por tu aporte al desarrollo tecnológico", email, email_content)
 
             if is_mail_sent:
-                dispatcher.utter_message(text=f"Pronto, recibirás un correo de parte de mi")
+                dispatcher.utter_message(text=f"Pronto, recibirás un correo con mucho cariño para ti.")
             
             return [SlotSet('feedback_fill', True)]
 
