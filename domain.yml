@@ -4,9 +4,11 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
   - affirm
-  - chitchat
   - deny
-  - faq
+  - chitchat:
+      is_retrieval_intent: true
+  - faq:
+      is_retrieval_intent: true
   - give_feedback
   - give_name
   - goodbye
@@ -20,6 +22,7 @@ intents:
   - who_am_i
   - my_feedback
   - nlu_fallback
+  - write_comments
 entities:
   - PERSON
   - category
@@ -128,6 +131,11 @@ responses:
     - text: ¿Algún color en particular 🎨?
   utter_ask_continue:
     - text: ¿Quiéres continuar? 🤔
+      buttons:
+        - payload: /affirm
+          title: Sí 👍.
+        - payload: /deny
+          title: No 👎.
   utter_ask_feedback_message:
     - text: Tus palabras son valiosas para mi, por favor deja un mensaje/sugerencia para seguir mejorando.
   utter_ask_feedback_value:
@@ -169,7 +177,6 @@ responses:
     - text: 👍
     - text: Okay.
     - text: Lo tengo!.
-
 actions:
   - action_ask_category
   - action_goodbye_world
@@ -189,9 +196,9 @@ actions:
   - action_feedack_already_fill
 forms:
   clothes_form:
-    ignored_intents:
-      - chichat
-      - faq
+    # ignored_intents:
+    #   - chichat
+    #   - faq
     required_slots:
       gender:
         - entity: gender
@@ -216,14 +223,14 @@ forms:
           entity: color
         - type: from_text
           not_intent:
-            - chichat
+            - chitchat
             - faq
         - type: from_intent
           intent: deny
           value: No
   name_form:
     ignored_intents:
-      - chichat
+      - chitchat
       - faq
     required_slots:
       first_name:

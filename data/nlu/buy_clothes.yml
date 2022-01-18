@@ -153,6 +153,9 @@ nlu:
     - 15 años
     - [pijama](category)
     - quiero ropa de [nina]{"entity": "gender", "value": "ni\u00f1a"}
+    - [polo](category)
+    - Si tienes más ropa
+    - Tienes más ropa ?
 - intent: request_clothes_price
   examples: |
     - quiero comprar ropa que cueste [menos](comparator) de 25 dolares
@@ -232,6 +235,15 @@ nlu:
     - [Plomo](color)
     - [Anaranjado](color)
     - [Rojo](color)
+    - [Rosa]{"entity": "color", "value": "rosada"}
+    - [Beige](color)
+- intent: write_comments
+  examples: |
+    - Buen trabajo!
+    - Está funcionando bien
+    - Se ve muy bien en el telefono
+    - Se ve bien en mi [celulsr](color)
+    - Esta difícil con dos vistas
 - synonym: blusa
   examples: |
     - blusas

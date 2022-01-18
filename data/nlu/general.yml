@@ -64,6 +64,8 @@ nlu:
     - holi
     - HOla
     - Hola hola
+    - Hola!
+    - Hello
 - intent: affirm
   examples: |
     - si
@@ -88,6 +90,9 @@ nlu:
     - no por el momento
     - No gracias
     - No
+    - Eso es todo. Gracias.
+    - [Olvídalo](PERSON)
+    - ni
 - intent: goodbye
   examples: |
     - chao
@@ -105,6 +110,9 @@ nlu:
     - chao chao
     - chao, cuidate
     - nos vemos mañana
+    - Adios
+    - Bye
+    - Adiós
 - intent: stop
   examples: |
     - tu no puedes ayudarme
@@ -127,6 +135,7 @@ nlu:
     - no quiero continuar
     - basta
     - hasta ahi no mas
+    - Ya no quiero
 - intent: give_name
   examples: |
     - Mi nombre es [Xavier](PERSON)
@@ -164,6 +173,13 @@ nlu:
     - hz-hertzio@hotmail.com
     - [Darío](PERSON)
     - Xavier.aguas@epn.Edu.ec
+    - Xavier.aguas@gmail.com
+    - [ivan](PERSON)
+    - Claro, es este lizzymero@hotmail.com
+    - [Arlenys](PERSON)
+    - manuel@gmail.com
+    - [manuel](PERSON)
+    - Me llamo [Manuel](PERSON)
 - intent: give_feedback
   examples: |
     - quiero dejar un mensaje

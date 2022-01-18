@@ -10,6 +10,9 @@ stories:
   - active_loop: name_form
   - active_loop: null
   - action: action_hello_world
+
+
+
 - story: request clothes with name
   steps:
   - action: action_hello_world
@@ -23,6 +26,90 @@ stories:
   - action: utter_submit
   - action: utter_slots_values
   - action: action_product_search
+
+
+- story: request clothes with continue
+  steps:
+  - action: action_hello_world
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: clothes_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: action_product_search
+
+
+
+- story: request clothes with not continue
+  steps:
+  - action: action_hello_world
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: utter_ask_continue
+  - intent: deny
+  - action: utter_thumbsup
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_stop_clothes_form
+  - action: utter_cancel_search_clothes
+  - action: utter_anything_else
+
+
+- story: request clothes with continue faq
+  steps:
+  - action: action_hello_world
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - intent: faq
+  - action: utter_faq
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: clothes_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: action_product_search
+
+
+- story: request clothes with not continue faq
+  steps:
+  - action: action_hello_world
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - intent: faq
+  - action: utter_faq
+  - action: utter_ask_continue
+  - intent: deny
+  - action: utter_thumbsup
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_stop_clothes_form
+  - action: utter_cancel_search_clothes
+  - action: utter_anything_else
+
+
+
+
+
 - story: Story from Conversation ID 3fd72ab929184291bf248e8502f195d8
   steps:
   - intent: greet

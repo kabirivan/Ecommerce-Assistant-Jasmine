@@ -1,6 +1,19 @@
 
 version: "2.0"
 stories:
+
+
+- story: respond to FAQs story
+  steps:
+    - intent: faq
+    - action: utter_faq
+
+- story: respond to chitchat story
+  steps:
+    - intent: chitchat
+    - action: utter_chitchat
+
+
 - story: interactive_story_1
   steps:
   - intent: inform
@@ -66,3 +79,161 @@ stories:
   - action: action_product_search
   - intent: affirm
   - action: action_introducing_me
+
+
+- story: interactive_story_5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - intent: request_clothes
+  - action: action_who_you_are
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: utter_ask_continue
+  - intent: deny
+  - action: utter_thumbsup
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_stop_clothes_form
+  - action: utter_cancel_search_clothes
+  - action: utter_anything_else
+
+- story: interactive_story_6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - intent: request_clothes
+  - action: action_who_you_are
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: clothes_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: action_product_search
+
+
+
+
+- story: interactive_story_7
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - intent: request_clothes
+  - action: action_who_you_are
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - intent: faq
+  - action: utter_faq
+  - action: utter_ask_continue
+  - intent: deny
+  - action: utter_thumbsup
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_stop_clothes_form
+  - action: utter_cancel_search_clothes
+  - action: utter_anything_else
+
+- story: interactive_story_8
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - intent: request_clothes
+  - action: action_who_you_are
+  - slot_was_set:
+    - clothes_name_value: true
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_hello_world
+  - slot_was_set:
+    - email_fill: true
+  - action: clothes_form
+  - active_loop: clothes_form
+  - intent: faq
+  - action: utter_faq
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: clothes_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: action_product_search
