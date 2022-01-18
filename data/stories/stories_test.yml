@@ -149,7 +149,7 @@ stories:
   - intent: chitchat
   - action: utter_chitchat
   - action: utter_ask_continue
-  - intent: afirm
+  - intent: affirm
   - action: clothes_form
   - active_loop: null
   - slot_was_set:
@@ -229,7 +229,7 @@ stories:
   - intent: faq
   - action: utter_faq
   - action: utter_ask_continue
-  - intent: afirm
+  - intent: affirm
   - action: clothes_form
   - active_loop: null
   - slot_was_set:
