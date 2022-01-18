@@ -130,6 +130,11 @@ responses:
     - text: ¿Algún color en particular 🎨?
   utter_ask_continue:
     - text: ¿Quiéres continuar? 🤔
+      buttons:
+      - payload: /affirm
+        title: Sí 👍.
+      - payload: /deny
+        title: No 👎.
   utter_ask_feedback_message:
     - text: Tus palabras son valiosas para mi, por favor deja un mensaje/sugerencia para seguir mejorando.
   utter_ask_feedback_value:

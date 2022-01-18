@@ -80,7 +80,7 @@ rules:
     condition:
     - active_loop: clothes_form
     steps:
-    - action: utter_ask_continue_
+    - action: utter_ask_continue
     - intent: deny
     - action: utter_thumbsup
     - action: action_deactivate_loop
