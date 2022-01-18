@@ -12,6 +12,7 @@ nlu:
     - quien eres?
     - hablame de ti
     - quien eres
+    - Quien eres
 - intent: chitchat/whats_your_name
   examples: |
     - cual es tu nombre?
@@ -45,6 +46,7 @@ nlu:
     - quien es tu papa?
     - quen es tu mamá?
     - quien te creo
+    - Quien te creo
 - intent: chitchat/confirm_presence
   examples: |
     - estas ahi?
@@ -64,6 +66,7 @@ nlu:
     - estoy muy triste
     - no tuve un buen dia
     - :(
+    - 🥲
 - intent: chitchat/mood_great
   examples: |
     - perfecto
@@ -128,6 +131,7 @@ nlu:
     - cuales son tus raices?
     - cuales son tus raices
     - en que ciudad fuiste convencido?
+    - De donde eres?
 - intent: chitchat/ask_time
   examples: |
     - que hora es?
@@ -143,10 +147,8 @@ nlu:
     - necesito la hora
     - dime la hora
     - que hora es exactamente.
-
 - intent: chitchat/ask_somenthing_nice
   examples: |
     - di algo bonito
     - dime algo lindo
     - dime algo especial
-    

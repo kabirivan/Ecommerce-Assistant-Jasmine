@@ -18,6 +18,10 @@ nlu:
     - alternativas de pago
     - quiero saber como pagar
     - Acepta trasferencias
+    - Acepta transferencias ?
+    - [Métodos](category) de pago
+    - Transferencia
+    - Aceptas transferencia
 - intent: faq/promotions
   examples: |
     - que tipo de promociones tienen?
@@ -44,7 +48,6 @@ nlu:
     - tienen delivery
     - me pueden entregar a la casa
     - me pueden traer mi ropa
-
 - intent: faq/where_buy
   examples: |
     - Donde vende su ropa
@@ -54,39 +57,33 @@ nlu:
     - donde los puedo encontrar
     - donde puedo comprar su ropa
     - tienen local fisico
-
 - intent: faq/material_clothes
   examples: |
     - de que material es la ropa
     - material de la ropa
     - dime como esta hecho la ropa
     - dime la materia prima
-
 - intent: faq/quality
   examples: |
     - de que calidad es
     - que calidad tiene
     - cual es la calidad
-
 - intent: faq/garanty
   examples: |
     - tiene garantia
     - hablame de la garantia
     - garantia
     - si tiene garantia?
-
 - intent: faq/mission
   examples: |
     - Cual es la mision
     - que mision tienen
-
 - intent: faq/history
   examples: |
     - hablame de tu empresa
     - a que se dedica tu empresa
     - que hace tu negocio
     - que hacen en creaciones jasmin
-
 - intent: faq/hows_works
   examples: |
     - como funcionas
@@ -96,13 +93,14 @@ nlu:
     - que hago ahora
     - que hago
     - estoy perdido
-
+    - Cómo funcionas ?
+    - Funcionas ?
+    - Que hago ahora ?
 - intent: faq/devolutions
   examples: |
     - existen devoluciones
     - puedo devolver la ropa
     - si no me queda, puedo devolverlo
-
 - intent: faq/artesans
   examples: |
     - son artesanos
