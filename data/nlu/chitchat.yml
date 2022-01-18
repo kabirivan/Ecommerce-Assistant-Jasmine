@@ -12,6 +12,8 @@ nlu:
     - quien eres?
     - hablame de ti
     - quien eres
+    - eres mujer?
+    - eres hombre?
 - intent: chitchat/whats_your_name
   examples: |
     - cual es tu nombre?

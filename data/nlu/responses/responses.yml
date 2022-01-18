@@ -55,13 +55,13 @@ responses:
     - text: Lo hacemos con mucho cariño ❤️.
 
   utter_chitchat/confirm_presence:
-    - text: Sí, aquí estoy 👍🏻!
-    - text: Te estoy escuchando 👂🏻!
-    - text: Claro, estoy siempre listo para atenderte 🤓.
-    - text: Por supesto, cuenta conmigo 🤝!
+    - text: Sí, aquí estoy 👍🏻!. Sólo escribe **quiero ropa**
+    - text: Te estoy escuchando 👂🏻!. Para iniciar escribe **quiero ropa**
+    - text: Claro, estoy siempre listo para atenderte 🤓. Sólo escribe **quiero ropa**
+    - text: Por supesto, cuenta conmigo 🤝!. Sólo escribe **quiero ropa**
 
   utter_chitchat/capabilities:
-    - text: Creeme, tengo muchas habilidades. Soy un asistente creado para brindarte la mejor experiencia de asistencia de compra 🤓.
+    - text: Creeme, tengo muchas habilidades. Soy un asistente creado para brindarte la mejor experiencia de asistencia de compra 🤓. Sólo escribe **quiero ropa**
 
   utter_chitchat/mood_great:
     - text: Súper! Me alegro muchisimo 😁.

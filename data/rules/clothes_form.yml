@@ -88,3 +88,4 @@ rules:
     - action: action_stop_clothes_form
     - action: utter_cancel_search_clothes
     - action: utter_anything_else
+

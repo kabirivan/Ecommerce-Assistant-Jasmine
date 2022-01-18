@@ -96,6 +96,7 @@ nlu:
     - que hago ahora
     - que hago
     - estoy perdido
+    - como inicio
 
 - intent: faq/devolutions
   examples: |
