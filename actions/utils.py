@@ -55,11 +55,10 @@ new_record = {
     "feedback_message": "Me gusta el diseno",
     "created_at": "2022-01-10"
 }
-#airtable_upload(table_name, new_record, False, api_key_airtable, base_id, None)
-# table = Table('api_key_airtable', 'base_id', 'table_name')
-# table.create(new_record)
 
 
-# def add_new_record(item):
-#     table = Table(api_key_airtable, base_id, table_name)
-#     table.create(item)
+this_path = Path(os.path.realpath(__file__))
+email_content = get_html_data(f"{this_path.parent}/user_email.html")
+
+works = send_email("Gracias por tu aporte al desarrollo tecnológico", 'monicon27@gmail.com', email_content)
+print('works', works)
