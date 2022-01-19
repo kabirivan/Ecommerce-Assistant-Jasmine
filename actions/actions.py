@@ -824,6 +824,7 @@ class ActionThanksFeedback(Action):
 
 
             is_mail_sent = send_email("Gracias por tu aporte al desarrollo tecnológico", email, email_content)
+            print('works', is_mail_sent)
 
             if is_mail_sent:
                 dispatcher.utter_message(text=f"Pronto, recibirás un correo con mucho cariño para ti.")

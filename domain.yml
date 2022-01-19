@@ -137,7 +137,7 @@ responses:
         - payload: /deny
           title: No 👎.
   utter_ask_feedback_message:
-    - text: Tus palabras son valiosas para mi, por favor deja un mensaje/sugerencia para seguir mejorando.
+    - text: Por favor, deja un mensaje/sugerencia para seguir mejorando. Tus palabras son valiosas para mi.
   utter_ask_feedback_value:
     - buttons:
         - payload: '/give_feedback{{"feedback_value": "1"}}'
