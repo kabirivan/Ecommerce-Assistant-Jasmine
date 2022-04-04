@@ -52,15 +52,15 @@ def get_html_data(filepath: str):
 
 new_record = {
     "name": "Gabriela",
-    "email": "gabriela.sanchez@epn.edu.ec",
+    "email": "xavier.aguas@epn.edu.ec",
     "feedback_value": "3",
     "feedback_message": "Me gusta el diseno",
     "created_at": "2022-01-10"
 }
 
 
-# this_path = Path(os.path.realpath(__file__))
-# email_content = get_html_data(f"{this_path.parent}/user_email.html")
+this_path = Path(os.path.realpath(__file__))
+email_content = get_html_data(f"{this_path.parent}/user_email.html")
 
-# works = send_email("Gracias por tu aporte al desarrollo tecnológico", 'ely94maggie@hotmail.com', email_content)
+# works = send_email("Gracias por tu aporte al desarrollo tecnológico", 'xavier.aguas@epn.edu.ec', email_content)
 # print('works', works)

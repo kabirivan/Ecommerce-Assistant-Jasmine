@@ -15,14 +15,14 @@ responses:
 
   utter_faq/has_delivery:
     - text: |
-        Claro que sí, tenemos entrega a domicilio con un pequeño recargo adicional. Por ejemplo: 
+        Claro que sí, tenemos entrega a domicilio dentro de Quito con un pequeño recargo adicional. Por ejemplo: 
         - Norte: $ 2.00
         - Centro: $ 2.50
         - Sur: $ 3.00
         - Valles: $ 3.00
 
   utter_faq/where_buy:
-    - text: Tenemos un local en el Centro Comercial de Negocios Andinos, Asociación La Campana, Pasillo 13A.
+    - text: Tenemos un local en el Centro Comercial de Negocios Andinos, Asociación La Campana, Pasillo 13A, Local 27. Está ubicado en la Av. Pedro Vicente Maldonado y Quimiag. Quito-Ecuador.  
   
   utter_faq/material_clothes:
     - text: 'La tela con la que trabajamos contiene tejidos naturales, no tóxicos. Con esto, tus niñ@s evitarán alergias y amarán su ropa ❤️.'
@@ -46,7 +46,13 @@ responses:
     - text: Claro aceptamos devoluciones y te cambiamos la ropita por el color que te guste, siempre y cuando la ropita que devuelves esté intacta.
   
   utter_faq/artesans:
-    - text: Si, somos artesanos en la confección de la ropa. Vendemos al por mayor y menor.
+    - text: Si, somos artesanos en la confección de ropa de niño. Vendemos ropa para niñ@s al por mayor y menor.
+
+  utter_faq/schedule:
+    - text: Todos los días. Estaremos muy gustosos de responderte. Horario --> 8:00 - 22:00.
+
+  utter_faq/phone_number:
+    - text: Este es el número de contacto 0995678733, puedes escribirle sin problema. Te responderán lo más pronto posible.
     
   utter_chitchat/thanks:
     - text: Con mucho gusto.
