@@ -10,6 +10,7 @@ nlu:
     - cual es el tamaño para un niño de 4 años
     - tallas de la ropa
     - tallas para niños
+    - Ivan todas las tallas pues
 - intent: faq/payment_methods
   examples: |
     - que tipos de pagos ofrece?
@@ -36,6 +37,7 @@ nlu:
     - rebajas
     - cupones
     - rebaje
+    - 50% off donde?
 - intent: faq/delivery
   examples: |
     - cuanto tiempo se demora la entrega
@@ -57,6 +59,8 @@ nlu:
     - donde los puedo encontrar
     - donde puedo comprar su ropa
     - tienen local fisico
+    - Por dónde queda eso?
+    - Cuál es la dirección?
 - intent: faq/material_clothes
   examples: |
     - de que material es la ropa
@@ -97,6 +101,8 @@ nlu:
     - Cómo funcionas ?
     - Funcionas ?
     - Que hago ahora ?
+    - Que hago?
+    - Que hago
 - intent: faq/devolutions
   examples: |
     - existen devoluciones

@@ -1,0 +1,240 @@
+{
+  "faq/delivery": {
+    "precision": 0.75,
+    "recall": 1.0,
+    "f1-score": 0.8571428571428571,
+    "support": 3,
+    "confused_with": {}
+  },
+  "chitchat/thanks": {
+    "precision": 1.0,
+    "recall": 0.8,
+    "f1-score": 0.888888888888889,
+    "support": 10,
+    "confused_with": {
+      "chitchat/mood_unhappy": 2
+    }
+  },
+  "chitchat/bot_challenge": {
+    "precision": 0.9090909090909091,
+    "recall": 0.7692307692307693,
+    "f1-score": 0.8333333333333333,
+    "support": 13,
+    "confused_with": {
+      "chitchat/capabilities": 1,
+      "chitchat/confirm_presence": 1
+    }
+  },
+  "faq/payment_methods": {
+    "precision": 1.0,
+    "recall": 0.9,
+    "f1-score": 0.9473684210526316,
+    "support": 10,
+    "confused_with": {
+      "faq/hows_works": 1
+    }
+  },
+  "chitchat/ask_weather": {
+    "precision": 0.8,
+    "recall": 0.8,
+    "f1-score": 0.8000000000000002,
+    "support": 15,
+    "confused_with": {
+      "chitchat/capabilities": 1,
+      "chitchat/confirm_presence": 1
+    }
+  },
+  "faq/where_buy": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7,
+    "confused_with": {}
+  },
+  "faq/has_delivery": {
+    "precision": 0.75,
+    "recall": 0.6,
+    "f1-score": 0.6666666666666665,
+    "support": 5,
+    "confused_with": {
+      "faq/mission": 1,
+      "faq/devolutions": 1
+    }
+  },
+  "chitchat/mood_great": {
+    "precision": 0.7333333333333333,
+    "recall": 0.6111111111111112,
+    "f1-score": 0.6666666666666666,
+    "support": 18,
+    "confused_with": {
+      "chitchat/mood_unhappy": 6,
+      "chitchat/ask_weather": 1
+    }
+  },
+  "faq/history": {
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1-score": 0.5,
+    "support": 4,
+    "confused_with": {
+      "faq/promotions": 1,
+      "faq/hows_works": 1
+    }
+  },
+  "chitchat/developer": {
+    "precision": 1.0,
+    "recall": 0.9285714285714286,
+    "f1-score": 0.962962962962963,
+    "support": 14,
+    "confused_with": {
+      "chitchat/mood_great": 1
+    }
+  },
+  "chitchat/capabilities": {
+    "precision": 0.6,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.631578947368421,
+    "support": 9,
+    "confused_with": {
+      "chitchat/ask_time": 1,
+      "chitchat/ask_weather": 1
+    }
+  },
+  "chitchat/ask_time": {
+    "precision": 0.9285714285714286,
+    "recall": 1.0,
+    "f1-score": 0.962962962962963,
+    "support": 13,
+    "confused_with": {}
+  },
+  "chitchat/confirm_presence": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "chitchat/mood_unhappy": 2
+    }
+  },
+  "faq/sizing_clarification": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 8,
+    "confused_with": {}
+  },
+  "chitchat/whats_your_name": {
+    "precision": 0.75,
+    "recall": 0.75,
+    "f1-score": 0.75,
+    "support": 4,
+    "confused_with": {
+      "chitchat/ask_weather": 1
+    }
+  },
+  "faq/hows_works": {
+    "precision": 0.75,
+    "recall": 0.8181818181818182,
+    "f1-score": 0.7826086956521738,
+    "support": 11,
+    "confused_with": {
+      "faq/history": 1,
+      "faq/has_delivery": 1
+    }
+  },
+  "faq/devolutions": {
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.6666666666666666,
+    "support": 3,
+    "confused_with": {
+      "faq/history": 1
+    }
+  },
+  "chitchat/ask_somenthing_nice": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "faq/garanty": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 4,
+    "confused_with": {}
+  },
+  "faq/material_clothes": {
+    "precision": 1.0,
+    "recall": 0.75,
+    "f1-score": 0.8571428571428571,
+    "support": 4,
+    "confused_with": {
+      "faq/hows_works": 1
+    }
+  },
+  "faq/quality": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "chitchat/ask_wherefrom": {
+    "precision": 0.9230769230769231,
+    "recall": 0.8,
+    "f1-score": 0.8571428571428571,
+    "support": 15,
+    "confused_with": {
+      "chitchat/capabilities": 2,
+      "chitchat/bot_challenge": 1
+    }
+  },
+  "chitchat/mood_unhappy": {
+    "precision": 0.42857142857142855,
+    "recall": 0.6428571428571429,
+    "f1-score": 0.5142857142857143,
+    "support": 14,
+    "confused_with": {
+      "chitchat/mood_great": 3,
+      "chitchat/confirm_presence": 1
+    }
+  },
+  "faq/artesans": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 4,
+    "confused_with": {}
+  },
+  "faq/promotions": {
+    "precision": 0.9230769230769231,
+    "recall": 1.0,
+    "f1-score": 0.9600000000000001,
+    "support": 12,
+    "confused_with": {}
+  },
+  "faq/mission": {
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1-score": 0.5,
+    "support": 2,
+    "confused_with": {
+      "faq/delivery": 1
+    }
+  },
+  "accuracy": 0.8095238095238095,
+  "macro avg": {
+    "precision": 0.8043226004764465,
+    "recall": 0.788587907818677,
+    "f1-score": 0.7925160960744486,
+    "support": 210
+  },
+  "weighted avg": {
+    "precision": 0.8317270824413682,
+    "recall": 0.8095238095238095,
+    "f1-score": 0.8161870895319736,
+    "support": 210
+  }
+}

@@ -15,6 +15,8 @@ nlu:
     - eres mujer?
     - eres hombre?
     - Quien eres
+    - Que tiro, jamás me había [ignorado](color) un bot
+    - [Blanco](color)
 - intent: chitchat/whats_your_name
   examples: |
     - cual es tu nombre?
@@ -33,6 +35,9 @@ nlu:
     - ok, gracias
     - utter_chitchat/thanks
     - Gracias
+    - gracias por tu ayuda
+    - muchas gracias por tu ayuda
+    - Tranquila, estás aprendiendo
 - intent: chitchat/developer
   examples: |
     - quiero conocer a tu creador
@@ -49,6 +54,7 @@ nlu:
     - quen es tu mamá?
     - quien te creo
     - Quien te creo
+    - Saludos a Iván
 - intent: chitchat/confirm_presence
   examples: |
     - estas ahi?
@@ -89,6 +95,7 @@ nlu:
     - buen
     - XD
     - :)
+    - xD
 - intent: chitchat/capabilities
   examples: |
     - que no más puedes hacer?
@@ -100,6 +107,7 @@ nlu:
     - cuales son tus dones?
     - que puedes hacer?
     - de que eres capaz?
+    - Cual es tu trabajo
 - intent: chitchat/ask_weather
   examples: |
     - Como es el clima hoy?

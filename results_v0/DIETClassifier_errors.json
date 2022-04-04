@@ -1,0 +1,560 @@
+[
+  {
+    "text": "quiero ver toda la ropa",
+    "entities": [
+      {
+        "start": 11,
+        "end": 15,
+        "value": "toda",
+        "entity": "category"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "quiero ver toda la coleccion",
+    "entities": [
+      {
+        "start": 11,
+        "end": 15,
+        "value": "toda",
+        "entity": "category"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "café",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "café",
+        "entity": "color"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "maravilloso",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "PERSON",
+        "start": 0,
+        "end": 11,
+        "confidence_entity": 0.5552362203598022,
+        "value": "maravilloso",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Mi nombre es Fernando",
+    "entities": [
+      {
+        "start": 13,
+        "end": 21,
+        "value": "Fernando",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Soy Jose",
+    "entities": [
+      {
+        "start": 4,
+        "end": 8,
+        "value": "Jose",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Soy Domenica",
+    "entities": [
+      {
+        "start": 4,
+        "end": 12,
+        "value": "Domenica",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Genesis",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "Genesis",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Diego",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Diego",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "todos los modelos",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "todos",
+        "entity": "category"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "category",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.9980238676071167,
+        "value": "todos",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "category",
+        "start": 10,
+        "end": 17,
+        "confidence_entity": 0.530314564704895,
+        "value": "modelos",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "todo bien",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "category",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9747458100318909,
+        "value": "todos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "cual es el tamaño para un niño de 4 años",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "gender",
+        "start": 26,
+        "end": 30,
+        "confidence_entity": 0.8815047144889832,
+        "value": "niño",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "todo esta bien?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "category",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.8556237816810608,
+        "value": "todos",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "jamas",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "category",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.9480459094047546,
+        "value": "jamas",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Maria",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Maria",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "que colores no mas tiene",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "comparator",
+        "start": 15,
+        "end": 18,
+        "confidence_entity": 0.7685002684593201,
+        "value": "mayor",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "palo de rosa",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "palo de rosa",
+        "entity": "color"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "color",
+        "start": 8,
+        "end": 12,
+        "confidence_entity": 0.9989342093467712,
+        "value": "rosada",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Anaranjado",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "Anaranjado",
+        "entity": "color"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "eres mujer?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "gender",
+        "start": 5,
+        "end": 10,
+        "confidence_entity": 0.857036292552948,
+        "value": "niña",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "cual es la talla para una niña de 5 años",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "gender",
+        "start": 26,
+        "end": 30,
+        "confidence_entity": 0.999177873134613,
+        "value": "niña",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "cual es la talla para una niña de 2 años",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "gender",
+        "start": 26,
+        "end": 30,
+        "confidence_entity": 0.999177873134613,
+        "value": "niña",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "quiero pizza",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "category",
+        "start": 7,
+        "end": 12,
+        "confidence_entity": 0.9235658049583435,
+        "value": "pizza",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "puedo hablar con Ivan",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "PERSON",
+        "start": 17,
+        "end": 21,
+        "confidence_entity": 0.9985029697418213,
+        "value": "Ivan",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "quiero hablar con alguien mas inteligente que tu",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "comparator",
+        "start": 26,
+        "end": 29,
+        "confidence_entity": 0.941592812538147,
+        "value": "mayor",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Luis",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "Luis",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Emily",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Emily",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Me llamo Kevin",
+    "entities": [
+      {
+        "start": 9,
+        "end": 14,
+        "value": "Kevin",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Arlenys",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "Arlenys",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "todo",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "todo",
+        "entity": "category"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "un busito",
+    "entities": [
+      {
+        "start": 3,
+        "end": 9,
+        "value": "busito",
+        "entity": "category"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "cafe",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "cafe",
+        "entity": "color"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "mas o menos",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "comparator",
+        "start": 6,
+        "end": 11,
+        "confidence_entity": 0.9873030781745911,
+        "value": "menor",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Sofia",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Sofia",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "manuel",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "manuel",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Me llamo Manuel",
+    "entities": [
+      {
+        "start": 9,
+        "end": 15,
+        "value": "Manuel",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "turquesa",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "turquesa",
+        "entity": "color"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "tallas para niños",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "gender",
+        "start": 12,
+        "end": 17,
+        "confidence_entity": 0.8901256322860718,
+        "value": "niño",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Me llamo Bob",
+    "entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "Bob",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Hugo",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "Hugo",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Mi nombre es Ivan",
+    "entities": [
+      {
+        "start": 13,
+        "end": 17,
+        "value": "Ivan",
+        "entity": "PERSON"
+      }
+    ],
+    "predicted_entities": []
+  }
+]
