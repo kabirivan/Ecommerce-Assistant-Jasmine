@@ -113,7 +113,7 @@ responses:
   utter_ask_first_name:
   - text: ¿Cuál es tu primer nombre?
   utter_ask_email:
-  - text: Mucho gusto {first_name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo 🍻🍺, ¿Me puedes ayudar con tu correo, por favor?
+  - text: Mucho gusto {first_name}, por ser una de las primeras personas en probar mis habilidades, te voy a enviar un regalo 🍻🍺, ¿Me puedes ayudar con tu correo, por favor? Escríbelo aquí abajo...
   utter_complete_information:
   - text: Muchas gracias, pronto recibiras un pequeño detalle de mi parte ❤️.
   utter_ask_gender:
