@@ -156,6 +156,16 @@ nlu:
     - [polo](category)
     - Si tienes más ropa
     - Tienes más ropa ?
+    - 10
+    - 22
+    - Solo quiero comprar
+    - 6
+    - [Violeta](color)
+    - 5 años
+    - 26
+    - 25
+    - 30
+    - Para 2 años
 - intent: request_clothes_price
   examples: |
     - quiero comprar ropa que cueste [menos](comparator) de 25 dolares
@@ -237,6 +247,14 @@ nlu:
     - [Rojo](color)
     - [Rosa]{"entity": "color", "value": "rosada"}
     - [Beige](color)
+    - Yo quiero [azul](color) patito
+    - [Azul](color) patito
+    - [Rosada](color)
+    - [Turquesa](color)
+    - [Azul](color)
+    - Qué vendes?
+    - [Azul](color) con [blanco](color)
+    - [Rosado]{"entity": "color", "value": "rosada"}
 - intent: write_comments
   examples: |
     - Buen trabajo!
@@ -244,6 +262,9 @@ nlu:
     - Se ve muy bien en el telefono
     - Se ve bien en mi [celulsr](color)
     - Esta difícil con dos vistas
+- intent: nlu_fallback
+  examples: |
+    - tris
 - synonym: blusa
   examples: |
     - blusas
