@@ -23,6 +23,13 @@ nlu:
     - blah blah blah
     - cuanto es 5 + 5
     - cual es la raiz cuadrada de 25
+    - Has modelos [azul](color) patito
+    - Am
+    - A
+    - a
+    - F
+    - Cuando fue la independencia
+    - Control c, control v
 - intent: human_handoff
   examples: |
     - quiero hablar con alguien que pueda ayudarme
@@ -66,6 +73,11 @@ nlu:
     - Hola hola
     - Hola!
     - Hello
+    - hola Jasmine
+    - Hi
+    - Hola Jasmine
+    - Hols
+    - Holi
 - intent: affirm
   examples: |
     - si
@@ -77,6 +89,10 @@ nlu:
     - suena bien
     - esta bien
     - Si
+    - claro que si. j
+    - Claro. Sería agradable.
+    - Bueno
+    - Oks
 - intent: deny
   examples: |
     - no
@@ -93,6 +109,8 @@ nlu:
     - Eso es todo. Gracias.
     - [Olvídalo](PERSON)
     - ni
+    - nou
+    - no gracias no tienes variedad
 - intent: goodbye
   examples: |
     - chao
@@ -136,6 +154,7 @@ nlu:
     - basta
     - hasta ahi no mas
     - Ya no quiero
+    - Nada más, gracias
 - intent: give_name
   examples: |
     - Mi nombre es [Xavier](PERSON)
@@ -180,6 +199,34 @@ nlu:
     - manuel@gmail.com
     - [manuel](PERSON)
     - Me llamo [Manuel](PERSON)
+    - jazzrb2307@gmail.com
+    - [Jazmin](PERSON)
+    - [Jazz](PERSON)
+    - j.ortega1504@gmail.com
+    - [Victor](PERSON)
+    - belaboxec@gmail.com
+    - [Estefy](PERSON)
+    - aldasklevereduardo@gmail.com
+    - mi primer nombre es [Klever](PERSON)..
+    - [Klever](PERSON)
+    - violetamaldonador@gmail.com
+    - [Dany](PERSON)
+    - Mi correo es chavez.jonathan5@yahoo.es
+    - [Mayra](PERSON)
+    - mayliz.95@hotmail.com
+    - Es [Leimer](PERSON)
+    - [Leimer](PERSON)
+    - [Alex](PERSON)
+    - alexanader18c@gmail.com
+    - samanta.minayo@gmail.com
+    - [jennifer](PERSON)
+    - El [pepe](PERSON)
+    - [Bryan](PERSON)
+    - bryanzsilva@hotmail.com
+    - [Marilyn](PERSON)
+    - chimarromarilynn12@gmail.com
+    - creationjasmin@hotmail.com
+    - [Jeff](PERSON)
 - intent: give_feedback
   examples: |
     - quiero dejar un mensaje
