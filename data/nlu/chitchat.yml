@@ -59,6 +59,12 @@ nlu:
   examples: |
     - estas ahi?
     - hay alguien ahi?
+    - me escuchas?
+    - estas ahi asistente?
+    - jasmine estas ahi?
+    - robot estas ashi?
+    - asistente
+    - robot?
 - intent: chitchat/mood_unhappy
   examples: |
     - mi día fue terrible
@@ -74,7 +80,11 @@ nlu:
     - estoy muy triste
     - no tuve un buen dia
     - :(
-    - 🥲
+    - triston
+    - pesimo
+    - tengo ganas de llorar
+    - me siento solo
+    - estoy frustrado
 - intent: chitchat/mood_great
   examples: |
     - perfecto

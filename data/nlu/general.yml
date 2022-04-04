@@ -107,10 +107,11 @@ nlu:
     - No gracias
     - No
     - Eso es todo. Gracias.
-    - [Olvídalo](PERSON)
+    - olvidalo
     - ni
     - nou
     - no gracias no tienes variedad
+    - dejalo ahi
 - intent: goodbye
   examples: |
     - chao
