@@ -272,6 +272,11 @@ nlu:
     - tengo
     - alcanza
     - menos
+- synonym: rosada
+  examples: |
+    - Rosa
+    - rosado
+    - rosa
 - synonym: todos
   examples: |
     - ver todo
@@ -287,10 +292,6 @@ nlu:
     - café
     - marron
     - marrón
-- synonym: rosada
-  examples: |
-    - rosado
-    - rosa
 - synonym: morado
   examples: |
     - morada
