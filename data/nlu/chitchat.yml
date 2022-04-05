@@ -15,8 +15,6 @@ nlu:
     - eres mujer?
     - eres hombre?
     - Quien eres
-    - Que tiro, jamás me había [ignorado](color) un bot
-    - [Blanco](color)
 - intent: chitchat/whats_your_name
   examples: |
     - cual es tu nombre?
@@ -33,7 +31,6 @@ nlu:
     - eres el mejor, gracias
     - gracias por tu respuesta
     - ok, gracias
-    - utter_chitchat/thanks
     - Gracias
     - gracias por tu ayuda
     - muchas gracias por tu ayuda
