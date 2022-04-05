@@ -13,7 +13,9 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 email_username = os.getenv('EMAIL_USERNAME')
+print('email_username', email_username)
 email_password = os.getenv('EMAIL_PASSWORD')
+print('email_password', email_password)
 base_id = os.getenv('BASE_ID')
 table_name = os.getenv('TABLE_NAME')
 api_key_airtable = os.getenv('API_KEY_AIRTABLE')
@@ -50,15 +52,15 @@ def get_html_data(filepath: str):
 
 new_record = {
     "name": "Gabriela",
-    "email": "gabriela.sanchez@epn.edu.ec",
+    "email": "xavier.aguas@epn.edu.ec",
     "feedback_value": "3",
     "feedback_message": "Me gusta el diseno",
     "created_at": "2022-01-10"
 }
 
 
-# this_path = Path(os.path.realpath(__file__))
-# email_content = get_html_data(f"{this_path.parent}/user_email.html")
+this_path = Path(os.path.realpath(__file__))
+email_content = get_html_data(f"{this_path.parent}/user_email.html")
 
-# works = send_email("Gracias por tu aporte al desarrollo tecnológico", 'ely94maggie@hotmail.com', email_content)
+# works = send_email("Gracias por tu aporte al desarrollo tecnológico", 'xavier.aguas@epn.edu.ec', email_content)
 # print('works', works)

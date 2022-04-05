@@ -1,0 +1,26 @@
+[
+  {
+    "text": "tris",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "who_am_i",
+      "confidence": 0.00938210729509592
+    }
+  },
+  {
+    "text": "hay alguien ahi?",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.679388701915741
+    }
+  },
+  {
+    "text": "va a llover",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.502265453338623
+    }
+  }
+]

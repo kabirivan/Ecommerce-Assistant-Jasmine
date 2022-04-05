@@ -1,0 +1,386 @@
+[
+  {
+    "text": "estas vivo",
+    "intent_response_key_target": "chitchat/bot_challenge",
+    "intent_response_key_prediction": {
+      "name": "chitchat/confirm_presence",
+      "confidence": 0.8178832530975342
+    }
+  },
+  {
+    "text": "hablame de ti",
+    "intent_response_key_target": "chitchat/bot_challenge",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_unhappy",
+      "confidence": 0.3358091711997986
+    }
+  },
+  {
+    "text": "utter_chitchat/thanks",
+    "intent_response_key_target": "chitchat/thanks",
+    "intent_response_key_prediction": {
+      "name": "chitchat/capabilities",
+      "confidence": 0.3754842281341553
+    }
+  },
+  {
+    "text": "quen es tu mamá?",
+    "intent_response_key_target": "chitchat/developer",
+    "intent_response_key_prediction": {
+      "name": "chitchat/whats_your_name",
+      "confidence": 0.442722350358963
+    }
+  },
+  {
+    "text": "tengo ganas de llorar",
+    "intent_response_key_target": "chitchat/mood_unhappy",
+    "intent_response_key_prediction": {
+      "name": "chitchat/whats_your_name",
+      "confidence": 0.46046215295791626
+    }
+  },
+  {
+    "text": "estoy frustrado",
+    "intent_response_key_target": "chitchat/mood_unhappy",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_great",
+      "confidence": 0.5456003546714783
+    }
+  },
+  {
+    "text": "Cual es tu trabajo",
+    "intent_response_key_target": "chitchat/capabilities",
+    "intent_response_key_prediction": {
+      "name": "chitchat/whats_your_name",
+      "confidence": 0.8978043794631958
+    }
+  },
+  {
+    "text": "hace sol",
+    "intent_response_key_target": "chitchat/ask_weather",
+    "intent_response_key_prediction": {
+      "name": "chitchat/capabilities",
+      "confidence": 0.8924762606620789
+    }
+  },
+  {
+    "text": "Por dónde queda eso?",
+    "intent_response_key_target": "faq/where_buy",
+    "intent_response_key_prediction": {
+      "name": "faq/devolutions",
+      "confidence": 0.4614656865596771
+    }
+  },
+  {
+    "text": "que hace tu negocio",
+    "intent_response_key_target": "faq/history",
+    "intent_response_key_prediction": {
+      "name": "faq/hows_works",
+      "confidence": 0.9933936595916748
+    }
+  },
+  {
+    "text": "cuales son los contactos",
+    "intent_response_key_target": "faq/phone_number",
+    "intent_response_key_prediction": {
+      "name": "faq/sizing_clarification",
+      "confidence": 0.7653886675834656
+    }
+  },
+  {
+    "text": "como te llamas?",
+    "intent_response_key_target": "chitchat/whats_your_name",
+    "intent_response_key_prediction": {
+      "name": "chitchat/ask_weather",
+      "confidence": 0.4235653281211853
+    }
+  },
+  {
+    "text": "Tranquila, estás aprendiendo",
+    "intent_response_key_target": "chitchat/thanks",
+    "intent_response_key_prediction": {
+      "name": "chitchat/ask_weather",
+      "confidence": 0.6211017966270447
+    }
+  },
+  {
+    "text": "no me siento bien",
+    "intent_response_key_target": "chitchat/mood_unhappy",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_great",
+      "confidence": 0.9999825954437256
+    }
+  },
+  {
+    "text": "perfecto",
+    "intent_response_key_target": "chitchat/mood_great",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_unhappy",
+      "confidence": 0.5080758929252625
+    }
+  },
+  {
+    "text": "buen",
+    "intent_response_key_target": "chitchat/mood_great",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_unhappy",
+      "confidence": 0.8250430226325989
+    }
+  },
+  {
+    "text": ":)",
+    "intent_response_key_target": "chitchat/mood_great",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_unhappy",
+      "confidence": 0.746376633644104
+    }
+  },
+  {
+    "text": "que calor",
+    "intent_response_key_target": "chitchat/ask_weather",
+    "intent_response_key_prediction": {
+      "name": "chitchat/capabilities",
+      "confidence": 0.5343236327171326
+    }
+  },
+  {
+    "text": "cuales son los tamaños de la ropa",
+    "intent_response_key_target": "faq/sizing_clarification",
+    "intent_response_key_prediction": {
+      "name": "faq/mission",
+      "confidence": 0.3486829400062561
+    }
+  },
+  {
+    "text": "50% off donde?",
+    "intent_response_key_target": "faq/promotions",
+    "intent_response_key_prediction": {
+      "name": "faq/where_buy",
+      "confidence": 0.8915042877197266
+    }
+  },
+  {
+    "text": "existen devoluciones",
+    "intent_response_key_target": "faq/devolutions",
+    "intent_response_key_prediction": {
+      "name": "faq/promotions",
+      "confidence": 0.7003739476203918
+    }
+  },
+  {
+    "text": "Blanco",
+    "intent_response_key_target": "chitchat/bot_challenge",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_great",
+      "confidence": 0.5765553712844849
+    }
+  },
+  {
+    "text": "hay alguien ahi?",
+    "intent_response_key_target": "chitchat/confirm_presence",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_unhappy",
+      "confidence": 0.9936359524726868
+    }
+  },
+  {
+    "text": "me escuchas?",
+    "intent_response_key_target": "chitchat/confirm_presence",
+    "intent_response_key_prediction": {
+      "name": "chitchat/capabilities",
+      "confidence": 0.28339576721191406
+    }
+  },
+  {
+    "text": "mas o menos",
+    "intent_response_key_target": "chitchat/mood_unhappy",
+    "intent_response_key_prediction": {
+      "name": "chitchat/whats_your_name",
+      "confidence": 0.43663153052330017
+    }
+  },
+  {
+    "text": "me siento bien",
+    "intent_response_key_target": "chitchat/mood_great",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_unhappy",
+      "confidence": 0.8199588656425476
+    }
+  },
+  {
+    "text": "que días atiende",
+    "intent_response_key_target": "faq/schedule",
+    "intent_response_key_prediction": {
+      "name": "faq/where_buy",
+      "confidence": 0.6655539274215698
+    }
+  },
+  {
+    "text": "realmente existes",
+    "intent_response_key_target": "chitchat/bot_challenge",
+    "intent_response_key_prediction": {
+      "name": "chitchat/confirm_presence",
+      "confidence": 0.8061997294425964
+    }
+  },
+  {
+    "text": "thank you",
+    "intent_response_key_target": "chitchat/thanks",
+    "intent_response_key_prediction": {
+      "name": "chitchat/whats_your_name",
+      "confidence": 0.31057336926460266
+    }
+  },
+  {
+    "text": "mi día fue terrible",
+    "intent_response_key_target": "chitchat/mood_unhappy",
+    "intent_response_key_prediction": {
+      "name": "chitchat/ask_weather",
+      "confidence": 0.45196184515953064
+    }
+  },
+  {
+    "text": "pesimo",
+    "intent_response_key_target": "chitchat/mood_unhappy",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_great",
+      "confidence": 0.4411776065826416
+    }
+  },
+  {
+    "text": "de que eres capaz?",
+    "intent_response_key_target": "chitchat/capabilities",
+    "intent_response_key_prediction": {
+      "name": "chitchat/ask_weather",
+      "confidence": 0.5124815702438354
+    }
+  },
+  {
+    "text": "esta nevando",
+    "intent_response_key_target": "chitchat/ask_weather",
+    "intent_response_key_prediction": {
+      "name": "chitchat/bot_challenge",
+      "confidence": 0.41174599528312683
+    }
+  },
+  {
+    "text": "de que país eres",
+    "intent_response_key_target": "chitchat/ask_wherefrom",
+    "intent_response_key_prediction": {
+      "name": "chitchat/bot_challenge",
+      "confidence": 0.7983341813087463
+    }
+  },
+  {
+    "text": "que tipos de pagos ofrece?",
+    "intent_response_key_target": "faq/payment_methods",
+    "intent_response_key_prediction": {
+      "name": "faq/quality",
+      "confidence": 0.6623312830924988
+    }
+  },
+  {
+    "text": "como inicio",
+    "intent_response_key_target": "faq/hows_works",
+    "intent_response_key_prediction": {
+      "name": "faq/quality",
+      "confidence": 0.3504500389099121
+    }
+  },
+  {
+    "text": "a que hora venden",
+    "intent_response_key_target": "faq/schedule",
+    "intent_response_key_prediction": {
+      "name": "faq/quality",
+      "confidence": 0.5673325061798096
+    }
+  },
+  {
+    "text": "pai",
+    "intent_response_key_target": "chitchat/thanks",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_great",
+      "confidence": 0.27969276905059814
+    }
+  },
+  {
+    "text": "Saludos a Iván",
+    "intent_response_key_target": "chitchat/developer",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_great",
+      "confidence": 0.40302568674087524
+    }
+  },
+  {
+    "text": "robot?",
+    "intent_response_key_target": "chitchat/confirm_presence",
+    "intent_response_key_prediction": {
+      "name": "chitchat/bot_challenge",
+      "confidence": 0.517309308052063
+    }
+  },
+  {
+    "text": "ahi",
+    "intent_response_key_target": "chitchat/mood_unhappy",
+    "intent_response_key_prediction": {
+      "name": "chitchat/confirm_presence",
+      "confidence": 0.9863648414611816
+    }
+  },
+  {
+    "text": ":(",
+    "intent_response_key_target": "chitchat/mood_unhappy",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_great",
+      "confidence": 0.7879576683044434
+    }
+  },
+  {
+    "text": "me siento solo",
+    "intent_response_key_target": "chitchat/mood_unhappy",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_great",
+      "confidence": 0.38757407665252686
+    }
+  },
+  {
+    "text": "estoy contento",
+    "intent_response_key_target": "chitchat/mood_great",
+    "intent_response_key_prediction": {
+      "name": "chitchat/mood_unhappy",
+      "confidence": 0.5780629515647888
+    }
+  },
+  {
+    "text": "cuales son tus dones?",
+    "intent_response_key_target": "chitchat/capabilities",
+    "intent_response_key_prediction": {
+      "name": "chitchat/ask_wherefrom",
+      "confidence": 0.9999986886978149
+    }
+  },
+  {
+    "text": "Cuál es la dirección?",
+    "intent_response_key_target": "faq/where_buy",
+    "intent_response_key_prediction": {
+      "name": "faq/schedule",
+      "confidence": 0.675995945930481
+    }
+  },
+  {
+    "text": "que hacen en creaciones jasmin",
+    "intent_response_key_target": "faq/history",
+    "intent_response_key_prediction": {
+      "name": "faq/mission",
+      "confidence": 0.47737446427345276
+    }
+  },
+  {
+    "text": "estoy perdido",
+    "intent_response_key_target": "faq/hows_works",
+    "intent_response_key_prediction": {
+      "name": "faq/payment_methods",
+      "confidence": 0.19475549459457397
+    }
+  }
+]

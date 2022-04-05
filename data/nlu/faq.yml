@@ -114,3 +114,16 @@ nlu:
     - ustedes son artesanos
     - dime si son artesanos
     - acaso son artesanos
+- intent: faq/schedule
+  examples: |
+    - que días atiende
+    - cuales son los horarios de atención
+    - horarios de atención
+    - a que hora venden
+- intent: faq/phone_number
+  examples: |
+    - puedes ayudarme con un numero de contacto
+    - un numero de contacto por favor
+    - un numero para comunicarme
+    - cuales son los contactos
+    - numeros de contacto

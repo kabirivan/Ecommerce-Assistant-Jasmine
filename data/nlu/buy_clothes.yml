@@ -260,8 +260,12 @@ nlu:
     - Buen trabajo!
     - Está funcionando bien
     - Se ve muy bien en el telefono
-    - Se ve bien en mi [celulsr](color)
     - Esta difícil con dos vistas
+    - Me gusta mucho el asistente
+    - Necesitan mejorar
+    - El asistente no estan inteligente
+    - Me gusta la interfaz
+    - La interaccion me encanta
 - intent: nlu_fallback
   examples: |
     - tris
@@ -343,6 +347,10 @@ nlu:
   examples: |
     - polos
     - camisetas
+- synonym: azul
+  examples: |
+    - asul
+    - Asul
 - lookup: color
   examples: |
     - rojo
