@@ -1,0 +1,10 @@
+[
+  {
+    "text": "robot?",
+    "intent_response_key_target": "chitchat/confirm_presence",
+    "intent_response_key_prediction": {
+      "name": "chitchat/bot_challenge",
+      "confidence": 0.7059274911880493
+    }
+  }
+]

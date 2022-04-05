@@ -1,0 +1,1122 @@
+[
+  {
+    "text": "un busito",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9517687559127808
+    }
+  },
+  {
+    "text": "que tienes?",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.463786780834198
+    }
+  },
+  {
+    "text": "quiero comprar una blusa",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9999985694885254
+    }
+  },
+  {
+    "text": "quiero ropa de color negro",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9999850988388062
+    }
+  },
+  {
+    "text": "quiero una pijama",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9999681115150452
+    }
+  },
+  {
+    "text": "Qué vendes?",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9999906420707703
+    }
+  },
+  {
+    "text": "Está funcionando bien",
+    "intent": "write_comments",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.8369411826133728
+    }
+  },
+  {
+    "text": "Se ve muy bien en el telefono",
+    "intent": "write_comments",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.9745577573776245
+    }
+  },
+  {
+    "text": "estas vivo",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.9962201118469238
+    }
+  },
+  {
+    "text": "ok, gracias",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.9836033582687378
+    }
+  },
+  {
+    "text": "tengo ganas de llorar",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "request_clothes_price",
+      "confidence": 0.6595951318740845
+    }
+  },
+  {
+    "text": "bien",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.7989258170127869
+    }
+  },
+  {
+    "text": "Cual es tu trabajo",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "write_comments",
+      "confidence": 0.8638277053833008
+    }
+  },
+  {
+    "text": "está lloviendo?",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.9894330501556396
+    }
+  },
+  {
+    "text": "cupones",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9855170845985413
+    }
+  },
+  {
+    "text": "Por dónde queda eso?",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9676954746246338
+    }
+  },
+  {
+    "text": "todo esta bien?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.6013681888580322
+    }
+  },
+  {
+    "text": "esta soleado?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9963705539703369
+    }
+  },
+  {
+    "text": "hace mucho viento afuera?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.5656095147132874
+    }
+  },
+  {
+    "text": "quiero hablar con alguien mas inteligente que tu",
+    "intent": "human_handoff",
+    "intent_prediction": {
+      "name": "write_comments",
+      "confidence": 0.6381976008415222
+    }
+  },
+  {
+    "text": "buenas noches",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.45649826526641846
+    }
+  },
+  {
+    "text": "como te va",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5359014868736267
+    }
+  },
+  {
+    "text": "como vamos",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.34506431221961975
+    }
+  },
+  {
+    "text": "saludo",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9999908208847046
+    }
+  },
+  {
+    "text": "por supusto",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9999982714653015
+    }
+  },
+  {
+    "text": "Eso es todo. Gracias.",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9781086444854736
+    }
+  },
+  {
+    "text": "no quiero comprar ropa",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.81298828125
+    }
+  },
+  {
+    "text": "basta",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.9126131534576416
+    }
+  },
+  {
+    "text": "hasta ahi no mas",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.7256304621696472
+    }
+  },
+  {
+    "text": "sugerencia",
+    "intent": "give_feedback",
+    "intent_prediction": {
+      "name": "my_feedback",
+      "confidence": 0.5003600120544434
+    }
+  },
+  {
+    "text": "muestrame colores",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.9996809363365173
+    }
+  },
+  {
+    "text": "todos los modelos",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.991851806640625
+    }
+  },
+  {
+    "text": "quiero comprar ropa de color verde",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.9903773665428162
+    }
+  },
+  {
+    "text": "quiero ropa de color plomo",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.9924086928367615
+    }
+  },
+  {
+    "text": "pijama",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.9142187833786011
+    }
+  },
+  {
+    "text": "quiero ropa de color lila",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9999610781669617
+    }
+  },
+  {
+    "text": "lila",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.6125821471214294
+    }
+  },
+  {
+    "text": "turquesa",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.5025202631950378
+    }
+  },
+  {
+    "text": "Turquesa",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.7176298499107361
+    }
+  },
+  {
+    "text": "Necesitan mejorar",
+    "intent": "write_comments",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9792784452438354
+    }
+  },
+  {
+    "text": "La interaccion me encanta",
+    "intent": "write_comments",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.9813843965530396
+    }
+  },
+  {
+    "text": "Tranquila, estás aprendiendo",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.9113138318061829
+    }
+  },
+  {
+    "text": "estas ahi?",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6834765672683716
+    }
+  },
+  {
+    "text": "perfecto",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6820477247238159
+    }
+  },
+  {
+    "text": "buen",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "write_comments",
+      "confidence": 0.9841715693473816
+    }
+  },
+  {
+    "text": "va a llover",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.9999897480010986
+    }
+  },
+  {
+    "text": "que calor",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9587105512619019
+    }
+  },
+  {
+    "text": "puedes ayudarme con un numero de contacto",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "human_handoff",
+      "confidence": 0.9355196356773376
+    }
+  },
+  {
+    "text": "te sientes bien?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9999865293502808
+    }
+  },
+  {
+    "text": "como te sientes hoy?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9998767971992493
+    }
+  },
+  {
+    "text": "Am",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.7879598736763
+    }
+  },
+  {
+    "text": "F",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.47556382417678833
+    }
+  },
+  {
+    "text": "Cuando fue la independencia",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.9998065233230591
+    }
+  },
+  {
+    "text": "suena bien",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.33051154017448425
+    }
+  },
+  {
+    "text": "esta bien",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.999916136264801
+    }
+  },
+  {
+    "text": "no quiero",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.9968045949935913
+    }
+  },
+  {
+    "text": "para!",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9707963466644287
+    }
+  },
+  {
+    "text": "detente",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.8060740232467651
+    }
+  },
+  {
+    "text": "Nada más, gracias",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9996371269226074
+    }
+  },
+  {
+    "text": "Luis",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.7342342138290405
+    }
+  },
+  {
+    "text": "Gaby",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.26520365476608276
+    }
+  },
+  {
+    "text": "Genesis",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9984723329544067
+    }
+  },
+  {
+    "text": "Victor",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.4938373267650604
+    }
+  },
+  {
+    "text": "El pepe",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.8228585720062256
+    }
+  },
+  {
+    "text": "Necesito ropa",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "write_comments",
+      "confidence": 0.2685231864452362
+    }
+  },
+  {
+    "text": "Solo quiero comprar",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.8804775476455688
+    }
+  },
+  {
+    "text": "Me gusta mucho el asistente",
+    "intent": "write_comments",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.8696589469909668
+    }
+  },
+  {
+    "text": "Me gusta la interfaz",
+    "intent": "write_comments",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.20932531356811523
+    }
+  },
+  {
+    "text": "Blanco",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6195341348648071
+    }
+  },
+  {
+    "text": "gracias por tu respuesta",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.4850810468196869
+    }
+  },
+  {
+    "text": "hay alguien ahi?",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "human_handoff",
+      "confidence": 0.8067206144332886
+    }
+  },
+  {
+    "text": "mas o menos",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.8428161144256592
+    }
+  },
+  {
+    "text": "maravilloso",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.7117430567741394
+    }
+  },
+  {
+    "text": "en que ciudad fuiste convencido?",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.684634804725647
+    }
+  },
+  {
+    "text": "me pueden traer mi ropa",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "my_feedback",
+      "confidence": 0.8840237855911255
+    }
+  },
+  {
+    "text": "que días atiende",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7422931790351868
+    }
+  },
+  {
+    "text": "estas bien?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.999989926815033
+    }
+  },
+  {
+    "text": "esta lloviendo?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.8928536772727966
+    }
+  },
+  {
+    "text": "va a llover?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9999997615814209
+    }
+  },
+  {
+    "text": "blah blah blah",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.7850490808486938
+    }
+  },
+  {
+    "text": "Control c, control v",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "human_handoff",
+      "confidence": 0.55451500415802
+    }
+  },
+  {
+    "text": "quiero soporte al cliente",
+    "intent": "human_handoff",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9793461561203003
+    }
+  },
+  {
+    "text": "hay alguien ahi",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "human_handoff",
+      "confidence": 0.8067206144332886
+    }
+  },
+  {
+    "text": "y",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9998010396957397
+    }
+  },
+  {
+    "text": "olvidalo",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.8482544422149658
+    }
+  },
+  {
+    "text": "no me sigues",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.7152175307273865
+    }
+  },
+  {
+    "text": "esta conversación no ayuda",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.3601609170436859
+    }
+  },
+  {
+    "text": "Sofia",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.6296209692955017
+    }
+  },
+  {
+    "text": "Diego",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.9390776753425598
+    }
+  },
+  {
+    "text": "Darío",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.7620452642440796
+    }
+  },
+  {
+    "text": "quiero ropa de color morado",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.9999915361404419
+    }
+  },
+  {
+    "text": "Violeta",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "give_name",
+      "confidence": 0.7832556962966919
+    }
+  },
+  {
+    "text": "Buen trabajo!",
+    "intent": "write_comments",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "realmente existes",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.543635904788971
+    }
+  },
+  {
+    "text": "mi día fue terrible",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "my_feedback",
+      "confidence": 0.9920614957809448
+    }
+  },
+  {
+    "text": "pesimo",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.4654296338558197
+    }
+  },
+  {
+    "text": "todo bien",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9821557998657227
+    }
+  },
+  {
+    "text": "esta nevando",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.6355440616607666
+    }
+  },
+  {
+    "text": "dime como esta hecho la ropa",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "my_feedback",
+      "confidence": 0.5542532205581665
+    }
+  },
+  {
+    "text": "hablame de tu empresa",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.928824245929718
+    }
+  },
+  {
+    "text": "no se que hacer",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5210110545158386
+    }
+  },
+  {
+    "text": "a que hora venden",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9891235828399658
+    }
+  },
+  {
+    "text": "quiero pizza",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9991288185119629
+    }
+  },
+  {
+    "text": "cuanto es 5 + 5",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.9947516322135925
+    }
+  },
+  {
+    "text": "hay humanos trabajando aqui",
+    "intent": "human_handoff",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9992331266403198
+    }
+  },
+  {
+    "text": "puedo contactarme con un empleado",
+    "intent": "human_handoff",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.9999698400497437
+    }
+  },
+  {
+    "text": "cómo estás",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9976606369018555
+    }
+  },
+  {
+    "text": "ok",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.999974250793457
+    }
+  },
+  {
+    "text": "para nada",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.9999547004699707
+    }
+  },
+  {
+    "text": "hasta pronto",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.976665198802948
+    }
+  },
+  {
+    "text": "No, eso no quiero",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9974018931388855
+    }
+  },
+  {
+    "text": "Me llamo Bob",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.6168530583381653
+    }
+  },
+  {
+    "text": "Hugo",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.8317298889160156
+    }
+  },
+  {
+    "text": "feedback",
+    "intent": "give_feedback",
+    "intent_prediction": {
+      "name": "my_feedback",
+      "confidence": 0.9668618440628052
+    }
+  },
+  {
+    "text": "todo",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9977962970733643
+    }
+  },
+  {
+    "text": "quiero comprar camisetas",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.7243254780769348
+    }
+  },
+  {
+    "text": "puedo ver la ropa que vendes",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.5303659439086914
+    }
+  },
+  {
+    "text": "quiero una blusa de color negro",
+    "intent": "request_clothes",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.9999929070472717
+    }
+  },
+  {
+    "text": "celeste",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.8018075823783875
+    }
+  },
+  {
+    "text": "Esta difícil con dos vistas",
+    "intent": "write_comments",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.795135498046875
+    }
+  },
+  {
+    "text": "El asistente no estan inteligente",
+    "intent": "write_comments",
+    "intent_prediction": {
+      "name": "human_handoff",
+      "confidence": 0.991891622543335
+    }
+  },
+  {
+    "text": "pai",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.6341592073440552
+    }
+  },
+  {
+    "text": "jajaja, gracias",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9622979164123535
+    }
+  },
+  {
+    "text": "Saludos a Iván",
+    "intent": "chitchat",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9993764162063599
+    }
+  },
+  {
+    "text": "estoy perdido",
+    "intent": "faq",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9999986886978149
+    }
+  },
+  {
+    "text": "cual es el pronostico del clima?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9998983144760132
+    }
+  },
+  {
+    "text": "cual es la raiz cuadrada de 25",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.8886883854866028
+    }
+  },
+  {
+    "text": "Has modelos azul patito",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.9998006224632263
+    }
+  },
+  {
+    "text": "buenos días",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.967059850692749
+    }
+  },
+  {
+    "text": "buenas tardes",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9937855005264282
+    }
+  },
+  {
+    "text": "que tal",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.9899795055389404
+    }
+  },
+  {
+    "text": "correcto",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9992514252662659
+    }
+  },
+  {
+    "text": "Bueno",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9997422695159912
+    }
+  },
+  {
+    "text": "jamas",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "request_clothes",
+      "confidence": 0.999537467956543
+    }
+  },
+  {
+    "text": "dejalo ahi",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "chitchat",
+      "confidence": 0.9971216320991516
+    }
+  },
+  {
+    "text": "stop",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5571739077568054
+    }
+  },
+  {
+    "text": "Alex",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.36420926451683044
+    }
+  },
+  {
+    "text": "Jeff",
+    "intent": "give_name",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3226053714752197
+    }
+  },
+  {
+    "text": "comentario",
+    "intent": "give_feedback",
+    "intent_prediction": {
+      "name": "faq",
+      "confidence": 0.36023327708244324
+    }
+  },
+  {
+    "text": "recomendacion",
+    "intent": "give_feedback",
+    "intent_prediction": {
+      "name": "my_feedback",
+      "confidence": 0.9452753663063049
+    }
+  }
+]

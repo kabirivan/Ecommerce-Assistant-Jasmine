@@ -1,0 +1,55 @@
+{
+  "gender": {
+    "precision": 1.0,
+    "recall": 0.9880952380952381,
+    "f1-score": 0.9940119760479043,
+    "support": 84,
+    "confused_with": {}
+  },
+  "comparator": {
+    "precision": 0.9310344827586207,
+    "recall": 1.0,
+    "f1-score": 0.9642857142857143,
+    "support": 27,
+    "confused_with": {}
+  },
+  "color": {
+    "precision": 0.9245283018867925,
+    "recall": 0.7903225806451613,
+    "f1-score": 0.8521739130434782,
+    "support": 62,
+    "confused_with": {}
+  },
+  "PERSON": {
+    "precision": 0.9655172413793104,
+    "recall": 0.5833333333333334,
+    "f1-score": 0.7272727272727274,
+    "support": 48,
+    "confused_with": {}
+  },
+  "category": {
+    "precision": 0.8695652173913043,
+    "recall": 0.9090909090909091,
+    "f1-score": 0.888888888888889,
+    "support": 44,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.9458333333333333,
+    "recall": 0.8566037735849057,
+    "f1-score": 0.8990099009900989,
+    "support": 265
+  },
+  "macro avg": {
+    "precision": 0.9381290486832056,
+    "recall": 0.8541684122329283,
+    "f1-score": 0.8853266439077426,
+    "support": 265
+  },
+  "weighted avg": {
+    "precision": 0.9474127656712761,
+    "recall": 0.8566037735849057,
+    "f1-score": 0.8920290751042864,
+    "support": 265
+  }
+}
