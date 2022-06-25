@@ -6,7 +6,7 @@
 <h5 align="center"> Thesis project - <a href="https://www.epn.edu.ec/">Escuela Politécnica Nacional</a> (June 2022) </h5>
 
 <p align="center"> 
-  <img src="images/assistant.png" alt="Assistant Views" height="482px">
+  <img src="images/assistant.png" alt="Assistant Views" height="442px">
 </p>
 
 
@@ -31,7 +31,7 @@
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- PROJECT FILES DESCRIPTION -->
-<h2 id="assistant-skills"> 📌 NLU Pipeline</h2>
+<h2 id="assistant-nlu-skills"> 📌 Rasa - NLU Pipeline</h2>
 
 <ul>
   <li><b>Tokenizers</b> - WhiteSpaceTokenizer</li>
@@ -46,6 +46,17 @@
   <li><b>(4) Entity Extractor</b> - SpacyEntityExtractor</li>
 </ul>
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<h2 id="assistant-core-skills"> 📌 Rasa - Core Policies</h2>
+
+<ul>
+  <li><b>RulePolicy</b> - Manage parts of the conversation that follow a fixed behavior</li>
+  <li><b>AugmentedMemoizationPolicy</b> - Handle parts of the conversation based on the example conversations in the training set</li>
+  <li><b>TEDPolicy</b> - Drive the conversation through predictions based on a machine learning model</li>
+</ul>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## Setup
 
@@ -129,3 +140,17 @@ rm -rf `poetry env info -p`
 ```
 git rm --cached credentials.yml
 ```
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<!-- CREDITS -->
+<h2 id="credits"> 🙋‍♂️ Credits</h2>
+
+Acknowledgements:
+- PhD. Marco E. Benalcázar
+- Escuela Politécnica Nacional
+- JRTEC - Agencia de desarrollo tecnológico
+
+[![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kabirivan)
+[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/xavier-iv%C3%A1n-aguas-5764b5133/)
