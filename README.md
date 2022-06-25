@@ -20,7 +20,7 @@
 </p>
 
 - Website --> https://chatbotecommercejasmine.web.app/
-- Video --> https://chatbotecommercejasmine.web.app/
+- Video --> https://youtu.be/UsBJSsgSivg
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
