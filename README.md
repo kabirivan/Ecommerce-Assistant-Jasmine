@@ -19,7 +19,8 @@
   In this work, a conversational assistant capable of accompanying the client throughout the clothing discovery process was developed, through Rasa; a framework that combines the comprehension and processing of natural language based on transformer-type neural networks allowing to improve the effectiveness of responses.
 </p>
 
-- https://chatbotecommercejasmine.web.app/
+- Website --> https://chatbotecommercejasmine.web.app/
+- Video --> https://chatbotecommercejasmine.web.app/
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -57,6 +58,14 @@
   <li><b>AugmentedMemoizationPolicy</b> - Handle parts of the conversation based on the example conversations in the training set</li>
   <li><b>TEDPolicy</b> - Drive the conversation through predictions based on a machine learning model</li>
 </ul>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<h2 id="assistant-core-skills"> 📌 Environment Production</h2>
+
+<p align="center"> 
+  <img src="images/DiagramaProduccion.png" alt="Production_Environment" height="442px">
+</p>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
