@@ -6,7 +6,7 @@
 <h5 align="center"> Thesis project - <a href="https://www.epn.edu.ec/">Escuela Politécnica Nacional</a> (June 2022) </h5>
 
 <p align="center"> 
-  <img src="images/assistant.png" alt="Assistant Views" height="582px">
+  <img src="images/assistant.png" alt="Assistant Views" height="482px">
 </p>
 
 
